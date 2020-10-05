@@ -34,7 +34,6 @@ namespace Prueba
             }
         }
 
-        //Ejercicio de hacer un programa que imprima si un numero es primo o no
-        //PAra comprobar primo, el resto tiene que ser 0
+        
     }
 }
