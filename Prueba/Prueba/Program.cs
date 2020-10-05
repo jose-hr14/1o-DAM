@@ -7,6 +7,7 @@ namespace Prueba
         static void Main(string[] args)
         {
             Ejercicios.Ejercicio01();
+            Ejercicios.Ejercicio2(16);
         }
     }
 }
