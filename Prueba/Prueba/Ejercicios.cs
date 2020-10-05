@@ -9,6 +9,7 @@ namespace Prueba
     {
         //Ejercicios: hacer una funcion que imprima por 
         //pantalla los numeros del 0 al 99
+        //____________________________________________
         public static void Ejercicio01()
         {
             int contador = 0;
@@ -18,8 +19,10 @@ namespace Prueba
                 contador += 1;
             }
         }
+        
         //Ejercicio: hacer una funcion que imprima
         //todos los números pares desde 0 hasta n
+        //________________________________________
         public static void Ejercicio2(int n)
         {
             int i = 0;
@@ -30,5 +33,8 @@ namespace Prueba
                 i ++;
             }
         }
+
+        //Ejercicio de hacer un programa que imprima si un numero es primo o no
+        //PAra comprobar primo, el resto tiene que ser 0
     }
 }
