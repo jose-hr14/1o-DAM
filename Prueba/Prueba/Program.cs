@@ -8,7 +8,7 @@ namespace Prueba
         {
             //Ejercicios.Ejercicio01();
             //Ejercicios.Ejercicio2(16);
-            Maths.IsPrime();
+            Maths.IsPrime(1336);
             
            
         }
