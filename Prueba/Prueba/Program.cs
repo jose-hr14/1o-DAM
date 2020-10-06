@@ -8,8 +8,8 @@ namespace Prueba
         {
             //Ejercicios.Ejercicio01();
             //Ejercicios.Ejercicio2(16);
-            bool PrimoONo = Maths.IsPrime(1343);
-            System.Console.WriteLine(PrimoONo);
+            Maths.IsPrime(1343);
+            
            
         }
     }
