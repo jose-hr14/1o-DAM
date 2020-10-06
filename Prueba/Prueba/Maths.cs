@@ -17,7 +17,7 @@ namespace Prueba
                 
                         if ((number % i) == 0)
                         {
-                            System.Console.WriteLine("No es primo, el divisor {0} da de resto {1}", i, 0);
+                            System.Console.WriteLine("No es primo, el divisor {0} da de resto {1}.", i, 0);
                             return false;
                         }
                         else
