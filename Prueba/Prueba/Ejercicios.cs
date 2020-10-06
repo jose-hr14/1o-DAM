@@ -15,7 +15,7 @@ namespace Prueba
             int contador = 0;
             while (contador < 100)
             {
-                Console.WriteLine(contador);
+
                 contador += 1;
             }
         }
@@ -23,7 +23,7 @@ namespace Prueba
         //Ejercicio: hacer una funcion que imprima
         //todos los números pares desde 0 hasta n
         //________________________________________
-        public static void Ejercicio2(int n)
+        public static void Ejercicio02(int n)
         {
             int i = 0;
             while (i <= n)
