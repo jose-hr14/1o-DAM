@@ -21,12 +21,27 @@ namespace Prueba
                     }
 
                     else
-
                     {
                         i += 1;
                     }
                 }
                 return true;
+        }
+
+        public static int RestaConteo(int number)
+        {
+            
+            int i = 0;
+            int a;
+            while (i < 7)
+            {
+                a = number - i;
+                System.Console.WriteLine(a);
+
+
+                i++;
+            }
+            return number;
         }
     }
 }

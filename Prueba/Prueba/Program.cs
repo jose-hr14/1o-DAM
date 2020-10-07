@@ -7,9 +7,10 @@ namespace Prueba
         static void Main(string[] args)
         {
             //Ejercicios.Ejercicio01();
-            Ejercicios.Ejercicio02(16);
+            //Ejercicios.Ejercicio02(16);
             //Maths.IsPrime(1336);
-            
+
+            Maths.RestaConteo(5);
            
         }
     }

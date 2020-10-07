@@ -34,6 +34,23 @@ namespace Prueba
             }
         }
 
-        
+        public static void Ejercicio03(int number)
+        {
+            bool is_prime;
+            is_prime = Maths.IsPrime(number);
+            if (is_prime)
+                System.Console.WriteLine("El número " + number + " es primo.");
+            else
+                System.Console.Write("El número " + number + " es primo.");
+        }
+        public static void Ejercicio04()
+        {
+            for (int i = 0; i < 90 ; i++) //while para un contador
+            {
+                System.Console.WriteLine(i);
+            }
+
+
+        }
     }
 }
