@@ -56,17 +56,14 @@ namespace Prueba
 
         public static void Ejercicio05() //Fibonacci
         {
-            int number2;
-            number2 = 1;
-            int i = 0;
-            int number1 = 0;
-            Console.WriteLine(number1);
-            Console.WriteLine(number2);
             int i = 0;
             int number1 = 0;
             int number2 = 1;
 
-            while(i < 90)
+            Console.WriteLine(number1);
+            Console.WriteLine(number2);
+
+            while (i < 90)
             {
                 Console.WriteLine(number1 + number2);
 

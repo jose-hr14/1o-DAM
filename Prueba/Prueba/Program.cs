@@ -13,7 +13,7 @@ namespace Prueba
             //Maths.RestaConteo(5);
             //Ejercicios.Ejercicio04();
 
-
+            Ejercicios.Ejercicio05();
            
         }
     }
