@@ -19,7 +19,7 @@ namespace Prueba
                 contador += 1;
             }
         }
-        
+
         //Ejercicio: hacer una funcion que imprima
         //todos los números pares desde 0 hasta n
         //________________________________________
@@ -30,7 +30,7 @@ namespace Prueba
             {
                 if (Misc.IsEven(i))
                     System.Console.WriteLine(i);
-                i ++;
+                i++;
             }
         }
 
@@ -45,12 +45,37 @@ namespace Prueba
         }
         public static void Ejercicio04()
         {
-            for (int i = 0; i < 90 ; i++) //while para un contador
+            for (int i = 0; i < 90; i++) //while para un contador que te saca una seria de -0, 1, -2, 3, -4, 5. Si el numero es par, se hace negativo, si es impar, se hace positivo
             {
-                System.Console.WriteLine(i);
+                if (Misc.IsEven(i))
+                    System.Console.WriteLine(-i);
+                else
+                    System.Console.WriteLine(i);
             }
-
-
         }
+
+        public static void Ejercicio05() //Fibonacci
+        {
+            int number2;
+            number2 = 1;
+            int i = 0;
+            int number1 = 0;
+            Console.WriteLine(number1);
+            Console.WriteLine(number2);
+            int i = 0;
+            int number1 = 0;
+            int number2 = 1;
+
+            while(i < 90)
+            {
+                Console.WriteLine(number1 + number2);
+
+                number2 = number1 + number2;
+                number1 = number2 - number1;
+                i++;
+            }
+        }
+
+
     }
 }

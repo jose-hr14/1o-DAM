@@ -10,7 +10,10 @@ namespace Prueba
             //Ejercicios.Ejercicio02(16);
             //Maths.IsPrime(1336);
 
-            Maths.RestaConteo(5);
+            //Maths.RestaConteo(5);
+            //Ejercicios.Ejercicio04();
+
+
            
         }
     }
