@@ -63,13 +63,13 @@ namespace Prueba
             Console.WriteLine(number1);
             Console.WriteLine(number2);
 
-            for (int i = 0; i > 90; i++)
+            for (int i = 0; i < 90; i++)
             {
                 Console.WriteLine(number1 + number2);
 
                 number2 = number1 + number2;
                 number1 = number2 - number1;
-                i++;
+                
             }
         }
 
