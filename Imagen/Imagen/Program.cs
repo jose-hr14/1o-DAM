@@ -75,11 +75,13 @@ namespace Imagen
         {
             FillImage(bm, Color.White);
             FillCircle(bm, Color.Black, bm.Width / 2, bm.Height / 2, 120); //Cabeza externa
-            FillCircle(bm, Color.White, bm.Width / 2, bm.Height / 2, 110); //Cabeza borde interno
-            FillCircle(bm, Color.Black, bm.Width / 2.5, bm.Height / 3, 20); //Ojo izquieda
-            FillCircle(bm, Color.White, bm.Width / 2.5, bm.Height / 3, 10); //Pupila izquierda
-            //Ojo izquierdo
-            //Boca
+            FillCircle(bm, Color.Blue, bm.Width / 2, bm.Height / 2, 110); //Cabeza borde interno
+            FillCircle(bm, Color.Black, ((bm.Width / 2) - 40), ((bm.Height / 2) - 60), 20); //Ojo izquieda            
+            FillCircle(bm, Color.White, ((bm.Width / 2) - 40), ((bm.Height / 2) - 60), 15); //Pupila izquierda
+            FillCircle(bm, Color.Black, ((bm.Width / 2) + 40), ((bm.Height / 2) - 60), 20);//Ojo izquierdo
+            FillCircle(bm, Color.White, ((bm.Width / 2) + 40), ((bm.Height / 2) - 60), 15); //Pupila izquierda
+            FillCircle(bm, Color.Black, bm.Width / 2, (bm.Height / 2) + 60, 30); //Boca borde exterior
+            FillCircle(bm, Color.White, bm.Width / 2, (bm.Height / 2) + 60, 25); //Boca borde interior
             FillCircle(bm, Color.Black, bm.Width / 2, bm.Height / 2, 10); //Nariz
         }
 
