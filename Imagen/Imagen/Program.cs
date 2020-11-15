@@ -72,16 +72,18 @@ namespace Imagen
         }
 
         public static void PaintRomanFace(Bitmap bm)
-        {
+        {            
             FillImage(bm, Color.White);
             FillCircle(bm, Color.Black, bm.Width / 2, bm.Height / 2, 120); //Cabeza externa
-            FillCircle(bm, Color.Blue, bm.Width / 2, bm.Height / 2, 110); //Cabeza borde interno
-            FillCircle(bm, Color.Black, ((bm.Width / 2) - 40), ((bm.Height / 2) - 60), 20); //Ojo izquieda            
-            FillCircle(bm, Color.White, ((bm.Width / 2) - 40), ((bm.Height / 2) - 60), 15); //Pupila izquierda
-            FillCircle(bm, Color.Black, ((bm.Width / 2) + 40), ((bm.Height / 2) - 60), 20);//Ojo izquierdo
-            FillCircle(bm, Color.White, ((bm.Width / 2) + 40), ((bm.Height / 2) - 60), 15); //Pupila izquierda
+            FillCircle(bm, Color.Beige, bm.Width / 2, bm.Height / 2, 110); //Cabeza borde interno
+            FillCircle(bm, Color.Black, ((bm.Width / 2) - 40), ((bm.Height / 2) - 60), 20); //Borde externo ojo izquierdo         
+            FillCircle(bm, Color.White, ((bm.Width / 2) - 40), ((bm.Height / 2) - 60), 15); // Borde interno ojo izquierdo
+            FillCircle(bm, Color.Black, ((bm.Width / 2) - 40), ((bm.Height / 2) - 60), 5); //Pupila izquierda
+            FillCircle(bm, Color.Black, ((bm.Width / 2) + 40), ((bm.Height / 2) - 60), 20);//Borde externo ojo derecho
+            FillCircle(bm, Color.White, ((bm.Width / 2) + 40), ((bm.Height / 2) - 60), 15);  //Borde interno ojo derecho
+            FillCircle(bm, Color.Black, ((bm.Width / 2) + 40), ((bm.Height / 2) - 60), 5); ////Pupila derecha
             FillCircle(bm, Color.Black, bm.Width / 2, (bm.Height / 2) + 60, 30); //Boca borde exterior
-            FillCircle(bm, Color.White, bm.Width / 2, (bm.Height / 2) + 60, 25); //Boca borde interior
+            FillCircle(bm, Color.Red, bm.Width / 2, (bm.Height / 2) + 60, 25); //Boca borde interior
             FillCircle(bm, Color.Black, bm.Width / 2, bm.Height / 2, 10); //Nariz
         }
 
@@ -89,15 +91,10 @@ namespace Imagen
         {
             Bitmap bitmap = new Bitmap(500, 300); //dimension completa de la imagen
             PaintRomanFace(bitmap);
-            bitmap.Save("C:\\Users\\hernandez21107\\Desktop\\repos\\prueba.png");
-
-
-
-
-            //Hacer bandera japon, radio de 50, color rojo, la posicion de su centro es (250, 150)
             //PaintJapaneseFlag(bitmap);
-            //Poner la funcion de cara roman
 
+            //bitmap.Save("C:\\Users\\hernandez21107\\Desktop\\repos\\prueba.png");                                    
+            bitmap.Save("C:\\Users\\Joshua\\Documents\\GitHub\\test1\\Imagen\\Imagen\\prueba.png");                                             
         }
     }
 }
