@@ -93,8 +93,8 @@ namespace Imagen
             PaintRomanFace(bitmap);
             //PaintJapaneseFlag(bitmap);
 
-            //bitmap.Save("C:\\Users\\hernandez21107\\Desktop\\repos\\prueba.png");                                    
-            bitmap.Save("C:\\Users\\Joshua\\Documents\\GitHub\\test1\\Imagen\\Imagen\\prueba.png");                                             
+            bitmap.Save("C:\\Users\\hernandez21107\\Desktop\\repos\\prueba.png");                                    
+            //bitmap.Save("C:\\Users\\Joshua\\Documents\\GitHub\\test1\\Imagen\\Imagen\\prueba.png");                                             
         }
     }
 }
