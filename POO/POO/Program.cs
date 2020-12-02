@@ -22,7 +22,11 @@ namespace POO
         static void Main(string[] args)
         {
 
-            List<Alumno> list = new List<Alumno> (); //Para crear la lista, usamos el using system collections generic, debajo del using system;
+            //List<Alumno> list = new List<Alumno> (); //Para crear la lista, usamos el using system collections generic, debajo del using system;
+            //Borramos porque la lista de alumno la creamos en una clase
+
+            StudentDatabase db = new StudentDatabase(); //inicializamos base de datos
+            db.InitDatabase(); //Creamos base de datos
 
             /*
             Alumno alu = new Alumno();
@@ -43,18 +47,22 @@ namespace POO
             alu.SetNombre("Aitor Franchute"); //Esto es porque los métodos de objeto sí pueden hacer a las propiedades de esa clase
             //Alumno lou = new Alumno();
 
-            list.Add(alu); //list es la variable que referencia a la lista de alumnos            
-                           //El refcount de ese objeto, sube a dos, porque lo referencia tanto la variable como la lista, si el refcount llega a cero, se borra el objeto
+            db.Add(alu); //Estamos añadiento ese alumno a la base de datos
+
+            //list.Add(alu); //list es la variable que referencia a la lista de alumnos            
+            //El refcount de ese objeto, sube a dos, porque lo referencia tanto la variable como la lista, si el refcount llega a cero, se borra el objeto
 
             Alumno alu2 = new Alumno();
             alu2.SetNombre("Juanfran Bueno");
             alu2.SetNia(69);
-            list.Add(alu2);
+            //list.Add(alu2);
+            db.Add(alu2);
 
             Alumno alu3 = new Alumno();
             alu3.SetNombre("Josemi Navarrete");
             alu3.SetNia(44);
-            list.Add(alu3);
+            //list.Add(alu3);
+            db.Add(alu3);
 
             //list[0];
             /*
@@ -71,7 +79,7 @@ namespace POO
             */
             //Hacer una funcion que imprima por pantalla una lista de alumnos
 
-            PrintStudentList(list); //Lo de mas arriba, lo comprimimos en un método y lo invocamos
+            //PrintStudentList(list); //Lo de mas arriba, lo comprimimos en un método y lo invocamos
 
 
         }
