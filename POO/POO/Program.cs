@@ -80,7 +80,7 @@ namespace POO
             //Hacer una funcion que imprima por pantalla una lista de alumnos
 
             //PrintStudentList(list); //Lo de mas arriba, lo comprimimos en un método y lo invocamos
-
+            db.PrintStudentList();
 
         }
     }

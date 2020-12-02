@@ -18,7 +18,7 @@ namespace POO
             this.list = new List<Alumno>();
         }
 
-        public void PrintStudentList() //list es una variable que hace una referencia a la lista
+        public void PrintStudentList() //convertimos este metodo que teniamos en el main, en un metodo de objeto de la base de datos
         {
             for (int i = 0; i < list.Count; i++) //Para msotrar todos los objetos de la lista
             {
