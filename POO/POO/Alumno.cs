@@ -6,8 +6,8 @@ namespace POO
 {
     class Alumno
     {
-        private int nia; //lo de public es el nivel de visibilidad, si no ponemos, se declaran como private
-        private string nombre; //el private solo es visible desde dentro de la misma clase
+        public int nia; //lo de public es el nivel de visibilidad, si no ponemos, se declaran como private
+        public string nombre; //el private solo es visible desde dentro de la misma clase
 
         public void InvalidateNia() //método de clase o de objeto, asi que no lleva static. Sin static, es un método de objeto, por tanto, necesita un objeto para utilizar dicho metodo.
         {
