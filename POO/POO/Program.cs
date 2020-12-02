@@ -47,7 +47,11 @@ namespace POO
             {
                 Alumno alumno = list[i];
                 Console.WriteLine("Alumno " + i);
-                Console.WriteLine("Nombre: " + alumno.nombre);
+                //Console.WriteLine("Nombre: " + alumno.nombre);
+                //Console.WriteLine("NIA: " + alumno.nia);
+
+                Console.WriteLine("Nombre: " + alumno.GetName()); //Aqui lo mostramos con el metodo de objeto que devuelve la propiedad de ese objeto
+                Console.WriteLine("NIA: " + alumno.GetNIA()); //Ahore tenemos metodos
             }
 
 
