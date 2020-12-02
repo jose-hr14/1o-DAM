@@ -5,6 +5,20 @@ namespace POO
 {
     class Program
     {
+        public static void PrintStudentList(List<Alumno> list) //list es una variable que hace una referencia a la lista
+        {
+            for (int i = 0; i < list.Count; i++) //Para msotrar todos los objetos de la lista
+            {
+                Alumno alumno = list[i];
+                Console.WriteLine("Alumno " + i);
+                //Console.WriteLine("Nombre: " + alumno.nombre); 
+                //Console.WriteLine("NIA: " + alumno.nia);
+
+                Console.WriteLine("Nombre: " + alumno.GetName()); //Aqui lo mostramos con el metodo de objeto que devuelve la propiedad de ese objeto
+                Console.WriteLine("NIA: " + alumno.GetNIA()); //Ahore tenemos metodos
+                Console.WriteLine();
+            }
+        }
         static void Main(string[] args)
         {
 
@@ -43,16 +57,21 @@ namespace POO
             list.Add(alu3);
 
             //list[0];
+            /*
             for (int i = 0; i < list.Count; i++) //Para msotrar todos los objetos de la lista
             {
                 Alumno alumno = list[i];
                 Console.WriteLine("Alumno " + i);
-                //Console.WriteLine("Nombre: " + alumno.nombre);
+                //Console.WriteLine("Nombre: " + alumno.nombre); 
                 //Console.WriteLine("NIA: " + alumno.nia);
 
                 Console.WriteLine("Nombre: " + alumno.GetName()); //Aqui lo mostramos con el metodo de objeto que devuelve la propiedad de ese objeto
                 Console.WriteLine("NIA: " + alumno.GetNIA()); //Ahore tenemos metodos
             }
+            */
+            //Hacer una funcion que imprima por pantalla una lista de alumnos
+
+            PrintStudentList(list); //Lo de mas arriba, lo comprimimos en un método y lo invocamos
 
 
         }
