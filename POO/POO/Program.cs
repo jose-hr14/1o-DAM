@@ -5,11 +5,11 @@ namespace POO
 {
     class Program
     {
-        public static void PrintStudentList(List<Alumno> list) //list es una variable que hace una referencia a la lista
+        public static void PrintStudentList(List<Student> list) //list es una variable que hace una referencia a la lista
         {
             for (int i = 0; i < list.Count; i++) //Para msotrar todos los objetos de la lista
             {
-                Alumno alumno = list[i];
+                Student alumno = list[i];
                 Console.WriteLine("Alumno " + i);
                 //Console.WriteLine("Nombre: " + alumno.nombre); 
                 //Console.WriteLine("NIA: " + alumno.nia);
@@ -40,7 +40,7 @@ namespace POO
 
             */
 
-            Alumno alu = new Alumno();
+            Student alu = new Student();
             //alu.nia = 7;
             //alu.nombre = "Aitor";
             alu.SetNia(7); //Hemos puesto las propiedades como private, pero aun asi, podemos aisgnar las propiedades con los metodos de objeto de alumno, que si son publicos
@@ -52,13 +52,13 @@ namespace POO
             //list.Add(alu); //list es la variable que referencia a la lista de alumnos            
             //El refcount de ese objeto, sube a dos, porque lo referencia tanto la variable como la lista, si el refcount llega a cero, se borra el objeto
 
-            Alumno alu2 = new Alumno();
+            Student alu2 = new Student();
             alu2.SetNombre("Juanfran Bueno");
             alu2.SetNia(69);
             //list.Add(alu2);
             db.Add(alu2);
 
-            Alumno alu3 = new Alumno();
+            Student alu3 = new Student();
             alu3.SetNombre("Josemi Navarrete");
             alu3.SetNia(44);
             //list.Add(alu3);

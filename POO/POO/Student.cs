@@ -4,7 +4,7 @@ using System.Text;
 
 namespace POO
 {
-    class Alumno
+    class Student
     {
         private int nia; //lo de public es el nivel de visibilidad, si no ponemos, se declaran como private
         private string name; //el private solo es visible desde dentro de la misma clase
