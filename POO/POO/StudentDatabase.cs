@@ -6,18 +6,24 @@ namespace POO
 {
     class StudentDatabase
     {
-        List<Student> list;
+        private List<Student> list;
+
+        public StudentDatabase()
+        {
+            this.list = new List<Student>();
+        }
 
         public void Add(Student alu)
         {
             this.list.Add(alu);
         }
-
+        /*
         public void InitDatabase()
         {
-            this.list = new List<Student>();
-        }
+            //this.list = new List<Student>();
 
+        }
+        */
         public void PrintStudentList() //convertimos este metodo que teniamos en el main, en un metodo de objeto de la base de datos
         {
             for (int i = 0; i < list.Count; i++) //Para msotrar todos los objetos de la lista

@@ -25,8 +25,8 @@ namespace POO
             //List<Alumno> list = new List<Alumno> (); //Para crear la lista, usamos el using system collections generic, debajo del using system;
             //Borramos porque la lista de alumno la creamos en una clase
 
-            StudentDatabase db = new StudentDatabase(); //inicializamos base de datos
-            db.InitDatabase(); //Creamos base de datos
+            StudentDatabase db = new StudentDatabase(); //inicializamos base de datos 
+            //db.InitDatabase(); //Creamos base de datos. Esto es sustituido por el constructor de student base
 
             /*
             Alumno alu = new Alumno();
