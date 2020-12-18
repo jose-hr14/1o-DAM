@@ -34,5 +34,14 @@ namespace POO
             return this.nia;
         }
         //this es la referencia al objeto con el que estamos realizando una operacion, this es una referencia
+
+        public bool IsNamed(string name) //string no es un tipo nativo, asi que puede ser null, un string es un objeto, asi que no puede ser null
+        {
+            if (name == null || this.name == null )
+                return name == null && this.name == null;
+            else
+                return this.name.ToLower() == name.ToLower();
+        }
+
     }
 }

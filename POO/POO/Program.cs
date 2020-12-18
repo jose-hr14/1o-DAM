@@ -44,7 +44,7 @@ namespace POO
             //alu.nia = 7;
             //alu.nombre = "Aitor";
             alu.SetNia(7); //Hemos puesto las propiedades como private, pero aun asi, podemos aisgnar las propiedades con los metodos de objeto de alumno, que si son publicos
-            alu.SetNombre("Aitor Franchute"); //Esto es porque los métodos de objeto sí pueden hacer a las propiedades de esa clase
+            alu.SetNombre(null); //Esto es porque los métodos de objeto sí pueden hacer a las propiedades de esa clase
             //Alumno lou = new Alumno();
 
             db.Add(alu); //Estamos añadiento ese alumno a la base de datos
@@ -81,6 +81,9 @@ namespace POO
 
             //PrintStudentList(list); //Lo de mas arriba, lo comprimimos en un método y lo invocamos
             db.PrintStudentList();
+            bool Constains = db.ContainsStudent("JUANFRAN BUENO");
+            bool Constains2 = db.ContainsStudent(null);
+            //int StudentIndex = db.GetStudentIndex("Juanfran Bueno");
 
         }
     }

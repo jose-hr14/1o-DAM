@@ -21,7 +21,6 @@ namespace POO
         public void InitDatabase()
         {
             //this.list = new List<Student>();
-
         }
         */
         public void PrintStudentList() //convertimos este metodo que teniamos en el main, en un metodo de objeto de la base de datos
@@ -38,5 +37,31 @@ namespace POO
                 Console.WriteLine();
             }
         }
+
+        public bool ContainsStudent(string name) //comprueba si hay un studiante en la lista que tenga el nombre usado como parámetro, recorre todos los estudiantes
+        {
+            return GetStudentIndex(name) != -1; //devuelve un bool porque no devuelve el int que devuelve la funcion, sino que devuelve la comparacion
+        }
+
+        //metodo que devuelva la posicion en la que está un alumno en la lista de datos
+        private int GetStudentIndex(string name) //lo cambiamos a privare
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                Student s = list[i];
+                if (s.IsNamed(name))
+                    return i;
+            }
+            return -1;
+        }
+
+        public int GetStudentCount()
+        {
+            return list.Count;
+        }
+
+
+
+
     }
 }
