@@ -12,7 +12,7 @@ namespace Sort
                 Console.WriteLine(list[i]);
             }
         }
-        public static void PrintOrderedList(List<int> list)
+        public static void OrderList(List<int> list)
         {
             for (int i = 0; i < list.Count - 1; i++) //for anidado para ordenar la lista
             {
@@ -25,8 +25,23 @@ namespace Sort
                         list[i] = aux;
                     }
                 }
+            }            
+        }
+
+        public static void PrintOrderedList(List<int> list)
+        {
+            OrderList(list);
+            PrintList(list);
+        }
+        //funcion que le pases una lista y un numero, y devuelve si ese numero esta en la lista
+        public static bool ContainsNumber(List<int> list, int number)
+        {
+            for (int i = 0; i < list.Count; i++) 
+            {
+                if (list[i] == number)
+                    return true;
             }
-            PrintList(list); //Aqui ya imprimimos la lista ordenada
+            return false;
         }
         static void Main(string[] args)
         {
@@ -40,7 +55,9 @@ namespace Sort
             list.Add(0);
             list.Add(-5);
 
-            PrintOrderedList(list);
+            PrintList(list);
+            OrderList(list);
+            bool contains = ContainsNumber(list, 15);
         }
     }
 }
