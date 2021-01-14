@@ -43,6 +43,25 @@ namespace Sort
             }
             return false;
         }
+
+        public static bool ContrainsNumber2(List<int> list, int number)
+        {
+            int min = 0;
+            int max = list.Count -1;
+            int mid;
+            while (min <= max)
+            {
+                mid = (min + max) / 2;
+                if (list[mid] == number)
+                    return true;
+                if (number < list[mid])                
+                    max = mid - 1;
+                else
+                    min = mid + 1;
+            }
+            return false;
+        }
+
         static void Main(string[] args)
         {
             //Programa para manejar listas
@@ -55,9 +74,9 @@ namespace Sort
             list.Add(0);
             list.Add(-5);
 
-            PrintList(list);
+            //PrintList(list);
             OrderList(list);
-            bool contains = ContainsNumber(list, 15);
+            bool contains = ContrainsNumber2(list, 1);
         }
     }
 }
