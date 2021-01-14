@@ -55,6 +55,17 @@ namespace POO
             return -1;
         }
 
+        private int GetStudentIndexWithNia(int nia)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                Student s = list[i];
+                if (s.GetNIA() == nia)
+                    return i;
+            }
+            return -1;
+        }
+
         public int GetStudentCount()
         {
             return list.Count;
@@ -67,6 +78,17 @@ namespace POO
                 list.RemoveAt(index);
         }
 
+        public void RemoveStudent(int nia)
+        {
+            int index = GetStudentIndexWithNia(nia);
+            if (index >= 0)
+                this.list.RemoveAt(index);
+        }
+
+        public void RemoveAllStudents()
+        {
+            this.list.Clear();
+        }
 
 
 

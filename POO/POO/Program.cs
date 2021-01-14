@@ -84,8 +84,9 @@ namespace POO
             bool Constains = db.ContainsStudent("JUANFRAN BUENO");
             bool Constains2 = db.ContainsStudent("Paco");
             //int StudentIndex = db.GetStudentIndex("Juanfran Bueno");
-            db.RemoveStudent("JUANFRAN BUENO");
-
+            //db.RemoveStudent("JUANFRAN BUENO");
+            //db.RemoveStudent(69);
+            db.RemoveAllStudents();
 
         }
     }

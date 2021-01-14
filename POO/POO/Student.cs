@@ -43,5 +43,7 @@ namespace POO
                 return this.name.ToLower() == name.ToLower();
         }
 
+
+
     }
 }
