@@ -60,6 +60,13 @@ namespace POO
             return list.Count;
         }
 
+        public void RemoveStudent(string name) //Para eliminar a un alumno de la lista de la base de datos
+        {
+            int index = GetStudentIndex(name);
+            if (index >= 0)
+                list.RemoveAt(index);
+        }
+
 
 
 
