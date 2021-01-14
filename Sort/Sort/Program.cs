@@ -44,7 +44,7 @@ namespace Sort
             return false;
         }
 
-        public static bool ContrainsNumber2(List<int> list, int number)
+        public static bool ContrainsNumber2(List<int> list, int number)//comprueba si esta el numero indicado en la lista, pero ahorrando comprobaciones
         {
             int min = 0;
             int max = list.Count -1;
@@ -76,7 +76,7 @@ namespace Sort
 
             //PrintList(list);
             OrderList(list);
-            bool contains = ContrainsNumber2(list, 1);
+            bool contains = ContrainsNumber2(list, 7);
         }
     }
 }
