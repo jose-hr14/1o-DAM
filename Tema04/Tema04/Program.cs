@@ -45,16 +45,36 @@ namespace Tema04
             else
                 return b;
         }
+        public static void Ejercicio06(int a, int b, out int solution, out int rest)
+        {
+            solution = a / b;
+            rest = a % b;
+        }
+        public static int Ejercicio07(int a, int b)
+        {
+            int solution = 0;
+            if (a <= 0 || b <= 0)
+                return 0;
+            for (int i = 0; i <= a || i <= b; i++)
+            {
+                if (a % (i + 1) == 0 && b % (i + 1) == 0)
+                    solution = i;
+            }
+            return solution + 1;
+        }
         static void Main(string[] args)
         {
-            int a = Convert.ToInt32(Console.ReadLine());
-            int b = Convert.ToInt32(Console.ReadLine());
+            //int a = Convert.ToInt32(Console.ReadLine());
+            //int b = Convert.ToInt32(Console.ReadLine());
             //int suma = Ejercicio01(a, b);
             //bool ej02 = Ejercicio02(a, b);
             //Ejercicio03(a, b);
             //int ej04 = Ejercicio04(a);
-            int ej05 = Ejercicio05(a, b);
-
+            //int ej05 = Ejercicio05(a, b);
+            //int solucion;
+            //int resto;
+            //Ejercicio06(8, 4, out solucion, out resto);
+            int MCD = Ejercicio07(1254, 5896);
 
         }
     }
