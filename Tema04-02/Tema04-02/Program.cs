@@ -97,6 +97,16 @@ namespace Tema04_02
             }
 
         }
+        public static int Ejercicio23(int a)
+        {            
+            int resultado = 0;
+            while (a > 0)
+            {
+                resultado = resultado * 10 + a % 10;
+                a /= 10;
+            }
+            return resultado;            
+        }
         static void Main(string[] args)
         {
             int a = Ejercicio19_01(4);
@@ -106,6 +116,7 @@ namespace Tema04_02
             b = Ejercicio21_01(999);
             b = Ejercicio21_02(1224);
             b = Ejercicio22(16, 2);
+            b = Ejercicio23(563);
 
         }
     }
