@@ -107,6 +107,67 @@ namespace Tema04_02
             }
             return resultado;            
         }
+        public static int Ejercicio24(int a, int pos)
+        {
+            // 345 % 10 = 5 * 10
+            // 34 % 10 = (50 + 4) * 10
+            // 3 = 3
+            // !345 = ((345 % 10) * 10 + (34 % 10)) * 10 + (3 % 10)
+            // !345 = 345 % 10
+            //int resultado = a % 10;
+            //int aux = (a % 10) * 10;
+            // 345
+            if (a < 10)
+            {
+                return a;
+            }
+            else
+            {
+                pos = pos - 1;
+                return (int)((a % 10) * (Math.Pow(10, pos)) + Ejercicio24(a / 10, pos));
+            }
+        } 
+        public static int Nacho5_10_1(int a, int b)
+        {
+            // 5^3 = 5 * 5^2 = 5 * 5^1
+            // caso base
+            if (b == 0)
+                return 1;
+            else
+            {
+                return a * Nacho5_10_1(a, b - 1);
+            }
+        }
+        public static void Nacho5_10_4(int end, int a, int b)
+        {
+            // 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144,… 
+            int c;            
+            if (end == 0)
+                return;
+            else
+            {
+                c = a + b;
+                Console.WriteLine(c + ", ");
+                a = b;
+                b = c;
+                end--;
+                Nacho5_10_4(end, a, b);
+            }
+        }
+        public static int Ejercicio25(int m, int n)
+        {
+            int result;
+            if (n == 2)
+            {
+                return 1;
+            }
+            else
+            {
+                return result = Ejercicio20(m, n) / n + Ejercicio25(m, n - 1);
+            }
+            
+        }
+
         static void Main(string[] args)
         {
             int a = Ejercicio19_01(4);
@@ -117,7 +178,10 @@ namespace Tema04_02
             b = Ejercicio21_02(1224);
             b = Ejercicio22(16, 2);
             b = Ejercicio23(563);
-
+            b = Ejercicio24(345, 3);
+            b = Nacho5_10_1(5, 3);
+            Nacho5_10_4(6, 1, 1);
+            b = Ejercicio25(6, 5);
         }
     }
 }
