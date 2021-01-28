@@ -28,6 +28,13 @@ namespace Tema05
             for (int i = 0; i < Array.Length; i++)
                 Console.WriteLine("Vector[" + i + "] = " + Array[i]);
         }
+        public static int SumarArrays(int[] Array)
+        {
+            int result = 0;
+            for (int i = 0; i < Array.Length; i++)
+                result += Array[i];
+            return result;
+        }
         public static void Ejemplo02(int NumElementos, int pos)
         {
             int[] Array = new int[NumElementos];
@@ -39,10 +46,17 @@ namespace Tema05
             for (int i = 0; i < Array.Length; i++)
                 Array[i] /= pos;
         }
+        public static int Ejemplo03(int pos)
+        {
+            int[] Array = new int[pos];
+            Array_Ejemplo_Leer(Array);
+            return SumarArrays(Array) / Array.Length;
+        }
         static void Main(string[] args)
         {
-            Array_Ejemplo(5);
+            //Array_Ejemplo(5);
             //Ejemplo02(10, 2);
+            int b = Ejemplo03(5);
         }
     }
 }
