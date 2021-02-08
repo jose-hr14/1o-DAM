@@ -94,13 +94,39 @@ namespace Tema05
             Console.WriteLine("La media es: " + Media(CrearArray(10)));
 
         }
+        //Realizar un programa que lea los elementos de un vector de 10 enteros y nos visualice
+        //posteriormente el menor de ellos.Utilizar programación modular, una función que lea el
+        //vector, otra que lo muestre y otra que devuelva el menor número del vector.
+        public static void OrdenarArray(int[] Array)
+        {
+            int aux;
+            for (int i = 0; i < Array.Length; i++)
+            {
+                for (int j = i + 1; j < Array.Length; j++)
+                {
+                    if (Array[i] > Array[j])
+                    {
+                        aux = Array[i];
+                        Array[i] = Array[j];
+                        Array[j] = aux;
+                    }
+                }
+            }
+        }
+        public static void Ejercicio03()
+        {
+            int[] Array = CrearArray(10);
+            OrdenarArray(Array);
+            Console.WriteLine("El menor de los elementos del vector es " + Array[0]);
+        }
         static void Main(string[] args)
         {
             //Array_Ejemplo(5);
             //Ejemplo02(10, 2);
             //int b = Ejemplo03(5);
             //Ejercicio01();
-            Ejercicio02();
+            //Ejercicio02();
+            Ejercicio03();
         }
     }
 }
