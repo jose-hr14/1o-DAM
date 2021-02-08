@@ -9,12 +9,12 @@ namespace Tema05
             // Declaramos y damos tamaño al vector.
             int[] Array = new int[TamañoArray];            
             // Leemos todos los elementos del vector.
-            Array_Ejemplo_Leer(Array);
+            Array_Leer(Array);
             // Mostramos los elementos del vector.
             Array_Ejemplo_Imprimir(Array);
             
         }
-        public static void Array_Ejemplo_Leer(int[] Array)
+        public static void Array_Leer(int[] Array)
         {
             for (int i = 0; i < Array.Length; i++)
             {
@@ -48,7 +48,7 @@ namespace Tema05
         public static int Ejemplo03(int pos)
         {
             int[] Array = new int[pos];
-            Array_Ejemplo_Leer(Array);
+            Array_Leer(Array);
             return SumarArrays(Array) / Array.Length;
         }
 
@@ -117,8 +117,39 @@ namespace Tema05
         {
             int[] Array = CrearArray(10);
             OrdenarArray(Array);
-            Console.WriteLine("El menor de los elementos del vector es " + Array[0]);
+            Console.WriteLine("El menor elemento del vector es " + Array[0]);
         }
+        //Escribir un programa con un botón que lea un vector de números positivos y negativos.
+        //En otro botón recorrerá el vector sustituyendo los números positivos por 0 y mostrará
+        //cuantos números negativos había.Hacerlo modularizando, es decir, la lectura, recorrido e
+        //impresión del vector serán subprogramas
+        public static void SustituyeArraysPositivos(int[] Array)
+        {
+            for (int i = 0; i < Array.Length; i++)
+            {
+                if (Array[i] > 0)
+                    Array[i] = 0;
+            }
+        }
+        public static void Ejercicio04()
+        {
+            int[] Array = CrearArray(10);
+            SustituyeArraysPositivos(Array);
+            Array_Ejemplo_Imprimir(Array);
+        }
+
+        public static void Ejercicio05() //no entiendo??????
+        {
+            int[] Array1 = CrearArray(10);
+            int[] Array2 = CrearArray(10);
+            int[] Array3 = new int[10];
+            for (int i = 0; i < Array1.Length; i++)
+            {
+                Array3[i] = Array1[i] + Array2[i]; 
+            }
+            Array_Ejemplo_Imprimir(Array3);
+        }
+
         static void Main(string[] args)
         {
             //Array_Ejemplo(5);
@@ -126,7 +157,8 @@ namespace Tema05
             //int b = Ejemplo03(5);
             //Ejercicio01();
             //Ejercicio02();
-            Ejercicio03();
+            //Ejercicio03();
+            Ejercicio04();
         }
     }
 }
