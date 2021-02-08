@@ -52,11 +52,56 @@ namespace Tema05
             Array_Ejemplo_Leer(Array);
             return SumarArrays(Array) / Array.Length;
         }
+
+        //Realiza un programa en Visual C# que lea 10 números por teclado, y después los
+        //muestre.Utiliza para ello un vector.
+        public static void Ejercicio01()
+        {
+            int[] Array = new int[10];
+            for (int i = 0; i < Array.Length; i++)
+            {
+                Console.Write("Inserta un número para la posición " + i + ": ");
+                Array[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            Console.WriteLine();
+            for (int i = 0; i < Array.Length; i++)
+            {
+                Console.WriteLine("La posición " + i + " del Array es: " + Array[i]);
+            }
+        }
+        public static int[] CrearArray(int Length)
+        {
+            int[] Array = new int[Length];
+            for (int i = 0; i < Array.Length; i++)
+            {
+                Console.Write("Inserta un número para la posición " + i + ": ");
+                Array[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            return Array;
+        }
+        public static int Media(int[] Array)
+        {
+            int Media = 0;
+            for (int i = 0; i < Array.Length; i++)
+            {
+                Media += Array[i];
+            }
+            return Media / Array.Length;
+        }
+        //Realizar un programa que lea los elementos de un array o vector de 10 enteros y visualice
+        //su media.La media se calculará mediante una función. (Ejercicio Resuelto)
+        public static void Ejercicio02()
+        {
+            Console.WriteLine("La media es: " + Media(CrearArray(10)));
+
+        }
         static void Main(string[] args)
         {
             //Array_Ejemplo(5);
             //Ejemplo02(10, 2);
-            int b = Ejemplo03(5);
+            //int b = Ejemplo03(5);
+            //Ejercicio01();
+            Ejercicio02();
         }
     }
 }
