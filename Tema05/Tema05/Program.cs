@@ -7,8 +7,7 @@ namespace Tema05
         public static void Array_Ejemplo(int TamañoArray)
         {            
             // Declaramos y damos tamaño al vector.
-            int[] Array = new int[TamañoArray];
-            int i;
+            int[] Array = new int[TamañoArray];            
             // Leemos todos los elementos del vector.
             Array_Ejemplo_Leer(Array);
             // Mostramos los elementos del vector.
