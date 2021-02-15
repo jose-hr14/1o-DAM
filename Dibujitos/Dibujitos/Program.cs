@@ -66,14 +66,24 @@ namespace Dibujitos
             }
         }
 
+        public static void ImprimirArrayInverso(int[] Array)
+        {
+            for (int i = Array.Length; i > 0; i--)
+            {
+                //Console.WriteLine("El valor del Array en la posición " + i + " es: " + Array[i]);
+                Console.WriteLine("El valor del Array en la posición {0} es {1}", i - 1, Array[i - 1]);
+            }
+        }
         // Nos va a pedir el array (introduce el tamaño del array), y nos va a pedir celda por celda que introduzcamos el valor y los imprimirá todo
         public static void Ejercicio01()
         {
             Console.Write("Introduce el tamaño del Array: ");
-            int tamaño_array = Convert.ToInt32(Console.ReadLine());
-            int[] Array = new int[tamaño_array];
+            int tam = Convert.ToInt32(Console.ReadLine());
+            int[] Array = new int[tam];
             LeerArray(Array);
             ImprimirArray(Array);
+            Console.WriteLine();
+            ImprimirArrayInverso(Array);
 
         }
         static void Main(string[] args)
