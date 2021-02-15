@@ -65,6 +65,7 @@ namespace Dibujitos
                 Console.WriteLine("El valor del Array en la posición {0} es {1}", i, Array[i]);
             }
         }
+
         // Nos va a pedir el array (introduce el tamaño del array), y nos va a pedir celda por celda que introduzcamos el valor y los imprimirá todo
         public static void Ejercicio01()
         {
