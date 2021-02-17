@@ -86,11 +86,103 @@ namespace Dibujitos
             ImprimirArrayInverso(Array);
 
         }
+        //Crear array predefinido de 10 valores distintos, y luego el programa debe pedir un número y decirnos si el número fue encontrado en la posicion tal
+        public static void BuscarArray(int[] Array, int Num)
+        {
+            for (int i = 0; i < Array.Length; i++)
+            {
+                if (Array[i] == Num)
+                {
+                    Console.WriteLine("El número {0} ha sido encontrado en la posición {1} del Array", Num, i);
+                    return;
+                }
+            }
+            Console.WriteLine("El número {0} no ha sido encontrado en el Array", Num);
+        }
+        public static void BuscarArraySolucion()
+        {
+            int[] Array = { 10, 20, 30, 55, 86, 21, 35, 15, 33, 29 };
+            Console.Write("Introduce el valor a buscar: ");
+            int valor = Convert.ToInt32(Console.ReadLine());
+            bool Encontrado = false;
+            int contador = 0;
+            for (int i = 0; i < Array.Length; i++)
+            {
+                if (valor == Array[i])
+                {
+                    contador = i;
+                    Encontrado = true;
+                }
+                    
+            }
+            if (Encontrado)
+                Console.WriteLine("El número {0} ha sido encontrado en la posición {1} del Array", valor, contador);
+            Console.WriteLine("El número {0} no ha sido encontrado en el Array", valor);
+        }
+        public static void BuscarArraySolucion02()
+        {
+            int[] Array = { 10, 20, 30, 55, 86, 21, 35, 15, 33, 29 };
+            Console.Write("Introduce el valor a buscar: ");
+            int valor = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < Array.Length; i++)
+            {
+                if (valor == Array[i])
+                {
+                    Console.WriteLine("El número {0} ha sido encontrado en la posición {1} del Array", valor, i);
+                    break;
+                }
+                else if (i == Array.Length - 1)
+                    Console.WriteLine("El número {0} no ha sido encontrado en el Array", valor);
+            }
+            
+        }
+        public static void BuscarArraySolucionGoTo()
+        {
+            int[] Array = { 10, 20, 30, 55, 86, 21, 35, 15, 33, 29 };
+            Console.Write("Introduce el valor a buscar: ");
+            int valor = Convert.ToInt32(Console.ReadLine());
+            int j = 0;
+            for (int i = 0; i < Array.Length; i++)
+            {
+                if (valor == Array[i])
+                {
+                    j = i;
+                    goto esta;
+                }
+                else if (i == Array.Length - 1)
+                    Console.WriteLine("El número {0} no ha sido encontrado en el Array", valor);
+            }
+            esta: Console.WriteLine("El número {0} ha sido encontrado en la posición {1} del Array", valor, j);
+        }
+        public static void GoTo()
+        {
+            int a = 7;
+            int b = 3;
+            int c;
+            
+            
+            suma: c = 7 + 3;
+        
+        }
+        public static void BucleGoTo()
+        {
+            int a = 7;
+            int b = 3;
+            int c;
+            goto suma;
+        producto: c = a * b;
+        suma: c = 7 + 3;
+            goto producto;
+
+        }
         static void Main(string[] args)
         {
             //Dibujito01(20, 10);
             //Dibujito01Solution(40000, 40000);
-            Ejercicio01();
+            //Ejercicio01();
+            int[] Array = { 10, 20, 30, 55, 86, 21, 35, 15, 33, 29 };
+            //BuscarArray(Array, 29);
+            GoTo();
 
             
         }
