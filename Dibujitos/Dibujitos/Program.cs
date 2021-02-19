@@ -154,14 +154,11 @@ namespace Dibujitos
             }
             esta: Console.WriteLine("El número {0} ha sido encontrado en la posición {1} del Array", valor, j);
         }
-        public static void GoTo()
-        {
-            int a = 7;
-            int b = 3;
-            int c;
-            
-            
-            suma: c = 7 + 3;
+        public static void GoTo(int c)
+        {                        
+            goto suma;
+
+        suma: c = 7 + 3;
         
         }
         public static void BucleGoTo()
@@ -175,6 +172,27 @@ namespace Dibujitos
             goto producto;
 
         }
+        //Programa que pasando variable por referencia, el cambie el signo
+        public static void Cambiarsigno(ref int a)
+        {
+            a *= -1;
+        }
+        public static int FactorialFor(int a)
+        {
+            int solucion = 1;
+            for (int i = 0; i < a; i++)
+            {
+                solucion *= i + 1;
+            }
+            return solucion;
+        }
+        public static int FactorialRecursividad(int a)
+        {
+            if (a == 0 || a == 1)
+                return 1;
+            else
+                return a * FactorialRecursividad(a - 1);
+        }
         static void Main(string[] args)
         {
             //Dibujito01(20, 10);
@@ -182,7 +200,13 @@ namespace Dibujitos
             //Ejercicio01();
             int[] Array = { 10, 20, 30, 55, 86, 21, 35, 15, 33, 29 };
             //BuscarArray(Array, 29);
-            GoTo();
+            //GoTo();
+            //int a = 8;
+            //Cambiarsigno(ref a);
+            //Console.WriteLine(a);
+            //int a = FactorialFor(5);
+            int a = FactorialRecursividad(5);
+
 
             
         }
