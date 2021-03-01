@@ -70,17 +70,21 @@ namespace Pilas
         public static int NotacionPolacaInversa(Stack<int> pila, Queue<string> cola)
         {
             int solucion = 0;
+            int a = 0;
+            int b = 0;
             while (cola.Count > 0)
             {
                 string operando = cola.Dequeue();
+                a = pila.Pop();
+                b = pila.Pop();
                 if (operando == "+")
-                    solucion = pila.Pop() + pila.Pop();
+                    solucion = b + a;
                 else if (operando == "-")
-                    solucion = pila.Pop() - pila.Pop();
+                    solucion = b - a;
                 else if (operando == "*")
-                    solucion = pila.Pop() * pila.Pop();
+                    solucion = b * a;
                 else if (operando == "/")
-                    solucion = pila.Pop() / pila.Pop();
+                    solucion = b / a;
                 pila.Push(solucion);
             }
             return pila.Pop();
@@ -90,7 +94,8 @@ namespace Pilas
             //PilaEscaleraAsteriscos(6);
             //CrearPilaNum();
             //CrearPilaOperando();
-            NotacionPolacaInversa(CrearPilaNum(), CrearPilaOperando());
+            int a = NotacionPolacaInversa(CrearPilaNum(), CrearPilaOperando());
+
 
         }
     }
