@@ -119,7 +119,17 @@ namespace Pilas
                 no_enter = Console.ReadLine();
                 if (no_enter != "")
                 {
-                    Pila.Push(Convert.ToInt32(no_enter));
+                    //Pila.Push(Convert.ToInt32(no_enter));
+                    int i = 0;
+                    if (Int32.TryParse(no_enter, out i))
+                    {
+                        Pila.Push(i);
+                    }
+                    else
+                    {
+                        Console.WriteLine("El valor introducido es incorrecto.");
+                        goto intentar;
+                    }
                 }
                 else if (Pila.Count <= 1)
                 {
@@ -130,13 +140,65 @@ namespace Pilas
 
             } while (no_enter != "");
         }
+        public static Stack<int> EjClase02_2() //Igual que el anterior, pero devuelve la pila.
+        {
+            Stack<int> Pila = new Stack<int>();
+            Queue<char> Cola = new Queue<char>();
+            string no_enter;
+            do
+            {
+            intentar:
+                Console.Write("Introduce un número: ");
+                //Pila.Push(Convert.ToInt32(Console.ReadLine()));
+                no_enter = Console.ReadLine();
+                if (no_enter != "")
+                {
+                    //Pila.Push(Convert.ToInt32(no_enter));
+                    int i = 0;
+                    if (Int32.TryParse(no_enter, out i))
+                    {
+                        Pila.Push(i);
+                    }
+                    else
+                    {
+                        Console.WriteLine("El valor introducido es incorrecto.");
+                        goto intentar;
+                    }
+                }
+                else if (Pila.Count <= 1)
+                {
+                    Console.WriteLine("Son necesarios mínimo dos números, pulse enter.");
+                    Console.ReadLine();
+                    goto intentar;
+                }
+
+            } while (no_enter != "");
+            return Pila;
+        }
+        public static void EjClase03(Stack<int> Pila) //Funcion que mete operandos en una cola, cuya cantidad sea igual a la cantidad de numeros de la pila menos una
+        {
+            Console.WriteLine("Introduce un operando");
+            string no_character;
+            Queue<char> Cola = new Queue<char>();
+            
+            do
+            {
+                Console.Write("Introduce operando: ");
+                no_character = Console.ReadLine();
+                if (no_character == "+" || no_character == "-" || no_character == "*" || no_character == "/")
+                {
+                    Cola.Enqueue(Convert.ToChar(no_character));
+                }
+            } while (Cola.Count < Pila.Count - 1);
+        }
         static void Main(string[] args)
         {
             //PilaEscaleraAsteriscos(6);
             //CrearPilaNum();
             //CrearPilaOperando();
             //int a = NotacionPolacaInversa(CrearPilaNum(), CrearPilaOperando());
-            EjClase02();
+            //EjClase02();
+            EjClase03(EjClase02_2());
 
         }
     }
