@@ -89,13 +89,33 @@ namespace Pilas
             }
             return pila.Pop();
         }
+        public static void EjClase01() //Introduce y mete valores hasta que pulses enter
+        {
+            Stack<int> Pila = new Stack<int>();
+            Queue<char> Cola = new Queue<char>();
+            
+            string no_enter;
+            
+
+            do
+            {
+                Console.WriteLine("Introduce un número: ");
+                //Pila.Push(Convert.ToInt32(Console.ReadLine()));
+                no_enter = Console.ReadLine();
+                if (no_enter != "")
+                {                    
+                    Pila.Push(Convert.ToInt32(no_enter));
+                }
+                    
+            } while (no_enter !=  "");
+        }
         static void Main(string[] args)
         {
             //PilaEscaleraAsteriscos(6);
             //CrearPilaNum();
             //CrearPilaOperando();
-            int a = NotacionPolacaInversa(CrearPilaNum(), CrearPilaOperando());
-
+            //int a = NotacionPolacaInversa(CrearPilaNum(), CrearPilaOperando());
+            EjClase01();
 
         }
     }
