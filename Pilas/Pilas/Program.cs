@@ -140,7 +140,7 @@ namespace Pilas
 
             } while (no_enter != "");
         }
-        public static Stack<int> EjClase02_2() //Igual que el anterior, pero devuelve la pila.
+        public static Stack<int> EjClase02_Return() //Igual que el anterior, pero devuelve la pila.
         {
             Stack<int> Pila = new Stack<int>();
             Queue<char> Cola = new Queue<char>();
@@ -189,7 +189,32 @@ namespace Pilas
                 {
                     Cola.Enqueue(Convert.ToChar(no_character));
                 }
+                else
+                {
+                    Console.WriteLine("El valor introducido no es un operando.");
+                }
             } while (Cola.Count < Pila.Count - 1);
+        }
+        public static Queue<char> EjClase03_Return(Stack<int> Pila) //Igual que la anterior, pero devuelve la pila
+        {
+            Console.WriteLine("Introduce un operando");
+            string no_character;
+            Queue<char> Cola = new Queue<char>();
+
+            do
+            {
+                Console.Write("Introduce operando: ");
+                no_character = Console.ReadLine();
+                if (no_character == "+" || no_character == "-" || no_character == "*" || no_character == "/")
+                {
+                    Cola.Enqueue(Convert.ToChar(no_character));
+                }
+                else
+                {
+                    Console.WriteLine("El valor introducido no es un operando.");
+                }
+            } while (Cola.Count < Pila.Count - 1);
+            return Cola;
         }
         static void Main(string[] args)
         {
@@ -198,7 +223,8 @@ namespace Pilas
             //CrearPilaOperando();
             //int a = NotacionPolacaInversa(CrearPilaNum(), CrearPilaOperando());
             //EjClase02();
-            EjClase03(EjClase02_2());
+            EjClase03(EjClase02_Return());
+            NotacionPolacaInversa(EjClase02_Return(), );
 
         }
     }
