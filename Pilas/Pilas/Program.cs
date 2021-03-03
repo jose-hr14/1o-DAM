@@ -89,6 +89,28 @@ namespace Pilas
             }
             return pila.Pop();
         }
+        public static int NotacionPolacaInversa(Stack<int> pila, Queue<char> cola)
+        {
+            int solucion = 0;
+            int a = 0;
+            int b = 0;
+            while (cola.Count > 0)
+            {
+                char operando = cola.Dequeue();
+                a = pila.Pop();
+                b = pila.Pop();
+                if (operando == Convert.ToChar("+"))
+                    solucion = b + a;
+                else if (operando == Convert.ToChar("-"))
+                    solucion = b - a;
+                else if (operando == Convert.ToChar("*"))
+                    solucion = b * a;
+                else if (operando == Convert.ToChar("/"))
+                    solucion = b / a;
+                pila.Push(solucion);
+            }
+            return pila.Pop();
+        }
         public static void EjClase01() //Introduce y mete valores hasta que pulses enter
         {
             Stack<int> Pila = new Stack<int>();
@@ -223,8 +245,10 @@ namespace Pilas
             //CrearPilaOperando();
             //int a = NotacionPolacaInversa(CrearPilaNum(), CrearPilaOperando());
             //EjClase02();
-            EjClase03(EjClase02_Return());
-            NotacionPolacaInversa(EjClase02_Return(), );
+            //EjClase03(EjClase02_Return());
+            Stack<int> Pila = EjClase02_Return();
+            Queue<char> Cola = EjClase03_Return(Pila);
+            NotacionPolacaInversa(Pila, Cola);
 
         }
     }
