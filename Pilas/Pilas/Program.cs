@@ -92,11 +92,8 @@ namespace Pilas
         public static void EjClase01() //Introduce y mete valores hasta que pulses enter
         {
             Stack<int> Pila = new Stack<int>();
-            Queue<char> Cola = new Queue<char>();
-            
-            string no_enter;
-            
-
+            Queue<char> Cola = new Queue<char>();            
+            string no_enter;            
             do
             {
                 Console.WriteLine("Introduce un número: ");
@@ -109,13 +106,37 @@ namespace Pilas
                     
             } while (no_enter !=  "");
         }
+        public static void EjClase02() //Introduce y mete valores hasta que pulses enter. Pero que la pila monte un mínimo de dos números
+        {
+            Stack<int> Pila = new Stack<int>();
+            Queue<char> Cola = new Queue<char>();
+            string no_enter;
+            do
+            {
+                intentar:
+                Console.Write("Introduce un número: ");
+                //Pila.Push(Convert.ToInt32(Console.ReadLine()));
+                no_enter = Console.ReadLine();
+                if (no_enter != "")
+                {
+                    Pila.Push(Convert.ToInt32(no_enter));
+                }
+                else if (Pila.Count <= 1)
+                {
+                    Console.WriteLine("Son necesarios mínimo dos números, pulse enter.");
+                    Console.ReadLine();
+                    goto intentar;
+                }
+
+            } while (no_enter != "");
+        }
         static void Main(string[] args)
         {
             //PilaEscaleraAsteriscos(6);
             //CrearPilaNum();
             //CrearPilaOperando();
             //int a = NotacionPolacaInversa(CrearPilaNum(), CrearPilaOperando());
-            EjClase01();
+            EjClase02();
 
         }
     }
