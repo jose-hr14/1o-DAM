@@ -74,7 +74,11 @@ namespace Listas
                 Lista02.Remove(3);
             }
 
-            Lista02.IndexOf(2); //Devuelve el índice del primer elemento coincidente que encuentra
+            //Lista02.IndexOf(2); //Devuelve el índice del primer elemento coincidente que encuentra
+            //Lista02.LastIndexOf(3); //Devuelve el último índice del valor coincidente
+
+            //Lista02.Contains(2); //Bool que devuelve si el elemento está en la lista o no
+            //Lista02.BinarySearch(2); //Devuelve la dirección donde se encuentra el dato, pero si no lo encuentra, devuelve -1
         }
     }
 }
