@@ -105,8 +105,10 @@ namespace Pilas
                     solucion = b - a;
                 else if (operando == Convert.ToChar("*"))
                     solucion = b * a;
-                else if (operando == Convert.ToChar("/"))
+                else if (operando == Convert.ToChar("/") && a != 0)
                     solucion = b / a;
+                else
+                    Console.WriteLine("Error, no se puede dividir entre 0");
                 pila.Push(solucion);
             }
             return pila.Pop();
