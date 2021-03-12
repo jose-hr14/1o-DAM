@@ -138,15 +138,21 @@ namespace Tema05
             Array_Ejemplo_Imprimir(Array);
         }
 
+
+        public static int[] SumarDosArrays(int[] Array1, int[] Array2)
+        {
+            int[] Array3 = new int[Array1.Length];
+            for (int i = 0; i < Array1.Length; i++)
+            {
+                Array3[i] = Array1[i] + Array2[i];
+            }
+            return Array3;
+        }
         public static void Ejercicio05() //no entiendo??????
         {
             int[] Array1 = CrearArray(10);
             int[] Array2 = CrearArray(10);
-            int[] Array3 = new int[10];
-            for (int i = 0; i < Array1.Length; i++)
-            {
-                Array3[i] = Array1[i] + Array2[i]; 
-            }
+            int[] Array3 = SumarDosArrays(Array1, Array2);            
             Array_Ejemplo_Imprimir(Array3);
         }
 
@@ -158,7 +164,8 @@ namespace Tema05
             //Ejercicio01();
             //Ejercicio02();
             //Ejercicio03();
-            Ejercicio04();
+            //Ejercicio04();
+            //Ejercicio05();
         }
     }
 }
