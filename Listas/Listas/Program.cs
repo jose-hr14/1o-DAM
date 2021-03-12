@@ -82,49 +82,17 @@ namespace Listas
             //Lista02.Contains(2); //Bool que devuelve si el elemento está en la lista o no
             //Lista02.BinarySearch(2); //Devuelve la dirección donde se encuentra el dato, pero si no lo encuentra, devuelve -1
         }
-
-        public static void ImprimirMenu()
-        {
-            Console.WriteLine("1.- Introducir un nuevo préstamo.");
-            Console.WriteLine("2.- Actualizar préstamo.");
-            Console.WriteLine("3.- Cancelar préstamo.");
-            Console.WriteLine("4.- Listar todos los préstamos.");
-            Console.WriteLine("5.- Listar todos los préstamos según cantidad adeudada, amortizados y cancelados.");
-        }
-        public static void SumarAlArray(int[] Lista) //Funcion para comprobar que los tipos de datos compuestos se pasan por referencia automáticamente
-        {
-            Lista[0] += 2;
-        }
-        public static void PruebaSumarAlArray()
-        {
-            int[] numero = { 1, 2, 3, 4 };
-            SumarAlArray(numero);
-        }
-        static void Main(string[] args)
+        public static void TeoriaClase02()
         {
             //ImprimirMenu();
-            
-            int option = 5;
-            switch (option)
-            {
-                case 1:                    
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    break;
-            }
 
-            char[] LetraDNI =  {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F','P', 'D', 'X', 'B', 'N'};
+
+            char[] LetraDNI = { 'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E' };
             pedir:
             Console.WriteLine("Introduce el DNI: ");
             string DNI = Console.ReadLine();
             char letra = char.ToUpper(DNI[8]); //Sacamos asi letra de dni para hacer la verificacion
-            
+
             string numero = DNI.Remove(8, 1); //Sacar los numeros del dni
 
             int j = 0;
@@ -150,7 +118,7 @@ namespace Listas
 
             int num = Convert.ToInt32(numero);//Pasamos el numero a int
             int pos = num % 23;
-            if (LetraDNI[pos]  != letra)
+            if (LetraDNI[pos] != letra)
             {
                 Console.WriteLine("Error");
                 goto pedir;
@@ -159,8 +127,130 @@ namespace Listas
             {
                 DNI = numero + letra;
             }
-                
 
+
+        }
+        public static void ImprimirMenu()
+        {
+            Console.WriteLine("1.- Introducir un nuevo préstamo.");
+            Console.WriteLine("2.- Actualizar préstamo.");
+            Console.WriteLine("3.- Cancelar préstamo.");
+            Console.WriteLine("4.- Listar todos los préstamos.");
+            Console.WriteLine("5.- Listar todos los préstamos según cantidad adeudada, amortizados y cancelados.");
+        }
+        public static void SumarAlArray(int[] Lista) //Funcion para comprobar que los tipos de datos compuestos se pasan por referencia automáticamente
+        {
+            Lista[0] += 2;
+        }
+        public static void PruebaSumarAlArray()
+        {
+            int[] numero = { 1, 2, 3, 4 };
+            SumarAlArray(numero);
+        }
+        public static void ElegirOpcion()
+        {
+            Console.WriteLine("Elige una opción");
+            string opcion = Console.ReadLine();
+            int.TryParse(opcion, out int option_num);
+            switch(option_num)
+            {
+                default:
+                    break;
+                case 0:
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+            }
+        }
+        public static bool ComprobarLetra(char[] LetraDNI, char letra)
+        {
+            if (!LetraDNI.Contains(letra))//comprobar letra, si no, reinicia
+            {
+                Console.WriteLine("mensaje error");
+                return false;
+            }
+            else
+                return true;
+        }
+        public static bool ComprobarNumero(string numero, out int num_int)
+        {
+            if (!int.TryParse(numero, out num_int)) //comprueba que son numeros,si no, reinciia. Retrocede segun el valor booleano de es_numero
+            {
+                Console.WriteLine("error");
+                return false;
+            }
+            else
+                return true;
+        }
+        public static bool ComprobarLongitudDNI(string DNI)
+        {
+            if (DNI.Length != 9) //Comprobar que la longitud del dni introducido es el correcto
+            {
+                Console.WriteLine("Error");
+                return false;
+            }
+            else
+                return true;
+        }
+        public static bool ValidarDNI(char[] LetraDNI, int numero_int, char letra)
+        {
+            int pos = numero_int % 23;
+            if (LetraDNI[pos] != letra)
+            {
+                Console.WriteLine("Error");
+                return false;
+
+            }
+            else
+            {                
+                Console.WriteLine("El DNI es correcto.");
+                return true;
+            }            
+        }
+        public static bool ComprobarDNI(string DNI)
+        {
+            char[] LetraDNI = { 'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E' };
+            bool contiene_letra = true;
+            bool es_numero = true; //comprobar que es un numero
+            bool es_longitud = true;
+            bool es_letradni = true;
+            char letra = char.ToUpper(DNI[8]); //Sacamos asi letra de dni para hacer la verificacion
+            string numero_string = DNI.Remove(8, 1); //Sacar los numeros del dni
+            int numero_int = 1;
+
+            contiene_letra = ComprobarLetra(LetraDNI, letra);
+            if (contiene_letra)
+                es_numero = ComprobarNumero(numero_string, out numero_int);
+            if (es_numero)
+                es_longitud = ComprobarLongitudDNI(DNI);
+            if (es_longitud)
+                es_letradni = ValidarDNI(LetraDNI, numero_int, letra);
+            if (es_letradni)
+                return true;
+            else
+                return false;
+        }
+        public static string LeerDNI()
+        {
+            string DNI;
+            do
+            {
+                Console.WriteLine("Introduce el DNI: ");
+                DNI = Console.ReadLine();
+            } while (!ComprobarDNI(DNI));
+            return DNI;
+        }
+        static void Main(string[] args)
+        {
+            LeerDNI();
         }
     }
 }
