@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Listas
@@ -248,9 +249,51 @@ namespace Listas
             } while (!ComprobarDNI(DNI));
             return DNI;
         }
+        public static int Esta(List<int> Lista, int valor) //Repaso examen
+        {
+            int contador = 0;
+            if (!Lista.Contains(valor))
+                return contador; //No está
+            else
+            {
+                while (Lista.Contains(valor))
+                {
+                    Lista.Remove(valor);
+                    contador++;
+                }
+                return contador; //Está
+            }
+        }
+        public static int NueveListas(List<int> Lista)
+        {
+            Lista.Sort();
+            return Lista[(Lista.Count) - 1];
+        }
+        public static bool OchoListas(List<int> Lista01, List<int> Lista02)
+        {
+            if (Lista01.Count != Lista02.Count)
+                return false;
+            
+            Lista01.Sort();
+            Lista02.Sort();
+            for (int i = 0; i < Lista01.Count; i++)
+            {
+                if (Lista01[i] != Lista02[i])
+                    return false;
+            }
+            return true;
+            
+        }
         static void Main(string[] args)
         {
-            LeerDNI();
+            //LeerDNI();
+            int[] Array = new int[5];
+            Array[1] = 1;
+
+            List<int> lista = new List<int>() {5, 2, 3, 4, 9, 0 };
+            
+            lista.Sort();
+            int a = lista[(lista.Count) - 1];
         }
     }
 }
