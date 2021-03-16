@@ -264,6 +264,86 @@ namespace Listas
                 return contador; //Está
             }
         }
+        public static bool UnoListas(List<int> Lista, int valor, out int contador)
+        {
+            contador = 0;
+            if (!Lista.Contains(valor))
+                return false;            
+            while (Lista.Contains(valor))
+            {
+                Lista.Remove(valor);
+                contador++;
+            }
+            return true;                
+        }
+        public static int DosListas(List<int> Lista, int num_introducir, int num_sustiuir)
+        {
+            int contador = 0;
+            while(Lista.Contains(num_sustiuir))
+            {
+                int index = Lista.IndexOf(num_sustiuir);
+                Lista[index] = num_introducir;
+                contador++;
+            }
+            return contador;
+            
+        }
+        public static void TresListas(List<int> Lista01, List<int> Lista02)
+        {
+            Lista01.Sort();
+            Lista02.Sort();
+            List<int> Lista03 = new List<int>();
+            int Count;
+       
+            for (int i = 0; i < Lista01.Count; i++)
+            {
+                Lista03.Add(Lista01[i]);
+            }
+            for (int i = 0; i < Lista02.Count; i++)
+            {                
+                Lista03.Add(Lista02[i]);
+            }
+            Lista03.Sort();
+        }
+        public static int CuatroListas(ArrayList Lista)
+        {
+            int resultado = 0;
+            string elemento;
+            for (int i = 0; i < Lista.Count; i++)
+            {
+                elemento = Convert.ToString(Lista[i]);
+                if (Int32.TryParse(elemento, out int valor))
+                    resultado += valor;
+            }
+            return resultado;
+        }
+        public static int CincoListas(ArrayList Lista, int contador)
+        {
+            
+            if (contador == Lista.Count)
+                return 0;
+            string elemento = Convert.ToString(Lista[contador]);
+            if (Int32.TryParse(elemento, out int valor))
+
+                return CincoListas(Lista, contador + 1);
+            else
+                return CincoListas(Lista, contador + 1);
+        }
+        public static void SeisListas(List<int> Lista)
+        {            
+            for (int i = Lista.Count - 1; i >= 0; i--)
+            {
+                Console.WriteLine(Lista[i]);
+            }
+        }
+        public static void SieteListas(List<int> Lista)
+        {
+            for (int i = 0; i < Lista.Count; i++)
+            {
+                if (Lista[i] % 2 == 0 && Lista[i] != 0)
+                    Lista.RemoveAt(i);
+            }
+        }
         public static int NueveListas(List<int> Lista)
         {
             Lista.Sort();
@@ -281,19 +361,29 @@ namespace Listas
                 if (Lista01[i] != Lista02[i])
                     return false;
             }
-            return true;
-            
+            return true;            
         }
         static void Main(string[] args)
         {
             //LeerDNI();
-            int[] Array = new int[5];
-            Array[1] = 1;
+            //int[] Array = new int[5];
+            //Array[1] = 1;
 
-            List<int> lista = new List<int>() {5, 2, 3, 4, 9, 0 };
+            List<int> lista01 = new List<int>() {5, 2, 3, 4, 9, 0 };
+            List<int> lista02 = new List<int>() { 5, 2, 3, 4, 9, 13, 14, 29, 33, 22 };
+
+            //lista.Sort();
+            //int a = lista[(lista.Count) - 1];
+
+            //DosListas(lista, 88, 9);
+            //TresListas(lista01, lista02);
+
+            ArrayList ListaArray = new ArrayList() {1, 2, 'h', "ddewsew", "15", "3", '1'};
+            //CuatroListas(ListaArray);
+            //CincoListas(ListaArray, 0);
+            //SeisListas(lista02);
+            SieteListas(lista01);
             
-            lista.Sort();
-            int a = lista[(lista.Count) - 1];
         }
     }
 }
