@@ -276,6 +276,18 @@ namespace Listas
             }
             return true;                
         }
+        public static int UnoListas(List<int> Lista, int valor)
+        {
+            int contador = 0;
+            if (!Lista.Contains(valor))
+                return contador;
+            while (Lista.Contains(valor))
+            {
+                Lista.Remove(valor);
+                contador++;
+            }
+            return contador;
+        }
         public static int DosListas(List<int> Lista, int num_introducir, int num_sustiuir)
         {
             int contador = 0;
@@ -292,8 +304,7 @@ namespace Listas
         {
             Lista01.Sort();
             Lista02.Sort();
-            List<int> Lista03 = new List<int>();
-            int Count;
+            List<int> Lista03 = new List<int>();            
        
             for (int i = 0; i < Lista01.Count; i++)
             {
@@ -363,6 +374,11 @@ namespace Listas
             }
             return true;            
         }
+        public static string[] SieteListas(string mensaje)
+        {
+            string[] array = mensaje.Split(" ");
+            return array;
+        }
         static void Main(string[] args)
         {
             //LeerDNI();
@@ -382,7 +398,11 @@ namespace Listas
             //CuatroListas(ListaArray);
             //CincoListas(ListaArray, 0);
             //SeisListas(lista02);
-            SieteListas(lista01);
+            //SieteListas(lista01);
+            //UnoListas(lista01, 24);
+            //string frase = "Hola que tal, mi nombre es josemi y el juanfran es cabron";
+            
+            
             
         }
     }
