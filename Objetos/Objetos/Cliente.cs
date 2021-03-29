@@ -6,10 +6,10 @@ namespace Objetos
 {
     class Cliente
     {
-        private string nombre;
-        private string apellidos;
-        private int edad;
-        private string dni;
+        public string nombre;
+        public string apellidos;
+        public int edad;
+        public string dni;
         public void SetNombre(string nombre)
         {
             this.nombre = nombre;
@@ -42,5 +42,15 @@ namespace Objetos
         {
             return dni;
         }
+        /*
+        public int edad
+        {
+            get
+            {
+                return edad;
+            }
+            set { edad = value; }
+        }
+        */
     }
 }
