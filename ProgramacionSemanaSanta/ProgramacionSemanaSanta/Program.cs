@@ -236,9 +236,39 @@ namespace ProgramacionSemanaSanta
             if (EsFibonacci(valor))
                 Console.WriteLine("El valor " + valor + " está en la serie de Fibonacci");
         }
+        /* 11 - Calcular la suma de los números impares anteriores a n, donde n es un valor que se le pide al
+        usuario por consola. */
+        public static void Ej11(int valor)
+        {
+            int resultado = 0;
+            for (int i = valor - 1; i >= 0; i--)
+            {
+                if (i % 2 == 0)
+                    resultado += i;
+            }
+
+        }
+        /*12 - Realizar un programa que nos calcule los datos de un préstamo.Nos pedirá la cantidad prestada,
+        los intereses(será un número entero que representará el % sobre la cantidad prestada) y los años para
+        devolverlo.El programa nos dirá:
+        1- La cantidad de intereses que se paga al mes.
+        2- La cantidad a pagar por el cliente cada mes.
+        3- La cantidad de deuda no pagada al final de cada mes.
+        4- El número de cuotas restantes.
+        5- Cantidad total de interés pagado al final del préstamo.
+        6- Cantidad total que habrá pagado el cliente al finalizar el préstamo */
+        public static void Ej12(double cantidad_prestada, int porcentaje_intereses, int años)
+        {
+            int meses = años * 12;
+            double intereses = (cantidad_prestada * porcentaje_intereses) / 100;
+            double cantidad_mas_intereses = cantidad_prestada + intereses;
+            //1 - La cantidad de intereses que se paga al mes.
+            double intereses_mensuales = intereses / meses;
+
+        }
         static void Main(string[] args)
         {
-            Ej10(7);
+            Ej11(100);
 
             
 
