@@ -356,11 +356,82 @@ namespace ProgramacionSemanaSanta
                         break;
                 }
             }
+        }
+        //16 - Realizar un programa que pida una cantidad de dinero y muestre en una etiqueta cuantos billetes
+        //de 500 euros, de 200, de 100, de 50, de 20, de 10 de 5 y monedas de 2 y 1 euro le corresponden.Por
+        //ejemplo: a 672 euros le corresponde 1 de 500, 1 de 100 1 de 50, 1 de 20 y dos monedas de 2 euros.
+        public static void Ej16()
+        {
+            List<int> Billetes = new List<int> { 500, 200, 100, 50, 20, 10, 5, 2, 1 };
+            int cantidad = 672;
+            int num_billetes;
+            for (int i = 0; i < Billetes.Count; i++)
+            {
+                Ej16Aux(ref cantidad, Billetes[i], out num_billetes);
+                if (num_billetes > 0 && i < 7)
+                    Console.WriteLine(num_billetes + " billete/es de " + Billetes[i]);
+                else if (num_billetes > 0 && i > 6)
+                    Console.WriteLine(num_billetes + " moneda/as de " + Billetes[i]);
+            }
             
+        }
+
+        public static void Ej16Aux(ref int cantidad, int billete, out int num_billetes)
+        {
+            num_billetes = 0;
+            while ((cantidad - billete) >= 0)
+            {
+                cantidad = cantidad - billete;
+                num_billetes++;
+            }                
+        }
+        //17 - Realizar el programa anterior pero también con céntimos.
+        public static void Ej17()
+        {
+            List<double> Billetes = new List<double> { 500, 200, 100, 50, 20, 10, 5, 2, 1, 0.50, 0.20, 0.10, 0.05, 0.02, 0.01 };
+            double cantidad = 672.90;
+            int num_billetes;
+            for (int i = 0; i < Billetes.Count; i++)
+            {
+                Ej17Aux(ref cantidad, Billetes[i], out num_billetes);
+                if (num_billetes > 0 && i < 7)
+                    Console.WriteLine(num_billetes + " billete/es de " + Billetes[i] + " euros");
+                else if (num_billetes > 0 && i > 6 && i < 9)
+                    Console.WriteLine(num_billetes + " moneda/as de " + Billetes[i] + " euros");
+                else if (num_billetes > 0 && i > 8)
+                    Console.WriteLine(num_billetes + " moneda/as de " + Billetes[i] * 100 + " centimos");
+            }
+        }
+        public static void Ej17Aux(ref double cantidad, double billete, out int num_billetes)
+        {
+            num_billetes = 0;
+            while ((cantidad - billete) >= 0)
+            {
+                cantidad = cantidad - billete;
+                num_billetes++;
+            }
+        }
+        //18 - Escribir un programa que acepte números enteros positivos.El programa irá aceptando números
+        //hasta que se introduzca un número negativo.Sacará por pantalla cuál es el número mayor y el menor
+        //de todos los números introducidos (sin contar el negativo).
+        public static void Ej18()
+        {
+            int valor = 0;
+            List<int> Lista = new List<int>();
+            while (valor >= 0)
+            {
+                Console.WriteLine("Introduce un número: ");
+                valor = Convert.ToInt32(Console.ReadLine());
+                if (valor >= 0)
+                Lista.Add(valor);
+            }
+            Lista.Sort();
+            Console.WriteLine("El mayor número de todos los introducidos es el: " + Lista[Lista.Count - 1]);
+            Console.WriteLine("El menor número de todos los introducidos es el: " + Lista[0]);
         }
         static void Main(string[] args)
         {
-            Ej15();
+            Ej18();
 
             
 
