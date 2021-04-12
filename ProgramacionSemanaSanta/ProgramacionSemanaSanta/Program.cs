@@ -264,11 +264,103 @@ namespace ProgramacionSemanaSanta
             double cantidad_mas_intereses = cantidad_prestada + intereses;
             //1 - La cantidad de intereses que se paga al mes.
             double intereses_mensuales = intereses / meses;
-
+            //2- La cantidad a pagar por el cliente cada mes.
+            double pago_mensual = cantidad_mas_intereses / meses;
+            //3- La cantidad de deuda no pagada al final de cada mes.
+            int num_mes = 3;
+            double cantidad_restante = cantidad_mas_intereses - (pago_mensual * num_mes);
+            //4- El número de cuotas restantes.
+            double cuotas_restantes = meses - num_mes;
+            //5- Cantidad total de interés pagado al final del préstamo.
+            //intereses;
+            //6- Cantidad total que habrá pagado el cliente al finalizar el préstamo */
+            //cantidad_mas_intereses;
+        }
+        //13 - Realizar un programa que acepte el nombre de un estudiante y las notas de cada uno de los tres
+        //trimestres y nos calcule la nota media.El programa pedirá nombres de estudiante y sus notas hasta que
+        //no metamos en estudiante la palabra FIN.
+        public static void Ej13()
+        {
+            string nombre_estudiante;
+            double nota01;
+            double nota02;
+            double nota03;
+            double media;
+            do
+            {
+                Console.Write("Introduce un nombre para el estudiante: ");
+                nombre_estudiante = Console.ReadLine();
+                Console.Write("Introduce una nota para el primer trimestre: ");
+                nota01 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Introduce una nota para el segundo trimestre: ");
+                nota02 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Introduce una nota para el tercer trimestre: ");
+                nota03 = Convert.ToInt32(Console.ReadLine());
+                media = (nota01 + nota02 + nota03) / 3;
+                Console.WriteLine(media);
+            } while (nombre_estudiante != "FIN");
+        }
+        //14 - Modificar el programa anterior para que calcule la media, pero dando diferentes pesos a cada uno
+        //de los trimestres.El primer trimestre será un 30% de la nota final, el segundo un 30% y el tercero un
+        //40%.
+        public static void Ej14()
+        {
+            string nombre_estudiante;
+            double nota01;
+            double nota02;
+            double nota03;
+            double media;
+            do
+            {
+                Console.Write("Introduce un nombre para el estudiante: ");
+                nombre_estudiante = Console.ReadLine();
+                Console.Write("Introduce una nota para el primer trimestre: ");
+                nota01 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Introduce una nota para el segundo trimestre: ");
+                nota02 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Introduce una nota para el tercer trimestre: ");
+                nota03 = Convert.ToInt32(Console.ReadLine());
+                media = nota01 * 0.30 + nota02 * 0.30 + nota03 * 0.40;
+                Console.WriteLine(media);
+            } while (nombre_estudiante != "FIN");
+        }
+        //15 - Escribir un programa que pase cualquier número entero en su correspondiente notación romana.
+        //Por ejemplo 15 – XV(Consejo: empezar por números pequeños, por ejemplo, del 1 al 9, luego con
+        //números de 10 en 10, por ejemplo, del 10 al 100…).
+        public static void Ej15()
+        {
+            string[] unidades = new string[9] { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
+            string[] decenas = new string[9] { "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
+            string[] centenas = new string[9] {"C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" };
+            string numero = "444";
+            string indice = "0";
+            int cifras = 0;
+            Console.Write("El número " + numero + " en notación romana es: ");
+            for (int i = 0; i < numero.Length; i++)
+            {                
+                cifras = numero.Length - i;
+                indice = Convert.ToString(numero[i]);
+                switch (cifras)
+                {
+                    case 1:
+                        Console.Write(unidades[Convert.ToInt32(indice) - 1]);
+                        break;
+                    case 2:
+                        Console.Write(decenas[Convert.ToInt32(indice) - 1]);
+                        break;
+                    case 3:
+                        Console.Write(centenas [Convert.ToInt32(indice) - 1]);
+                        break;
+                    default:
+                        Console.Write("El número de cifras se sale del rango");
+                        break;
+                }
+            }
+            
         }
         static void Main(string[] args)
         {
-            Ej11(100);
+            Ej15();
 
             
 
