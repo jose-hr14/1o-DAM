@@ -429,9 +429,64 @@ namespace ProgramacionSemanaSanta
             Console.WriteLine("El mayor número de todos los introducidos es el: " + Lista[Lista.Count - 1]);
             Console.WriteLine("El menor número de todos los introducidos es el: " + Lista[0]);
         }
+        //19 - Realizar un programa que muestre por pantalla los números del 1 al número introducido por el
+        //usuario.Hacerlo con for, con while y otro con do..while.
+        public static void Ej19()
+        {
+            Console.WriteLine("Introduce un númeor: ");
+            int value = Convert.ToInt32(Console.ReadLine());
+            for (int i = 1; i <= value; i++)
+            {                
+                if (i == value)
+                    Console.Write(i);
+                else
+                    Console.Write(i + ", ");
+            }
+        }
+        public static void Ej19B()
+        {
+            int contador = 0;
+            Console.WriteLine("Introduce un númeor: ");
+            int value = Convert.ToInt32(Console.ReadLine());
+            while (contador < value)
+            {
+                contador++;
+                if (contador == value)
+                    Console.Write(contador);
+                else
+                    Console.Write(contador + ", ");
+                
+            }
+        }
+        //20 - Realizar un programa que muestre por pantalla los números pares desde el 0 hasta el número
+        //introducido por el usuario.Hacerlo con for, con while y otro con do..while.
+        public static void Ej20()
+        {
+            Console.WriteLine("Introduce un númeor: ");
+            int value = Convert.ToInt32(Console.ReadLine());
+            for (int i = 1; i <= value; i++)
+            {
+                if (i % 2 == 0)
+                    Console.Write(i + ", ");
+            }
+        }
+        //21 - Realizar un programa similar al anterior, en el que se vayan introduciendo números y se sumen
+        //siempre y cuando estos números estén entre 0 y 9, en otro caso terminará la introducción de números
+        //mostrando cuál es la suma.
+        public static void Ej21()
+        {
+            int valor = 0;
+            int resultado = 0;
+            while (valor >= 0 && valor <= 9)
+            {
+                Console.WriteLine("Introduce un número: ");
+                valor = Convert.ToInt32(Console.ReadLine());
+                resultado += valor;
+            }
+        }
         static void Main(string[] args)
         {
-            Ej18();
+            Ej20();
 
             
 
