@@ -39,7 +39,7 @@ namespace Objetos
         static void Main(string[] args)
         {
             //EjProfe();
-            Cliente profe_juanfran = new Cliente();
+            Persona.Cliente profe_juanfran = new Persona.Cliente();
             profe_juanfran.nombre = "Juan Francisco";
             profe_juanfran.apellidos = "Bueno";
             profe_juanfran.edad = 45;

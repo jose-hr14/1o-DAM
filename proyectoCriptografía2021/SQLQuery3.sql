@@ -1,0 +1,4 @@
+﻿CREATE TABLE ALFABETO (
+	idAlfabeto INT PRIMARY KEY IDENTITY,
+	letra VARCHAR(1)
+);
