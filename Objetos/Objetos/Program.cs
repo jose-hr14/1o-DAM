@@ -21,20 +21,6 @@ namespace Objetos
                     Console.WriteLine("El número no está");
             }
         }
-
-        public static void ApuntesClases()
-        {
-            //EjProfe();
-            PersonaApuntes.Cliente profe_juanfran = new PersonaApuntes.Cliente();
-            profe_juanfran.nombre = "Juan Francisco";
-            profe_juanfran.apellidos = "Bueno";
-            profe_juanfran.edad = 45;
-            profe_juanfran.dni = "123456789";
-        }
-        static void Main(string[] args)
-        {
-            EjProfeSolucion();
-        }
         public static void EjProfeSolucion()
         {
             int[] Vector = new int[10] { 1, 7, 9, 8, 6, 11, 12, 13, 14, 5 };
@@ -49,6 +35,19 @@ namespace Objetos
                 else if (i == Vector.Length - 1)
                     Console.WriteLine("El número no está");
             }
+        }
+        public static void ApuntesClases()
+        {
+            //EjProfe();
+            PersonaApuntes.Cliente profe_juanfran = new PersonaApuntes.Cliente();
+            profe_juanfran.nombre = "Juan Francisco";
+            profe_juanfran.apellidos = "Bueno";
+            profe_juanfran.edad = 45;
+            profe_juanfran.dni = "123456789";
+        }
+        static void Main(string[] args)
+        {
+
         }
     }
 }
