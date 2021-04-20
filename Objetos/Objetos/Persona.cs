@@ -14,7 +14,7 @@ namespace Objetos
         private int edad;
         private int telefono;
         private string sexo;
-        private bool casado;
+        private string estadoCivil;
 
         public string GetNombre()
         {
@@ -48,13 +48,13 @@ namespace Objetos
         {
             this.sexo = sexo;
         }
-        public bool GetCasado()
+        public string GetEstadoCivil()
         {
-            return this.casado;
+            return this.estadoCivil;
         }
-        public void SetCasado(bool casado)
+        public void SetEstadoCivil(string casado)
         {
-            this.casado = casado;
+            this.estadoCivil = casado;
         }
     }
 }
