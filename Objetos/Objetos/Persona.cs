@@ -56,5 +56,7 @@ namespace Objetos
         {
             this.estadoCivil = casado;
         }
+        //Procedimientos para sustituir getters y setters
+
     }
 }

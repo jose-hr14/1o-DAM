@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Objetos
 {
@@ -85,9 +86,7 @@ namespace Objetos
                         Console.Clear();
                         break;
                 }
-            } while (salir == false);
-            
-
+            } while (salir == false);            
         }
         public static void SetPersona(List<Persona> ListaPersonas)
         {
@@ -117,6 +116,23 @@ namespace Objetos
                 Console.WriteLine("El estado civil de la persona " + (i + 1) + " es : " + ListaPersonas[i].GetEstadoCivil());
                 Console.WriteLine();
             }            
+        }
+
+
+        public static void PrintFechas(List<Fecha> Lista)
+        {
+            for (int i = 0; i < Lista.Count; i++)
+            {
+                Lista[i].PrintFecha();
+            }
+        }
+        public static void OrderFechaByDia(List<Fecha> Lista)
+        {
+            Lista.OrderBy()
+        }
+        public static void Ej03()
+        {
+
         }
         static void Main(string[] args)
         {
