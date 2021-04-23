@@ -118,7 +118,8 @@ namespace Objetos
             }            
         }
 
-
+        //
+        //
         public static void PrintFechas(List<Fecha> Lista)
         {
             for (int i = 0; i < Lista.Count; i++)
@@ -128,15 +129,107 @@ namespace Objetos
         }
         public static void OrderFechaByDia(List<Fecha> Lista)
         {
-            Lista.OrderBy()
+            Lista.Sort();
+        }
+        public static void OrderByAño(List<Fecha> Lista)
+        {
+            //Lista.Sort((x, y) => x.GetAño().CompareTo(y.GetAño()));
+            Fecha aux;
+            for (int i = 0; i < Lista.Count; i++)
+            {
+                for (int j =i + 1; j < Lista.Count; j++)
+                {
+                    if (Lista[i].GetAño() > Lista[j].GetAño())
+                    {
+                        aux = Lista[i];
+                        Lista[i] = Lista[j];
+                        Lista[j] = aux;
+                    }
+                }
+            }
+        }
+        public static void OrderByMes(List<Fecha> Lista)
+        {
+            //Lista.Sort((x, y) => x.GetAño().CompareTo(y.GetAño()));
+            Fecha aux;
+            for (int i = 0; i < Lista.Count; i++)
+            {
+                for (int j = i + 1; j < Lista.Count; j++)
+                {
+                    if (Lista[i].GetMes() > Lista[j].GetMes() && Lista[i].GetAño() == Lista[j].GetAño())
+                    {
+                        aux = Lista[i];
+                        Lista[i] = Lista[j];
+                        Lista[j] = aux;
+                    }
+                }
+            }
+        }
+        public static void OrderByDia(List<Fecha> Lista)
+        {
+            //Lista.Sort((x, y) => x.GetAño().CompareTo(y.GetAño()));
+            Fecha aux;
+            for (int i = 0; i < Lista.Count; i++)
+            {
+                for (int j = i + 1; j < Lista.Count; j++)
+                {
+                    if (Lista[i].GetMes() > Lista[j].GetMes() && Lista[i].GetAño() == Lista[j].GetAño() && Lista[i].GetMes() == Lista[j].GetMes())
+                    {
+                        aux = Lista[i];
+                        Lista[i] = Lista[j];
+                        Lista[j] = aux;
+                    }
+                }
+            }
+        }
+        public static bool ValidateFecha(int dia, int mes, int año)
+        {
+            if (mes < 0 && mes > 13)
+                return false;
+            if (dia < 0 && dia > 31)
+                return false;
+            if ((mes == 4 || mes == 6 || mes == 9 || mes == 1) && dia > 30)
+                return false;
+            return true;
+
         }
         public static void Ej03()
         {
+            List<Fecha> Lista = new List<Fecha>();
+            Fecha fecha01 = new Fecha();
+            Fecha fecha02 = new Fecha();
+            Fecha fecha03 = new Fecha();
+            Fecha fecha04 = new Fecha();
+
+            fecha01.SetAño(1996);
+            fecha01.SetMes(04);
+            fecha01.SetDia(02);
+
+            fecha02.SetAño(1996);
+            fecha02.SetMes(05);
+            fecha02.SetDia(01);
+
+            fecha03.SetAño(1996);
+            fecha03.SetMes(05);
+            fecha03.SetDia(03);
+
+            fecha04.SetAño(1992);
+            fecha04.SetMes(02);
+            fecha04.SetDia(01);
+
+            Lista.Add(fecha01);
+            Lista.Add(fecha02);
+            Lista.Add(fecha03);
+            Lista.Add(fecha04);
+
+            OrderByAño(Lista);
+            OrderByMes(Lista);
+            OrderByDia(Lista);
 
         }
         static void Main(string[] args)
         {
-            Ej01();
+            Ej03();
         }
     }
 }

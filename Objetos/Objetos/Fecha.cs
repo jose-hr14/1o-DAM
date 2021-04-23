@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+
 
 namespace Objetos
 {
@@ -9,6 +11,9 @@ namespace Objetos
         int dia;
         int mes;
         int año;
+        
+
+        public object OrderDate { get; private set; }
 
         public void SetDia(int dia)
         {
@@ -42,5 +47,8 @@ namespace Objetos
             Console.WriteLine(GetMes());
             Console.WriteLine(GetAño());
         }
+
+
+
     }
 }
