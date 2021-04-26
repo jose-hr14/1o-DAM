@@ -84,6 +84,7 @@
             this.bBorrar.TabIndex = 4;
             this.bBorrar.Text = "Borrar";
             this.bBorrar.UseVisualStyleBackColor = true;
+            this.bBorrar.Click += new System.EventHandler(this.bBorrar_Click);
             // 
             // bGuardar
             // 
@@ -94,6 +95,7 @@
             this.bGuardar.TabIndex = 5;
             this.bGuardar.Text = "Guardar";
             this.bGuardar.UseVisualStyleBackColor = true;
+            this.bGuardar.Click += new System.EventHandler(this.bGuardar_Click);
             // 
             // Form1
             // 

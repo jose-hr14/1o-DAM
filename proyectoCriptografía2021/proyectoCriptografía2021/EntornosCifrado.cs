@@ -13,7 +13,7 @@ namespace proyectoCriptografía2021
 
         public EntornosCifrado()
         {
-            miConexion = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=CRIPTOGRAFIA;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            miConexion = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=CIPTOGRAFIA;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             miConexion.Open();
         }
         public SqlDataReader ConsultarBD(string consulta)
@@ -34,18 +34,24 @@ namespace proyectoCriptografía2021
             int posicionLetraActual = 0;
             int posicionLetraNueva = 0;
             int longitudAlfabeto = 27;
-            string mensajeCifrado;
+            string mensajeCifrado = "";
 
             SqlDataReader resultadosBD;
 
             resultadosBD = ConsultarBD("select posicion from metodo_cifrado where idCifrado =" + idMetodoCifrado);
-
+            
             while (resultadosBD.Read())
             {
                 posicion = (int) resultadosBD[0];
             }
-
+            resultadosBD.Close();
             for (int i = 0; i < mensajeOriginal.Length; i++)
+            {                
+                posicionLetraActual = Convert.ToInt32(ConsultarBD("select idAlfabeto from ALFABETO where letra = " + mensajeOriginal[i]));
+                posicionLetraNueva = posicionLetraActual + idMetodoCifrado;
+                mensajeCifrado += ConsultarBD("select letra from ALFABETO where idAlfabeto = " + posicionLetraNueva);
+            }
+            return mensajeCifrado;
         }
     }
 }

@@ -19,7 +19,20 @@ namespace proyectoCriptografía2021
 
         private void label1_Click(object sender, EventArgs e)
         {
+            
+        }
 
+        private void bGuardar_Click(object sender, EventArgs e)
+        {
+            string mensaje = cMensajeCifrado.Text;
+            EntornosCifrado MensajeCifrado = new EntornosCifrado();
+            MensajeCifrado.cifrarMensaje(mensaje, 1);
+            
+        }
+
+        private void bBorrar_Click(object sender, EventArgs e)
+        {
+            cMensajeCifrado.Text = "";
         }
     }
 }
