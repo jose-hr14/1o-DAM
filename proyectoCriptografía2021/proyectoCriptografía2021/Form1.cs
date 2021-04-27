@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+
 
 namespace proyectoCriptografía2021
 {
@@ -33,6 +35,23 @@ namespace proyectoCriptografía2021
         private void bBorrar_Click(object sender, EventArgs e)
         {
             cMensajeCifrado.Text = "";
+        }
+
+        private void cMetodoCifrado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // En el campo este vamos a aladir los metodos de cifrado existentes en la tabla METODOS_CIFRADO
+            EntornosCifrado miDesplegable;
+            SqlDataReader miConsulta;
+
+            miDesplegable = new EntornosCifrado();
+
+            miConsulta = miDesplegable.ConsultarBD("select idCifrado, cMetodoCifrado from METODOS_CIFRADO");
+
+            while (miConsulta.Read())
+            {
+                cMetodoCifrado.Text = (string) miConsulta[1];
+            }
+
         }
     }
 }
