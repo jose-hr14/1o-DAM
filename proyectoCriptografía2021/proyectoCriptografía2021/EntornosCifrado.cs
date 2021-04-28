@@ -13,7 +13,7 @@ namespace proyectoCriptografía2021
 
         public EntornosCifrado()
         {
-            miConexion = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=CIPTOGRAFIA;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            miConexion = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=CRIPTOGRAFIA;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             miConexion.Open();
         }
         public SqlDataReader ConsultarBD(string consulta)
@@ -38,20 +38,41 @@ namespace proyectoCriptografía2021
 
             SqlDataReader resultadosBD;
 
-            resultadosBD = ConsultarBD("select posicion from metodo_cifrado where idCifrado =" + idMetodoCifrado);
+            resultadosBD = ConsultarBD("select posicion from METODO_CIFRADO where idCifrado =" + idMetodoCifrado);
             
             while (resultadosBD.Read())
             {
                 posicion = (int) resultadosBD[0];
             }
+
             resultadosBD.Close();
+            
             for (int i = 0; i < mensajeOriginal.Length; i++)
-            {                
-                posicionLetraActual = Convert.ToInt32(ConsultarBD("select idAlfabeto from ALFABETO where letra = " + mensajeOriginal[i]));
-                posicionLetraNueva = posicionLetraActual + idMetodoCifrado;
-                mensajeCifrado += ConsultarBD("select letra from ALFABETO where idAlfabeto = " + posicionLetraNueva);
+            {
+                //1º Para le letra del mensaje original hallamos su posicion
+                resultadosBD = ConsultarBD("select idAlfabeto from ALFABETO where letra = '" + mensajeOriginal[i] + "'");
+                while (resultadosBD.Read())
+                {
+                    posicionLetraActual = (int)resultadosBD[0];
+                }
+                resultadosBD.Close();
+                //2º Calcularemos la posicion de la letra que sustituye a la anterior
+                posicionLetraNueva = posicionLetraActual + posicion;
+                if (posicionLetraNueva > longitudAlfabeto)
+                {
+                    posicionLetraNueva = posicionLetraNueva - longitudAlfabeto;
+                }
+                //3º Obtendremos la letra para la posicion obtenida en el punto 2
+                resultadosBD = ConsultarBD("select letra from alfabeto where idAlfabeto = " + posicionLetraNueva);
+                //4º Concatenaremos laletra cifrada al mensaje cifrado
+                while (resultadosBD.Read())
+                {
+                    mensajeCifrado = mensajeCifrado + resultadosBD[0];
+                }
+                resultadosBD.Close();
             }
             return mensajeCifrado;
+            
         }
     }
 }

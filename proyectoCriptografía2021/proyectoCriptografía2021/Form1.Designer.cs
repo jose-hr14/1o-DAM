@@ -65,6 +65,7 @@
             this.cMetodoCifrado.Name = "cMetodoCifrado";
             this.cMetodoCifrado.Size = new System.Drawing.Size(253, 37);
             this.cMetodoCifrado.TabIndex = 2;
+            this.cMetodoCifrado.SelectedIndexChanged += new System.EventHandler(this.cMetodoCifrado_SelectedIndexChanged);
             // 
             // cMensajeCifrado
             // 

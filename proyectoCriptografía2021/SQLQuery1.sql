@@ -1,0 +1,1 @@
+﻿select idAlfabeto from ALFABETO where letra = 'a'
