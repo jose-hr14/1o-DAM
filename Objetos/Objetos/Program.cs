@@ -173,7 +173,7 @@ namespace Objetos
             {
                 for (int j = i + 1; j < Lista.Count; j++)
                 {
-                    if (Lista[i].GetMes() > Lista[j].GetMes() && Lista[i].GetAño() == Lista[j].GetAño() && Lista[i].GetMes() == Lista[j].GetMes())
+                    if (Lista[i].GetDia() > Lista[j].GetDia() && Lista[i].GetAño() == Lista[j].GetAño() && Lista[i].GetMes() == Lista[j].GetMes())
                     {
                         aux = Lista[i];
                         Lista[i] = Lista[j];
@@ -202,15 +202,15 @@ namespace Objetos
             Fecha fecha04 = new Fecha();
 
             fecha01.SetAño(1996);
-            fecha01.SetMes(04);
-            fecha01.SetDia(02);
+            fecha01.SetMes(06);
+            fecha01.SetDia(08);
 
             fecha02.SetAño(1996);
-            fecha02.SetMes(05);
+            fecha02.SetMes(06);
             fecha02.SetDia(01);
 
             fecha03.SetAño(1996);
-            fecha03.SetMes(05);
+            fecha03.SetMes(06);
             fecha03.SetDia(03);
 
             fecha04.SetAño(1992);
@@ -227,9 +227,165 @@ namespace Objetos
             OrderByDia(Lista);
 
         }
+        //4. Realizar un ejercicio con el siguiente formulario (Ejercicio Resuelto):
+        /*
+        Este ejercicio trabajaremos con una lista de empleados.Tanto el empleado como la lista
+        serán clases de Visual C# .NET.
+        • En el primer botón se leerá un nuevo empleado.
+
+        Programación Tema 7. Programación Orientada a Objetos
+        Página 2
+        • El segundo botón mostrará los datos de todos los empleados que tenemos en
+        nuestra lista.
+        • El botón de Cumpleaños de Empleado pedirá el nombre del empleado y le
+        sumarán un año llamando al método cumpleAnyos del objeto.
+        • Añadir Venta a Empleado pedirá el nombre del empleado y permitirá introducirle
+        ventas. */
+        public static int GetEmpleadoIndexByName(List<Empleado> ListaEmpleados, string nombre)
+        {
+            for (int i = 0; i < ListaEmpleados.Count; i++)
+            {
+                if (ListaEmpleados[i].GetNombre().ToLower() == nombre.ToLower())
+                {
+                    ListaEmpleados[i].SetEdad(ListaEmpleados[i].GetEdad() + 1);
+                    return i;
+                }
+            }
+            return -1;
+        }
+        public static void sumarVenta(List<Empleado> ListaEmpleados, string nombre)
+        {
+            int indice = GetEmpleadoIndexByName(ListaEmpleados, nombre);
+            if (indice != -1)
+            {
+                ListaEmpleados[indice].SetVentas(ListaEmpleados[indice].GetVentas() + 1);
+                Console.WriteLine("Empleado encontrado, se le ha sumado un año.");
+                return;
+            }
+            Console.WriteLine("Empleado no encontrado");
+        }
+        public static void MenuSumarVenta(List<Empleado> ListaEmpleados)
+        {
+            Console.WriteLine("Introduce un nombre: ");
+            string nombre = Console.ReadLine();
+            sumarVenta(ListaEmpleados, nombre);
+            Console.Write("Pulsa una tecla para continuar ");
+            Console.ReadLine();
+        }
+
+        public static void cumpleAnyos(List<Empleado> ListaEmpleados, string nombre)
+        {
+            int indice = GetEmpleadoIndexByName(ListaEmpleados, nombre);
+            if (indice != -1)
+            {
+                ListaEmpleados[indice].SetEdad(ListaEmpleados[indice].GetEdad() + 1);
+                Console.WriteLine("Empleado encontrado, se le ha sumado un año.");
+                return;
+            }
+            Console.WriteLine("Empleado no encontrado");
+        }
+        public static void MenuCumpleAnyos(List<Empleado> ListaEmpleados)
+        {
+            Console.WriteLine("Introduce un nombre: ");
+            string nombre = Console.ReadLine();
+            cumpleAnyos(ListaEmpleados, nombre);
+            Console.Write("Pulsa una tecla para continuar ");
+            Console.ReadLine();
+        }
+        public static void ImprimirListaEmpleados(List<Empleado> ListaEmpleados)
+        {
+            for (int i = 0; i < ListaEmpleados.Count; i++)
+            {
+                Console.WriteLine("Numero de empleado: " + (i + 1));
+                Console.WriteLine("Nombre: " + ListaEmpleados[i].GetNombre());
+                Console.WriteLine("Apellidos: " + ListaEmpleados[i].GetApellidos());
+                Console.WriteLine("Edad: " + ListaEmpleados[i].GetEdad());
+                Console.WriteLine("Ventas: " + ListaEmpleados[i].GetVentas());
+                Console.WriteLine();
+            }
+            Console.Write("Pulsa una tecla para continuar ");
+            Console.ReadLine();
+        }
+        public static Empleado LeerEmpleado(string nombre, string apellidos, int edad, int ventas)
+        {
+            Empleado empleado = new Empleado();
+            empleado.SetNombre(nombre);
+            empleado.SetApellidos(apellidos);
+            empleado.SetEdad(edad);
+            empleado.SetVentas(ventas);
+
+            return empleado;
+
+        }
+        public static void MenuLeerEmpleado(List<Empleado> ListaEmpleados)
+        {
+            Console.Write("Introduce un nombre: ");
+            string nombre = Console.ReadLine();
+            nombre.Trim();
+            Console.Write("Introduce apellidos: ");
+            string apellidos = Console.ReadLine();
+            apellidos.Trim();
+            Console.Write("Introduce edad: ");
+            int edad = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Introduce el número de ventas: ");
+            int ventas = Convert.ToInt32(Console.ReadLine());
+
+            Empleado empleado = LeerEmpleado(nombre, apellidos, edad, ventas);
+            ListaEmpleados.Add(empleado);
+
+            Console.Write("Pulsa una tecla para continuar ");
+            Console.ReadLine();
+        }
+        public static void ImprimirMenuEj04()
+        {
+            Console.WriteLine("Elige una opción: ");
+            Console.WriteLine("1.- Nuevo empleado.");
+            Console.WriteLine("2.- Mostrar lista empleados.");
+            Console.WriteLine("3.- Cumpleaños empleado.");
+            Console.WriteLine("4.- Añadir venta");
+            Console.WriteLine("0.- Salir");
+        }
+        public static void Ej04()
+        {
+            List<Empleado> ListaEmpleados = new List<Empleado>();
+            string option;
+            bool salir = false;
+            do
+            {
+                ImprimirMenuEj04();
+                option = Console.ReadLine();
+                Console.Clear();
+                switch (option)
+                {                    
+                    case "1":                        
+                        MenuLeerEmpleado(ListaEmpleados);
+                        break;
+                    case "2":
+                        ImprimirListaEmpleados(ListaEmpleados);
+                        break;
+                    case "3":
+                        MenuCumpleAnyos(ListaEmpleados);
+                        break;
+                    case "4":
+                        MenuSumarVenta(ListaEmpleados);
+                        break;
+                    case "5":
+                        salir = true;
+                        break;
+                    default:
+                        Console.WriteLine("Opción inválida");
+                        Console.Write("Pulsa una tecla para continuar ");
+                        Console.ReadLine();
+                        break;
+                }
+                Console.Clear();
+            } while (salir == false);
+
+        }
+
         static void Main(string[] args)
         {
-            Ej03();
+            Ej04();
         }
     }
 }
