@@ -55,5 +55,14 @@ namespace Objetos
             return this.ventas;
         }
 
+        public void cumpleAnyos()
+        {
+            this.edad += 1;
+        }
+        public void sumarVenta()
+        {
+            this.ventas += 1;
+        }
+
     }
 }

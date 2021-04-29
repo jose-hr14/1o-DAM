@@ -42,6 +42,9 @@ namespace Objetos
         {
             return dni;
         }
+
+
+
         /*
         public int edad
         {

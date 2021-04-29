@@ -253,42 +253,33 @@ namespace Objetos
             }
             return -1;
         }
-        public static void sumarVenta(List<Empleado> ListaEmpleados, string nombre)
-        {
-            int indice = GetEmpleadoIndexByName(ListaEmpleados, nombre);
-            if (indice != -1)
-            {
-                ListaEmpleados[indice].SetVentas(ListaEmpleados[indice].GetVentas() + 1);
-                Console.WriteLine("Empleado encontrado, se le ha sumado un año.");
-                return;
-            }
-            Console.WriteLine("Empleado no encontrado");
-        }
         public static void MenuSumarVenta(List<Empleado> ListaEmpleados)
         {
             Console.WriteLine("Introduce un nombre: ");
             string nombre = Console.ReadLine();
-            sumarVenta(ListaEmpleados, nombre);
-            Console.Write("Pulsa una tecla para continuar ");
-            Console.ReadLine();
-        }
-
-        public static void cumpleAnyos(List<Empleado> ListaEmpleados, string nombre)
-        {
             int indice = GetEmpleadoIndexByName(ListaEmpleados, nombre);
             if (indice != -1)
             {
-                ListaEmpleados[indice].SetEdad(ListaEmpleados[indice].GetEdad() + 1);
-                Console.WriteLine("Empleado encontrado, se le ha sumado un año.");
-                return;
+                ListaEmpleados[indice].sumarVenta();
+                Console.WriteLine("Empleado encontrado y venta actualizada");
             }
-            Console.WriteLine("Empleado no encontrado");
+            else
+                Console.WriteLine("El cliente no existe, venta no actualizada");
+            Console.Write("Pulsa una tecla para continuar ");
+            Console.ReadLine();
         }
         public static void MenuCumpleAnyos(List<Empleado> ListaEmpleados)
         {
             Console.WriteLine("Introduce un nombre: ");
             string nombre = Console.ReadLine();
-            cumpleAnyos(ListaEmpleados, nombre);
+            int indice = GetEmpleadoIndexByName(ListaEmpleados, nombre);
+            if (indice != -1)
+            {
+                ListaEmpleados[indice].cumpleAnyos();
+                Console.WriteLine("Empleado encontrado y edad actualizada");
+            }
+            else
+                Console.WriteLine("El cliente no existe, edad no actualizada");
             Console.Write("Pulsa una tecla para continuar ");
             Console.ReadLine();
         }
@@ -382,10 +373,89 @@ namespace Objetos
             } while (salir == false);
 
         }
+        //
+        public static void MenuGestionarEmpleados()
+        {
+            Console.WriteLine("Elige una opción:");
+            Console.WriteLine("1.- Introducir empleado");
+            Console.WriteLine("2.- Eliminar empleado");
+            Console.WriteLine("3.- Mostrar lista empleados");
+            Console.WriteLine("4.- Ordenar empleados por orden alfabético");
+            Console.WriteLine("5.- Mostrar datos empleados");
+            Console.WriteLine("0.- Salir");
+            string option = Console.ReadLine();
+            bool salir = false;
+            do
+            {
+                switch (option)
+                {
+                    case "1":
+                        Console.Write("Pulsa una tecla para continuar ");
+                        Console.ReadLine();
+                        break;
+                    case "2":
+                        Console.Write("Pulsa una tecla para continuar ");
+                        Console.ReadLine();
+                        break;
+                    case "3":
+                        Console.Write("Pulsa una tecla para continuar ");
+                        Console.ReadLine();
+                        break;
+                    case "4":
+                        Console.Write("Pulsa una tecla para continuar ");
+                        Console.ReadLine();
+                        break;
+                    case "5":
+                        Console.Write("Pulsa una tecla para continuar ");
+                        Console.ReadLine();
+                        break;
+                    case "0":
+                        break;
+                    default:
+                        Console.WriteLine("Opción inválida, vuelta a intentarlo");
+                        break;
+                }
+                Console.Clear();
+            } while (salir == false);
+        }
+        public static void Ej05()
+        {
+            Console.WriteLine("Elige una opción:");
+            Console.WriteLine("1.- Gestionar empleados");
+            Console.WriteLine("2.- Gestionar ventas");
+            Console.WriteLine("0.- Salir");
+            string option = Console.ReadLine();
+            bool salir = false;
+            do
+            {
+                switch (option)
+                {
+                    case "1":
+                        Console.Write("Pulsa una tecla para continuar ");
+                        Console.ReadLine();
+                        break;
+                    case "2":
+                        Console.Write("Pulsa una tecla para continuar ");
+                        Console.ReadLine();
+                        break;
+                    case "3":
+                        Console.Write("Pulsa una tecla para continuar ");
+                        Console.ReadLine();
+                        break;
+                    case "0":
+                        break;
+                    default:
+                        Console.WriteLine("Opción inválida, vuelta a intentarlo");
+                        break;
+                }
+                Console.Clear();
+            } while (salir == false);
 
+        }
         static void Main(string[] args)
         {
-            Ej04();
+
+
         }
     }
 }
