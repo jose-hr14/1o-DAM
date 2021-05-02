@@ -374,108 +374,34 @@ namespace Objetos
 
         }
         //
-        public static void MenuGestionarEmpleados()
-        {
-            Console.WriteLine("Elige una opción:");
-            Console.WriteLine("1.- Introducir empleado");
-            Console.WriteLine("2.- Eliminar empleado");
-            Console.WriteLine("3.- Mostrar lista empleados");
-            Console.WriteLine("4.- Ordenar empleados por orden alfabético");
-            Console.WriteLine("5.- Mostrar datos empleados");
-            Console.WriteLine("0.- Salir");
-            string option = Console.ReadLine();
-            bool salir = false;
-            do
-            {
-                switch (option)
-                {
-                    case "1":
-                        Console.Write("Pulsa una tecla para continuar ");
-                        Console.ReadLine();
-                        break;
-                    case "2":
-                        Console.Write("Pulsa una tecla para continuar ");
-                        Console.ReadLine();
-                        break;
-                    case "3":
-                        Console.Write("Pulsa una tecla para continuar ");
-                        Console.ReadLine();
-                        break;
-                    case "4":
-                        Console.Write("Pulsa una tecla para continuar ");
-                        Console.ReadLine();
-                        break;
-                    case "5":
-                        Console.Write("Pulsa una tecla para continuar ");
-                        Console.ReadLine();
-                        break;
-                    case "0":
-                        break;
-                    default:
-                        Console.WriteLine("Opción inválida, vuelta a intentarlo");
-                        break;
-                }
-                Console.Clear();
-            } while (salir == false);
-        }
-        public static void Ej05()
-        {
-            Console.WriteLine("Elige una opción:");
-            Console.WriteLine("1.- Gestionar empleados");
-            Console.WriteLine("2.- Gestionar ventas");
-            Console.WriteLine("0.- Salir");
-            string option = Console.ReadLine();
-            bool salir = false;
-            do
-            {
-                switch (option)
-                {
-                    case "1":
-                        Console.Write("Pulsa una tecla para continuar ");
-                        Console.ReadLine();
-                        break;
-                    case "2":
-                        Console.Write("Pulsa una tecla para continuar ");
-                        Console.ReadLine();
-                        break;
-                    case "3":
-                        Console.Write("Pulsa una tecla para continuar ");
-                        Console.ReadLine();
-                        break;
-                    case "0":
-                        break;
-                    default:
-                        Console.WriteLine("Opción inválida, vuelta a intentarlo");
-                        break;
-                }
-                Console.Clear();
-            } while (salir == false);
-
-        }
         static void Main(string[] args)
         {
-            fn_ListaEmpleados Lista = new fn_ListaEmpleados();
+            Ej05.Ejercicio05();
+
+            /*
+            ListaEmpleados Lista = new ListaEmpleados();
             Empleado Juan = new Empleado();
             Juan.SetNombre("Juan");
             Juan.SetApellidos("Molina");
             Juan.SetEdad(85);
             Juan.SetVentas(0);
 
-            Empleado Juanfran = new Empleado();
-            Juanfran.SetNombre("Juanfran");
-            Juanfran.SetApellidos("Bueno");
-            Juanfran.SetEdad(35);
-            Juanfran.SetVentas(0);
+            Empleado Carlos = new Empleado();
+            Carlos.SetNombre("Carlos");
+            Carlos.SetApellidos("Moral");
+            Carlos.SetEdad(35);
+            Carlos.SetVentas(0);
             Lista.IntroducirEmpleado(Juan);
-            Lista.IntroducirEmpleado(Juanfran);
-            Lista.EliminarEmpleado(0);
-            Lista.IntroducirEmpleado(Juan);
-            Lista.MostrarListaEmpleados();
+            Lista.IntroducirEmpleado(Carlos);
+
+
+            Lista.OrdenarEmpleados();
 
 
             //List<Empleado> Lista02 = new List<Empleado>();
             //Lista02.Add(Juan);
             //Lista02.Add(Juanfran);
+            */
 
         }
     }
