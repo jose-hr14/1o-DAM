@@ -454,7 +454,28 @@ namespace Objetos
         }
         static void Main(string[] args)
         {
+            fn_ListaEmpleados Lista = new fn_ListaEmpleados();
+            Empleado Juan = new Empleado();
+            Juan.SetNombre("Juan");
+            Juan.SetApellidos("Molina");
+            Juan.SetEdad(85);
+            Juan.SetVentas(0);
 
+            Empleado Juanfran = new Empleado();
+            Juanfran.SetNombre("Juanfran");
+            Juanfran.SetApellidos("Bueno");
+            Juanfran.SetEdad(35);
+            Juanfran.SetVentas(0);
+            Lista.IntroducirEmpleado(Juan);
+            Lista.IntroducirEmpleado(Juanfran);
+            Lista.EliminarEmpleado(0);
+            Lista.IntroducirEmpleado(Juan);
+            Lista.MostrarListaEmpleados();
+
+
+            //List<Empleado> Lista02 = new List<Empleado>();
+            //Lista02.Add(Juan);
+            //Lista02.Add(Juanfran);
 
         }
     }
