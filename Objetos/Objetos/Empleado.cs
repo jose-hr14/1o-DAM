@@ -12,15 +12,6 @@ namespace Objetos
         private int edad;
         private int ventas;
 
-        List<Empleado> ListaEmpleados;
-
-        public void CrearListaEmpleados()
-        {
-            ListaEmpleados = new List<Empleado>();
-        }
-
-
-
         public void SetNombre(string nombre)
         {
             this.nombre = nombre;
@@ -64,5 +55,25 @@ namespace Objetos
             this.ventas += 1;
         }
 
+        public void AñadirVentas(int ventas)
+        {
+            this.ventas += ventas;
+        }
+
+        public void EliminarVentas()
+        {
+            this.ventas = 0;
+        }
+
+        public void MostrarEmpleado()
+        {
+
+            Console.WriteLine(this.GetNombre());
+            Console.WriteLine(this.GetApellidos());
+            Console.WriteLine(this.GetEdad());
+            Console.WriteLine(this.GetVentas());
+            Console.WriteLine();
+
+        }
     }
 }

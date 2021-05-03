@@ -377,6 +377,12 @@ namespace Objetos
         static void Main(string[] args)
         {
             Ej05.Ejercicio05();
+            
+            
+            //Console.Write("Pulsa enter para continuar: ");
+            //do { } while (Console.ReadKey(true).Key != ConsoleKey.Enter);
+
+
 
             /*
             ListaEmpleados Lista = new ListaEmpleados();

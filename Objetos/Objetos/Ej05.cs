@@ -6,6 +6,69 @@ namespace Objetos
 {
     class Ej05
     {
+        public static void MenuAñadirVentasEmpleado(ListaEmpleados Lista)
+        {
+            Console.Write("Introduce el número del empleado al que quieres añadir ventas: ");
+            int indice = Convert.ToInt32(Console.ReadLine());
+            Lista.MostrarDatosEmpleado(indice);
+        }
+        public static void MenuEliminarVentasEmpleado(ListaEmpleados Lista)
+        {
+            Console.Write("Introduce el número del empleado al que quieres eliminar las ventas: ");
+            int indice = Convert.ToInt32(Console.ReadLine());
+            Empleado empleado = Lista.DevolverEmpleado(indice);
+            empleado.EliminarVentas();
+        }
+        public static void MenuGestionarVentas(ListaEmpleados Lista)
+        {
+
+            Console.Clear();
+            bool salir = false;
+            Empleado empleado;
+            string option;
+            do
+            {
+                Console.WriteLine("Elige una opción:");
+                Console.WriteLine("1.- Añadir ventas a empleado");
+                Console.WriteLine("2.- Mostrar empleado con mayores ventas");
+                Console.WriteLine("3.- Eliminar las ventas de un empleado");
+                Console.WriteLine("4.- Ordenar empleados por ventas");
+                Console.WriteLine("0.- Salir");
+                option = Console.ReadLine();
+                Console.Clear();
+                switch (option)
+                {
+                    case "1":
+                        MenuAñadirVentasEmpleado(Lista);
+                        Console.Write("Pulsa una tecla para continuar ");
+                        Console.ReadLine();
+                        break;
+                    case "2":
+                        empleado = Lista.MostrarEmpleadosConMasVentas();
+                        empleado.MostrarEmpleado();
+                        Console.Write("Pulsa una tecla para continuar ");
+                        Console.ReadLine();
+                        break;
+                    case "3":
+                        MenuEliminarVentasEmpleado(Lista);
+                        Console.Write("Pulsa una tecla para continuar ");
+                        Console.ReadLine();
+                        break;
+                    case "4":
+                        Lista.OrdenarPorVentas();
+                        Console.Write("Pulsa una tecla para continuar ");
+                        Console.ReadLine();
+                        break;
+                    case "0":
+                        salir = true;
+                        break;
+                    default:
+                        Console.WriteLine("Opción inválida, vuelta a intentarlo");
+                        break;
+                }
+                Console.Clear();
+            } while (salir == false);
+        }
         public static void MenuIntroducirEmpleado(ListaEmpleados Lista)
         {
             Empleado NuevoEmpleado = new Empleado();
@@ -106,10 +169,7 @@ namespace Objetos
                         Console.ReadLine();
                         break;
                     case "2":
-                        Console.Write("Pulsa una tecla para continuar ");
-                        Console.ReadLine();
-                        break;
-                    case "3":
+                        MenuGestionarVentas(Lista);
                         Console.Write("Pulsa una tecla para continuar ");
                         Console.ReadLine();
                         break;

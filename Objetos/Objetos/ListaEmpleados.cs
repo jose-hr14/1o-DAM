@@ -17,6 +17,10 @@ namespace Objetos
         {
             Lista.RemoveAt(indice);
         }
+        public Empleado DevolverEmpleado(int indice)
+        {
+            return this.Lista[indice];
+        }
         public void MostrarListaEmpleados()
         {
             for (int i = 0; i < Lista.Count; i++)
@@ -28,9 +32,33 @@ namespace Objetos
                 Console.WriteLine();
             }
         }
+
+        public void MostrarEmpleado(int indice)
+        {
+
+            Console.WriteLine(Lista[indice].GetNombre());
+            Console.WriteLine(Lista[indice].GetApellidos());
+            Console.WriteLine(Lista[indice].GetEdad());
+            Console.WriteLine(Lista[indice].GetVentas());
+            Console.WriteLine();
+
+        }
         public void OrdenarEmpleados()
-        {            
-            Lista.Sort((p, q) => string.Compare(p.GetNombre(), q.GetNombre())); //Ordena alfabéticamente por nombre la lista genérica lista
+        {
+            //Lista.Sort((p, q) => string.Compare(p.GetNombre(), q.GetNombre())); //Ordena alfabéticamente por nombre la lista genérica lista
+            Empleado aux;
+            for (int i = 0; i < Lista.Count; i++)
+            {
+                for (int j = i + 1; j < Lista.Count; j++)
+                {
+                    if (Lista[i].GetNombre().CompareTo(Lista[j].GetNombre()) == 1)
+                    {
+                        aux = Lista[i];
+                        Lista[i] = Lista[j];
+                        Lista[j] = aux;
+                    }
+                }
+            }
         }
         public void MostrarDatosEmpleado(int indice)
         {
@@ -61,6 +89,25 @@ namespace Objetos
             }
             return Lista[0];
         }
+
+
+        public void OrdenarPorVentas()
+        {
+            Empleado aux;
+            for (int i = 0; i < Lista.Count; i++)
+            {
+                for (int j = i + 1; j < Lista.Count; j++)
+                {
+                    if (Lista[i].GetVentas() > Lista[j].GetVentas())
+                    {
+                        aux = Lista[i];
+                        Lista[i] = Lista[j];
+                        Lista[j] = aux;
+                    }
+                }
+            }
+        }
+
         /*
         public static void IntroducirEmpleado02(List<Empleado> Lista, Empleado empleado)
         {
