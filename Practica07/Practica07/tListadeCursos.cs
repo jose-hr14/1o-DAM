@@ -12,5 +12,7 @@ namespace Practica07
         {
             Lista = new List<tCurso>();
         }
+
+
     }
 }
