@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Practica07
 {
-    class tListadeCursos
+    public class tListadeCursos
     {
         List<tCurso> Lista;
 

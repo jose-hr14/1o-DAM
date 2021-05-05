@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Practica07
 {
@@ -6,11 +8,10 @@ namespace Practica07
     {
         static void Main(string[] args)
         {
-            tListadeAlumnos Lista; 
-            
-            Lista = new tListadeAlumnos();
+            tListadeAlumnos listaAlumnos = new tListadeAlumnos();
+            tListadeProfesores listaProfesores = new tListadeProfesores();
+            tListadeCursos listaCursos = new tListadeCursos();
 
-            tAlumno alumno = new tAlumno();
             
         }
     }
