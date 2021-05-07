@@ -12,5 +12,13 @@ namespace Practica07
         {
             Lista = new List<tAlumno>();
         }
+        public int NumeroAlumnos()
+        {
+            return this.Lista.Count;
+        }
+        public tAlumno GetAlumno(int codigo)
+        {
+            return this.Lista[codigo];
+        }
     }
 }

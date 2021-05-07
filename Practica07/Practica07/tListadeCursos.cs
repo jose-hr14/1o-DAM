@@ -27,7 +27,7 @@ namespace Practica07
         }
         public int NumeroCursos()
         {
-            return this.NumeroCursos();
+            return this.Lista.Count;
         }
     }
 }

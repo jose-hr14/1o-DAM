@@ -24,9 +24,12 @@ namespace Practica07
                 Console.WriteLine();
             }
         }
-        public void MostrarAlumnosDeUnCurso(tListadeCursos ListaCursos, int codigo)
+        public void MostrarAlumnosDeUnCurso(tListadeAlumnos ListaAlumnos, int codigoCurso)
         {
+            for (int i = 0; i < ListaAlumnos.NumeroAlumnos(); i++)
+            {
 
+            }
         }
 
 

@@ -24,7 +24,7 @@ namespace Practica07
         {
 
         }
-        public int DevolverCodigoCurso()
+        public int GetCodigoCurso()
         {
             return this.codigoCurso;
         }
