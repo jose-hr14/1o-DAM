@@ -6,11 +6,29 @@ namespace Practica07
 {
     class Gestion_Cursos
     {
-        public void Añadir_Curso(tListadeCursos Lista, string nombre)
+        public void AñadirCurso(tListadeCursos ListaCursos, string nombre)
         {
-            tCurso nuevoCurso = new tCurso(nombre, Lista.NumeroCursos());
-            Lista.AñadirCurso(nuevoCurso);
+            tCurso nuevoCurso = new tCurso(nombre, ListaCursos.NumeroCursos());
+            ListaCursos.AñadirCurso(nuevoCurso);
         }
+        public void EliminarCurso(tListadeCursos ListaCursos, int codigoCurso)
+        {
+            ListaCursos.EliminarCurso(codigoCurso);
+        }
+        public void MostrarTodosCursos(tListadeCursos ListaCursos)
+        {
+            for (int i = 0; i < ListaCursos.NumeroCursos(); i++)
+            {
+                Console.WriteLine(ListaCursos.DevolverCurso(i).GetNombre());
+                Console.WriteLine(ListaCursos.DevolverCurso(i).GetCodigo());
+                Console.WriteLine();
+            }
+        }
+        public void MostrarAlumnosDeUnCurso(tListadeCursos ListaCursos, int codigo)
+        {
+
+        }
+
 
     }
 }
