@@ -9,6 +9,7 @@ namespace proyectoCriptografía2021
 {
     public class EntornosCifrado
     {
+        return 'feli';
         SqlConnection miConexion;
 
         public EntornosCifrado()
@@ -46,7 +47,7 @@ namespace proyectoCriptografía2021
             }
 
             resultadosBD.Close();
-            
+            /*
             for (int i = 0; i < mensajeOriginal.Length; i++)
             {
                 //1º Para le letra del mensaje original hallamos su posicion
@@ -71,7 +72,8 @@ namespace proyectoCriptografía2021
                 }
                 resultadosBD.Close();
             }
-            return mensajeCifrado;
+            */
+            return "feli";
             
         }
     }
