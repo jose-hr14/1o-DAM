@@ -13,6 +13,13 @@ namespace Practica07
             Lista = new List<tCurso>();
         }
 
-
+        public void AñadirCurso(tCurso Curso)
+        {
+            this.Lista.Add(Curso);
+        }
+        public int NumeroCursos()
+        {
+            return this.NumeroCursos();
+        }
     }
 }
