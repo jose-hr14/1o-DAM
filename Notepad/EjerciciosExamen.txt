@@ -80,6 +80,8 @@ class tBiblioteca
 	string nombre;
 	string direccion;
 	string telefono;
+	List<tLibro> listaLibros;
+	List<tCliente> listaClientes;
 }
 
 class tLibros
