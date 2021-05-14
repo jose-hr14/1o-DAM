@@ -1,0 +1,99 @@
+calculadora con clases
+suma multiplicacion resta y division, vigialr que divisor
+no sea cero
+
+class tclaculadora
+{
+	float a;
+	float b;
+	
+	public float Suma()
+	{return a+b;}
+	
+	public float Resta()
+	{return a-b;}
+	
+	
+}
+
+hacer una clase banco con los atributos nombre, direccion, telefono, lista<tcliente> cliente, y una clase
+tcliente con nombre, dni, telefono y saldo. Unir y saber saldo del banco completo, y cada vez que demos de alta
+el banco, el saldo del cliente debera inicializarse a cero, y luego averiguar el saldo del banco en cualquier
+momento, cada
+
+class tBanco
+{
+	string nombre;
+	string direccion;
+	string telefono;
+	List<tCliente> listaClientes;
+	
+	pubic tBanco(string nombre, string direccion, string telefono)
+	{
+		this.nombre = nombre;
+		this.direccion = direccion;
+		this.telefono = telefono;
+		this.listaClientes = new List<tCliente>();
+	}
+	
+	public void AñadirCliente(tCliente nuevoCliente)
+	{
+		this.listaClientes.Add(nuevoCliente);
+	}
+	
+	public float SaldoTotal()
+	{
+		float saldoTotal = 0;
+		for (int i = 0; i < this.listaClientes.Count; i++)
+		{
+			saldoTotal += listaClientes[i].GetSaldo();
+		}
+		return saldoTotal;
+	}
+	
+}
+
+class tCliente
+{
+	string nombre;
+	string dni;
+	string telefono;
+	float saldo;
+	
+	public tCliente(string nombre, string dni, string telefono)
+	{
+		this.nombre = nombre;
+		this.dni = dni;
+		this.telefono = telefono;
+		this.saldo = 0;		
+	}
+	
+	public float GetSaldo()
+	{
+		return this.Saldo;
+	}
+}
+
+biblioteca guarda datos de clientes y libros, completar este programa y dado un isbn, devuelve el cliente, y constructores.
+class tBiblioteca
+{
+	string nombre;
+	string direccion;
+	string telefono;
+	List<tLibro> listaLibros;
+	List<tCliente> listaClientes;
+}
+
+class tLibros
+{
+	string ISBN;
+	string título;
+}
+
+class tUsuario
+{
+	string nombre;
+	string DNI;
+	string ISBN;
+}
+Y dado este ejercicio anterior,modificarlo para que un usuario tenga varios libros.
