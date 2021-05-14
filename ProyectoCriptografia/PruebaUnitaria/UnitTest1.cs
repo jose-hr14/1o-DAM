@@ -20,5 +20,18 @@ namespace PruebaUnitaria
 
             Assert.AreEqual(mensajeTeorico, mensajeReal);
         }
+        [TestMethod]
+        public void TestMethod2()
+        {
+            entornosCifrado eCifrado = new entornosCifrado();
+
+            string mensajeOriginal = "jose";
+            string mensajeTeorico = "kptf";
+            string mensajeReal = "";
+
+            mensajeReal = eCifrado.cifrarMensaje(mensajeOriginal, 1);
+
+            Assert.AreEqual(mensajeTeorico, mensajeReal);
+        }
     }
 }
