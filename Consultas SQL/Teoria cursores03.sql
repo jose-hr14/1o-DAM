@@ -18,17 +18,19 @@ FETCH NEXT FROM Cur_Clientes INTO @nomCliente
 WHILE (@@FETCH_STATUS = 0)
 BEGIN
 	PRINT @nomCliente;
-	SET @total = 0;
+	
 	-- cursor anidado
 
+	
 		DECLARE Cur_Pagos CURSOR FOR
 		SELECT total
 		FROM PAGOS
-		WHERE codCliente = @nomCliente;
+		WHERE codCliente = @codCliente;
 				
 		OPEN Cur_Pagos;
 
 		FETCH NEXT FROM Cur_Pagos INTO @total;
+		SET @acumulado = 0;
 
 		WHILE (@@FETCH_STATUS = 0)
 		BEGIN
@@ -37,8 +39,8 @@ BEGIN
 		END;
 
 		CLOSE Cur_Pagos;
-		DEALLOCATE Cur_Pagos;
-		
+		DEALLOCATE Cur_Pagos;	
+
 
 
 	-- cursor anidado cerrado
