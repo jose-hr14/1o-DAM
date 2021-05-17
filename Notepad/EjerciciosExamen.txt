@@ -150,3 +150,193 @@ class tUsuario
 	string DNI;
 	List<tLibro> librosAlquilados;
 }
+
+//Ejercicio examen de una hora, seguro que es super difícil
+class tEmpleado ()
+{
+	string nombre;
+	List<double> ventas;
+	int dia_nacimiento;
+	int mes_nacimiento;
+
+
+	public tEmpleado()
+	{
+		ventas = new List<double>();
+	}
+
+}
+//1.Crear clase tlistaempleado con atributo que sea una lista de empleados
+class tListaEmpleado
+{
+	List<tEmpleado> listaEmpleados;
+	
+	public tListaEmpleado()
+	{
+		listaEmpleados = new List<tEmpleado>();
+	}
+}
+//2. dado un mes y dia, dar empleados que cumplan años ese dia
+class tEmpleado ()
+{
+	string nombre;
+	List<double> ventas;
+	int dia_nacimiento;
+	int mes_nacimiento;
+	
+	public tEmpleado(string nombre, int dia, int mes)
+	{
+		this.nombre = nombre;
+		this.ventas = new List<double>();
+		this.dia_nacimiento = dia;
+		this.mes_nacimiento = mes;
+	}
+	
+	public int GetDia()
+	{
+		return this.dia_nacimiento;
+	}
+	public int GetMes()
+	{
+		return this.mes_nacimiento;
+	}
+	
+	public List<double> GetListaVentas()
+	{
+		return this.ventas;
+	}
+}
+
+class tListaEmpleado
+{
+	List<tEmpleado> listaEmpleados;
+	
+	public tListaEmpleado()
+	{
+		listaEmpleados = new List<tEmpleado>();
+	}
+	
+	public void ImprimirEmpleadoPorCumpleaños(int dia, int mes)
+	{
+		for (int i = 0; i < listaEmpleados.Count; i++)
+		{
+			if (listaEmpleados[i].GetDia() == dia && listaEmpleados[i].GetMes() == mes)
+			{
+				Console.WriteLine(GetNombre());
+			}
+		}
+	}
+}
+
+//3. metodo que imprima el nombre del empleado con mayor numero de ventas
+
+class tListaEmpleado
+{
+	List<tEmpleado> listaEmpleados;
+	
+	public tListaEmpleado()
+	{
+		listaEmpleados = new List<tEmpleado>();
+	}
+	
+	public void ImprimirEmpleadoPorCumpleaños(int dia, int mes)
+	{
+		for (int i = 0; i < listaEmpleados.Count; i++)
+		{
+			if (listaEmpleados[i].GetDia() == dia && listaEmpleados[i].GetMes() == mes)
+			{
+				Console.WriteLine(GetNombre());
+			}
+		}
+	}
+	
+	public void ImprimirEmpleadoPorMayoresVentas()
+	{
+		int numVentas = 0;
+		tEmpleado = empleado;
+		
+		for (int i = 0; i < listaEmpleados.Count; i++)
+		{
+			if (listaEmpleados[i].GetListaVentas().Count > numVentas)
+				empleado = listaEmpleados[i];
+		}
+		Console.WriteLine();
+	}
+}
+
+
+//4. metodo que imprima el nombre de los empleados con un numero de ventas mayor que la media
+class tListaEmpleado
+{
+	List<tEmpleado> listaEmpleados;
+	
+	public tListaEmpleado()
+	{
+		listaEmpleados = new List<tEmpleado>();
+	}
+	
+	public void ImprimirEmpleadoPorCumpleaños(int dia, int mes)
+	{
+		for (int i = 0; i < listaEmpleados.Count; i++)
+		{
+			if (listaEmpleados[i].GetDia() == dia && listaEmpleados[i].GetMes() == mes)
+			{
+				Console.WriteLine(GetNombre());
+			}
+		}
+		Console.WriteLine(listaEmpleados[i].GetNombre());
+	}
+	
+	public void ImprimirEmpleadoPorMayoresVentas()
+	{		
+		int numventas = 0;
+		tEmpleado = empleado;
+		
+		for (int i = 0; i < listaEmpleados.Count; i++)
+		{
+			if (listaEmpleados[i].GetListaVentas().Count > numVentas)
+			{
+				empleado = listaEmpleados[i];
+				numVentas = listaEmpleados[i].GetListaVentas.Count;
+			}
+				
+		}
+		Console.WriteLine(empleado.GetNombre());
+	}	
+	
+	public void ImprimirEmpleadoPorVentasMayorMedia()
+	{		
+		List<int> numVentasEmpleados = new list<int>();
+		double media = 0;
+		
+		for (int i = 0; i < listaEmpleados.Count; i++) //bucle para meter el numero de ventas en una lista y sacar la media despues
+		{
+			numVentasEmpleados.Add(listaEmpleados[i].GetListaVentas().Count);			
+		}
+		
+		for (int i = 0; i < numVentasEmpleados.Count; i++)
+		{
+			media += numVentasEmpleados[i];
+		}
+		
+		media = media / numVentasEmpleados.Count();
+		
+		for (int i = 0; i < listaEmpleados.Count; i++)
+		{
+			if (listaEmpleados[i].GetListaVentas().Count > media)
+			{
+				empleado = listaEmpleados[i];
+				numVentas = listaEmpleados[i].GetListaVentas.Count;
+			}
+				
+		}
+		
+		Console.WriteLine(empleado.GetNombre());
+
+		
+	}
+	
+	
+}
+
+//5. metodo que ordene los empleados por cumpleaños
