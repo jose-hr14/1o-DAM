@@ -333,14 +333,25 @@ class tListaEmpleado
 				numVentas = listaEmpleados[i].GetListaVentas.Count;
 			}
 				
-		}
-		
-		Console.WriteLine(empleado.GetNombre());
-
-		
+		}		
+		Console.WriteLine(empleado.GetNombre());	
 	}
 	
 	
+}
+//solucion numero 4
+public void EmpleadosMedia()
+{
+	int aux = 0;
+	for(int i = 0; i < ListaEmpleados.Count i++)
+	{
+		aux += ListaEmpleados[i].GetListaVentas().Count; //el total
+	}
+	for (int = 0; i < ListaEmpleado.Count;i++)
+	{
+		if (ListaEmpleados[i].GetListaVentas.Count < aux/ListaEmpleados.Count)
+			CWL(ListaEmpleado[i].GetNombre());
+	}
 }
 
 //5. metodo que ordene los empleados por cumpleaños
