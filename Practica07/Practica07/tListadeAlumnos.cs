@@ -20,5 +20,9 @@ namespace Practica07
         {
             return this.Lista[codigo];
         }
+        public void AñadirAlumno(tAlumno nuevoAlumno)
+        {
+            this.Lista.Add(nuevoAlumno);
+        }
     }
 }

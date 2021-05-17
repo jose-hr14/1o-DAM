@@ -82,6 +82,22 @@ class tBiblioteca
 	string telefono;
 	List<tLibro> listaLibros;
 	List<tCliente> listaClientes;
+	
+	public tBiblioteca(string nombre, string direccion, string telefono)
+	{
+		this.nombre = nombre;
+		this.direccion = direccion;
+		this.telefono = telefono;
+		listaLibros = new List<tLibro>();
+		listaClientes = new List<tCliente>();
+	}
+	
+	public tCliente BuscarCliente(string ISBN)
+	{
+		int indice = listaClientes.IndexOf(ISBN);
+		return listaClientes[indice];
+	}
+	
 }
 
 class tLibros
@@ -97,3 +113,40 @@ class tUsuario
 	string ISBN;
 }
 Y dado este ejercicio anterior,modificarlo para que un usuario tenga varios libros.
+class tBiblioteca
+{
+	string nombre;
+	string direccion;
+	string telefono;
+	List<tLibro> listaLibros;
+	List<tCliente> listaClientes;
+	
+	public tBiblioteca(string nombre, string direccion, string telefono)
+	{
+		this.nombre = nombre;
+		this.direccion = direccion;
+		this.telefono = telefono;
+		listaLibros = new List<tLibro>();
+		listaClientes = new List<tCliente>();
+	}
+	
+	public tCliente BuscarCliente(string ISBN)
+	{
+		int indice = listaClientes.IndexOf(ISBN);
+		return listaClientes[indice];
+	}
+	
+}
+
+class tLibros
+{
+	string ISBN;
+	string título;
+}
+
+class tUsuario
+{
+	string nombre;
+	string DNI;
+	List<tLibro> librosAlquilados;
+}

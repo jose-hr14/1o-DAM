@@ -29,5 +29,23 @@ namespace Practica07
         {
             return this.Lista.Count;
         }
+        public bool ContainsNombre(string nombre)
+        {
+            for (int i = 0; i < this.Lista.Count; i++)
+            {
+                if (this.DevolverCurso(i).GetNombre() == nombre)
+                    return true;
+            }
+            return false;
+        }
+        public bool ContainsCodigo(int codigo)
+        {
+            for (int i = 0; i < this.Lista.Count; i++)
+            {
+                if (this.DevolverCurso(i).GetCodigo() == codigo)
+                    return true;
+            }
+            return false;
+        }
     }
 }
