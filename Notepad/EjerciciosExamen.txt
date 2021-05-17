@@ -258,9 +258,13 @@ class tListaEmpleado
 		for (int i = 0; i < listaEmpleados.Count; i++)
 		{
 			if (listaEmpleados[i].GetListaVentas().Count > numVentas)
+			{
 				empleado = listaEmpleados[i];
+				numVentas = 0;
+			}
+				
 		}
-		Console.WriteLine();
+		Console.WriteLine(empleado.GetNombre());
 	}
 }
 
@@ -340,3 +344,25 @@ class tListaEmpleado
 }
 
 //5. metodo que ordene los empleados por cumpleaños
+
+class tListaEmpleado
+{
+	List<tEmpleado> listaEmpleados;
+	tEmpleado empleadoAux;
+	
+	for (int i = 0; i <  listaEmleados.Count; i++)
+	{
+		for (int j = i + 1; j < listaEmpleados.Count; j++)
+		{
+			if (listaEmpleados.Count[i].GetMes() > listaEmpleados.Count[j].GetMes())
+			{
+				empleadoAux = listaEmpleados[i];
+				
+				listaEmpleados[i] = listaEmpleados[j];
+				listaEmpleados[j] = empleadoAux;
+				
+			}						
+		}
+	}
+}
+
