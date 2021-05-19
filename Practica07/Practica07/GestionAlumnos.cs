@@ -6,6 +6,7 @@ namespace Practica07
 {
     class GestionAlumnos
     {
+        //Alumnos
         public static void IntroducirAlumno(tListadeAlumnos listadeAlumnos, string nombre, string dni, int telefono, int codigoCurso)
         {
             tAlumno nuevoAlumno = new tAlumno(nombre, dni, telefono, codigoCurso);
@@ -54,5 +55,15 @@ namespace Practica07
         {
             Gestion_Cursos.MostrarAlumnosDeUnCurso(listadeAlumnos, codigoCurso);
         }
+
+        //Notas
+        public static void AñadirNotasAAlumno(tListadeAlumnos listadeAlumnos, int codigoAlumno, double nota)
+        {
+            listadeAlumnos.GetAlumno(codigoAlumno).AñadirNotas(nota);
+        }
+
+        //public static void MostrarAlumnoMediaSuperioACinco
+
+
     }
 }

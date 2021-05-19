@@ -44,9 +44,20 @@ namespace Practica07
         {
             return this.codigoCurso;
         }
-        public tAlumno GetAlumno()
+
+        public void AñadirNotas(double nota)
         {
-            return this;
+            this.listaNotas.Add(nota);
+        }
+
+        public double DevolverNotaMedia()
+        {
+            double total = 0;
+            for (int i = 0; i < this.listaNotas.Count; i++)
+            {
+                total += listaNotas[i];
+            }
+            return (total / listaNotas.Count);
         }
     }
 }

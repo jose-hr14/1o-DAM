@@ -365,7 +365,7 @@ class tListaEmpleado
 	{
 		for (int j = i + 1; j < listaEmpleados.Count; j++)
 		{
-			if (listaEmpleados.Count[i].GetMes() > listaEmpleados.Count[j].GetMes())
+			if (listaEmpleados[i]GetMes() > listaEmpleados[j].GetMes())
 			{
 				empleadoAux = listaEmpleados[i];
 				
@@ -375,5 +375,44 @@ class tListaEmpleado
 			}						
 		}
 	}
+}
+
+//Solucion del cinco concatenando fechas
+//con una funcion que haga lo propio en la clase empelado
+public int FechaConcatenada()
+{
+	string mes;
+	string dia;
+	string fecha = "00";
+	if (this.dia < 10)
+	{
+		fecha[1] = this.dia;
+		fecha[0] = 0;
+		//solucion del profe string d = "0" + Convert.ToString(dia);
+	}
+		
+}
+
+class tEmpleado
+{
+	public void OrdenarFecha()
+	{
+		tEmpleado empleadoAux;
+		for (int i = 0; i <  listaEmleados.Count-1; i++) //importante el -1 paraque no compare el ultimo
+		{
+			for (int j = i + 1; j < listaEmpleados.Count; j++)
+			{
+				if (listaEmpleados[i].FechaConcatenada() > listaEmpleados[j].FechaConcatenada())
+				{
+					empleadoAux = listaEmpleados[i];
+					
+					listaEmpleados[i] = listaEmpleados[j];
+					listaEmpleados[j] = empleadoAux;
+					
+				}						
+			}
+		}
+	}
+	
 }
 
