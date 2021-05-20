@@ -34,7 +34,7 @@ namespace Practica07
             tAlumno alumno;
             for (int i = 0; i < ListaAlumnos.NumeroAlumnos(); i++)
             {
-                alumno = ListaAlumnos.GetAlumno(i);
+                alumno = ListaAlumnos.DevolverAlumno(i);
                 if (alumno.GetCodigoCurso() == codigoCurso)                
                     ImprimirAlumno(alumno);                   
             }
@@ -42,12 +42,11 @@ namespace Practica07
 
         public static void ImprimirAlumno(tAlumno alumno)
         {
-            Console.WriteLine(alumno.GetNombre());
-            Console.WriteLine(alumno.GetDNI());
-            Console.WriteLine(alumno.GetTelefono());
-            Console.WriteLine(alumno.GetCodigoCurso());
+            Console.WriteLine("Nombre: " + alumno.GetNombre());
+            Console.WriteLine("DNI: " + alumno.GetDNI());
+            Console.WriteLine("Teléfono: " + alumno.GetTelefono());
+            Console.WriteLine("Código de curso: " + alumno.GetCodigoCurso());
             Console.WriteLine();
-            
         }
 
         //Menús

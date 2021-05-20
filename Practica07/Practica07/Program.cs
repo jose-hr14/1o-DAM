@@ -12,7 +12,8 @@ namespace Practica07
             tListadeProfesores listaProfesores = new tListadeProfesores();
             tListadeCursos listaCursos = new tListadeCursos();
 
-            Gestion_Cursos.MenuPrincipal(listaCursos, listaAlumnos);
+            //Gestion_Cursos.MenuPrincipal(listaCursos, listaAlumnos);
+            GestionAlumnos.MenuPrincipal(listaCursos, listaAlumnos);
 
             
         }

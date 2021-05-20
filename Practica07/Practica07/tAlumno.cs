@@ -52,12 +52,19 @@ namespace Practica07
 
         public double DevolverNotaMedia()
         {
+            if (listaNotas.Count == 0)
+                return 0;
             double total = 0;
             for (int i = 0; i < this.listaNotas.Count; i++)
             {
                 total += listaNotas[i];
             }
             return (total / listaNotas.Count);
+        }
+
+        public void BorrarNotas()
+        {
+            this.listaNotas.Clear();
         }
     }
 }

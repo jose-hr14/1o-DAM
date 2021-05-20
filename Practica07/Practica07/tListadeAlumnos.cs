@@ -16,7 +16,7 @@ namespace Practica07
         {
             return this.Lista.Count;
         }
-        public tAlumno GetAlumno(int codigo)
+        public tAlumno DevolverAlumno(int codigo)
         {
             return this.Lista[codigo];
         }
@@ -32,6 +32,14 @@ namespace Practica07
         {
             this.Lista[indice] = alumno;
         }
+        public bool CotieneAlumno(tAlumno alumno)
+        {
+            if (this.Lista.Contains(alumno))
+                return true;
+            else
+                return false;
+        }
+
         public void OrdernarAlfabeticamente()
         {
             tAlumno aux;
