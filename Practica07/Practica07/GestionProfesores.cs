@@ -147,7 +147,6 @@ namespace Practica07
         }
         public static void MenuPrincipal(tListadeProfesores listadeProfesores)
         {
-            string opcion = "";
             bool salir = false;
             do
             {
@@ -164,7 +163,7 @@ namespace Practica07
                 Console.WriteLine("8. Mostrar profesores que imparten una asignatura");
                 Console.WriteLine("0.- Salir");
                 Console.Write("Elige una opción: ");
-                opcion = Console.ReadLine();
+                string opcion = Console.ReadLine();
                 switch (opcion)
                 {
                     case "1":

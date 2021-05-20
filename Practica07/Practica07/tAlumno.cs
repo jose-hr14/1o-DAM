@@ -6,11 +6,11 @@ namespace Practica07
 {
     class tAlumno
     {
-        string nombre;
-        string dni;
-        int telefono;
-        List<double> listaNotas;
-        int codigoCurso;
+        private string nombre;
+        private string dni;
+        private int telefono;
+        private List<double> listaNotas;
+        private int codigoCurso;
 
         public tAlumno(string nombre, string dni, int telefono, int codigoCurso)
         {
@@ -23,6 +23,26 @@ namespace Practica07
         public tAlumno()
         {
             this.listaNotas = new List<double>();
+        }
+        public void SetNombre(string nombre)
+        {
+            this.nombre = nombre;
+        }
+        public void SetDNI(string dni)
+        {
+            this.dni = dni;
+        }
+        public void SetTelefono(int telefono)
+        {
+            this.telefono = telefono;
+        }
+        public void SetCodigoCurso(int codigoCurso)
+        {
+            this.codigoCurso = codigoCurso;
+        }
+        public void SetListaNotas(List<double> listaNotas)
+        {
+            this.listaNotas = listaNotas;
         }
         public string GetNombre()
         {

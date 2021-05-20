@@ -52,7 +52,6 @@ namespace Practica07
         //Menús
         public static void MenuPrincipal(tListadeCursos listadeCursos, tListadeAlumnos listadeAlumnos)
         {
-            string opcion = "";
             bool salir = false;
             do
             {
@@ -63,7 +62,7 @@ namespace Practica07
                 Console.WriteLine("4.- Mostrar todos los alumnos pertenecientes a un curso");
                 Console.WriteLine("0.- Salir");
                 Console.Write("Elige una opción: ");
-                opcion = Console.ReadLine();
+                string opcion = Console.ReadLine();
                 switch (opcion)
                 {
                     case "1":

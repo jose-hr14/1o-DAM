@@ -6,11 +6,19 @@ namespace Practica07
 {
     class tListadeAlumnos
     {
-        List<tAlumno> Lista;
+        private List<tAlumno> Lista;
 
         public tListadeAlumnos()
         {
             Lista = new List<tAlumno>();
+        }
+        public void SetLista(List<tAlumno> lista)
+        {
+            this.Lista = lista;
+        }
+        public List<tAlumno> GetLista()
+        {
+            return this.Lista;
         }
         public int NumeroAlumnos()
         {

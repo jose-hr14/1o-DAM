@@ -11,13 +11,11 @@ namespace Practica07
             Console.Write("Pulsa enter para continuar: ");
             Console.ReadLine();
         }
-        static void Main(string[] args)
+        static void Main()
         {
             tListadeAlumnos listaAlumnos = new tListadeAlumnos();
             tListadeProfesores listaProfesores = new tListadeProfesores();
             tListadeCursos listaCursos = new tListadeCursos();
-
-            string opcion = "";
             bool salir = false;
             do
             {
@@ -27,7 +25,7 @@ namespace Practica07
                 Console.WriteLine("3.- Gestión profesores");
                 Console.WriteLine("0.- Salir");
                 Console.Write("Elige una opción: ");
-                opcion = Console.ReadLine();
+                string opcion = Console.ReadLine();
                 switch (opcion)
                 {
                     case "1":
@@ -36,7 +34,7 @@ namespace Practica07
                         break;
                     case "2":
                         Console.Clear();
-                        GestionAlumnos.MenuPrincipal(listaCursos, listaAlumnos);
+                        GestionAlumnos.MenuPrincipal(listaAlumnos);
                         break;
                     case "3":
                         Console.Clear();

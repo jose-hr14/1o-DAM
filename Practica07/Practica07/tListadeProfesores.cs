@@ -6,13 +6,20 @@ namespace Practica07
 {
     class tListadeProfesores
     {
-        List<tProfesor> Lista;
+        private List<tProfesor> Lista;
 
         public tListadeProfesores()
         {
             Lista = new List<tProfesor>();
         }
-
+        public void SetLista(List<tProfesor> lista)
+        {
+            this.Lista = lista;
+        }
+        public List<tProfesor> GetLista()
+        {
+            return this.Lista;
+        }
         public void AñadirProfesor(tProfesor nuevoProfesor)
         {
             this.Lista.Add(nuevoProfesor);

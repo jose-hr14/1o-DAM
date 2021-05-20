@@ -177,9 +177,8 @@ namespace Practica07
         {
             MostrarAlumnoMediaMenorACinco(listadeAlumnos);
         }
-        public static void MenuPrincipal(tListadeCursos listadeCursos, tListadeAlumnos listadeAlumnos)
+        public static void MenuPrincipal(tListadeAlumnos listadeAlumnos)
         {
-            string opcion = "";
             bool salir = false;
             do
             {
@@ -198,7 +197,7 @@ namespace Practica07
                 Console.WriteLine("10. Mostrar alumnos con nota media inferior a 5");
                 Console.WriteLine("0.- Salir");
                 Console.Write("Elige una opción: ");
-                opcion = Console.ReadLine();
+                string opcion = Console.ReadLine();
                 switch (opcion)
                 {
                     case "1":
