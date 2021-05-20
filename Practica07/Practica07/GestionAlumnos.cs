@@ -48,7 +48,6 @@ namespace Practica07
         public static void MostrarDatosPorNombre(tListadeAlumnos listadeAlumnos, string nombre)
         {
             tAlumno alumno;
-            int contador = 0;
 
             for (int i = 0; i < listadeAlumnos.NumeroAlumnos(); i++)
             {                  
@@ -56,12 +55,8 @@ namespace Practica07
                 {
                     alumno = listadeAlumnos.DevolverAlumno(i);
                     ImpimirAlumno(alumno);
-
-                    contador++;
                 }
             }
-            if(contador != 0)
-                Console.WriteLine("No se ha encontrado el alumno especificado");
         }
         
         public static void MostrarAlumnosDeUnCurso(tListadeAlumnos listadeAlumnos, int codigoCurso)
@@ -174,7 +169,7 @@ namespace Practica07
         }
         public static void MenuEliminarNotasAlumno(tListadeAlumnos listadeAlumnos)
         {
-            Console.Write("Introduce el codigo del alumno al que quieres eliminar las notas: ");
+            Console.Write("Introduce el nombre del alumno al que quieres eliminar las notas: ");
             string nombre = Console.ReadLine();
             EliminarNotasAlumno(listadeAlumnos, nombre);
         }

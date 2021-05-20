@@ -20,5 +20,38 @@ namespace Practica07
             listaAsignaturas = new List<string>();
             this.codigoCurso = codigoCurso;
         }
+
+        public string GetNombre()
+        {
+            return this.nombre;
+        }
+        public string GetDNI()
+        {
+            return this.dni;
+        }
+        public int GetTelefono()
+        {
+            return this.telefono;
+        }
+        public int GetCodigoCurso()
+        {
+            return this.codigoCurso;
+        }
+
+        public void AñadirAsignaturas(string asignatura)
+        {
+            this.listaAsignaturas.Add(asignatura);
+        }
+        public void BorrarAsignaturas()
+        {
+            this.listaAsignaturas.Clear();
+        }
+        public bool ContieneAsignatura(string nombreAsignatura)
+        {
+            if (this.listaAsignaturas.Contains(nombreAsignatura))
+                return true;
+            else
+                return false;
+        }
     }
 }
