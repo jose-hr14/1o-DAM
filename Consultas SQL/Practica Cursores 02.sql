@@ -88,6 +88,7 @@ DEALLOCATE Cur_Fabricante;
 --datos de cada empleado: nombre, apellido1, apellido2 y email. Deberás formatearlos
 --utilizando la función CONCAT.
 
+
 --5.- Cursores anidados en BD JARDINERIA
 --En este script deberás utilizar un cursor que recorra la tabla PEDIDOS y dentro de éste
 --cursor otro que recorra la tabla DETALLE_PEDIDOS. El objetivo es que dentro de este

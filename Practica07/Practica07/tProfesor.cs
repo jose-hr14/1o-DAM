@@ -5,7 +5,7 @@ using System.Text;
 namespace Practica07
 {
     class tProfesor
-    {
+    {//EL NOMBRE DE LA ROSA
         private string nombre;
         private string dni;
         private int telefono;
