@@ -51,7 +51,38 @@ DEALLOCATE Cur_Producto02;
 --similar a lo siguiente:
 --“Fabricante: nombreFabricante tiene un total de acumulado € en productos.” (siendo las
 --palabras resaltadas en rojo variables)
+USE TIENDA;
+GO
+DECLARE Cur_Fabricante CURSOR FOR
+	SELECT codigo
+	FROM FABRICANTE;
+DECLARE @codigo INT, @nombre VARCHAR(100), @precio NUMERIC(9,2);
 
+OPEN Cur_Fabricante;
+FETCH NEXT FROM Cur_Fabricante INTO @codigo;
+WHILE (@@FETCH_STATUS = 0)
+	BEGIN
+		-- Inicio del segundo cursor 
+		DECLARE Cur_Fabricante CURSOR FOR
+			SELECT codigo
+			FROM PRODUCTO
+			WHERE codigo_fabricante = @codigo;
+		DECLARE @codigo INT, @nombre VARCHAR(100), @precio NUMERIC(9,2);
+
+		OPEN Cur_Fabricante;
+		FETCH NEXT FROM Cur_Fabricante INTO @codigo;
+		WHILE (@@FETCH_STATUS = 0)
+			BEGIN
+		
+				FETCH NEXT FROM Cur_Fabricante INTO @codigo;
+			END
+		CLOSE Cur_Fabricante;
+		DEALLOCATE Cur_Fabricante;
+		-- Fin del segundo cursor
+		FETCH NEXT FROM Cur_Fabricante INTO @codigo;
+	END
+CLOSE Cur_Fabricante;
+DEALLOCATE Cur_Fabricante;
 --4.- Nombre y precio de productos en BD JARDINERIA
 --Crea un script que recorra con cursores la tabla EMPLEADOS y que muestre los siguientes
 --datos de cada empleado: nombre, apellido1, apellido2 y email. Deberás formatearlos
