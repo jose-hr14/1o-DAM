@@ -73,8 +73,7 @@ namespace Practica07
                 {
                     listadeAlumnos.DevolverAlumno(i).AñadirNotas(nota);
                 }
-            }
-            //listadeAlumnos.DevolverAlumno(codigoAlumno).AñadirNotas(nota);
+            }           
         }
 
         public static void MostrarAlumnoMediaSuperioACinco(tListadeAlumnos listadeAlumnos)
