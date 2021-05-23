@@ -39,7 +39,7 @@ namespace Practica07
         public void OrdernarAlfabeticamente()
         {
             tProfesor aux;
-            for (int i = 0; i < Lista.Count; i++)
+            for (int i = 0; i < Lista.Count - 1; i++)
             {
                 for (int j = i + 1; j < Lista.Count; j++)
                 {
