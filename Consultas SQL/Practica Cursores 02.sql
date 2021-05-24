@@ -57,7 +57,7 @@ GO
 DECLARE Cur_Fabricante CURSOR FOR
 	SELECT codigo
 	FROM FABRICANTE;
-DECLARE @codigo INT, @nombre VARCHAR(100), @precio NUMERIC(9,2);
+DECLARE @codigo INT;
 
 OPEN Cur_Fabricante;
 FETCH NEXT FROM Cur_Fabricante INTO @codigo;
@@ -117,3 +117,37 @@ DEALLOCATE Cur_Empleados;
 --segundo cursor se acumule el total por línea de cada pedido y que finalmente se muestre el
 --total acumulado para cada pedido.
 --“Nº Pedido XXXX tiene un coste total de XXXX €”
+USE JARDINERIA;
+GO
+DECLARE Cur_Pedidos CURSOR FOR
+	SELECT codPedido
+	FROM PEDIDOS;
+DECLARE @codigoPedido INT, @totalPedido NUMERIC(15,2);
+
+OPEN Cur_Pedidos;
+FETCH NEXT FROM Cur_Pedidos INTO @codigoPedido;
+WHILE (@@FETCH_STATUS = 0)
+	BEGIN
+		-- Inicio del segundo cursor 
+		DECLARE Cur_Pedidos02 CURSOR FOR
+			SELECT codProducto
+			FROM DETALLE_PEDIDOS
+			WHERE codPedido = @codigoPedido;
+		DECLARE @codigoProducto VARCHAR(15);
+		SET @totalPedido = 0;
+
+		OPEN Cur_Pedidos02;
+		FETCH NEXT FROM Cur_Pedidos02 INTO @codigoProducto;
+		WHILE (@@FETCH_STATUS = 0)
+			BEGIN
+				SET @totalPedido += (SELECT precio_unidad * cantidad FROM DETALLE_PEDIDOS WHERE codProducto = @codigoProducto AND codPedido = @codigoPedido);
+				FETCH NEXT FROM Cur_Pedidos02 INTO @codigoProducto;
+			END
+		PRINT CONCAT ('Nº Pedido ', @codigoPedido, ' tiene un coste total de ', @totalPedido, ' euros.');
+		CLOSE Cur_Pedidos02;
+		DEALLOCATE Cur_Pedidos02;
+		-- Fin del segundo cursor
+		FETCH NEXT FROM Cur_Pedidos INTO @codigoPedido;
+	END
+CLOSE Cur_Pedidos;
+DEALLOCATE Cur_Pedidos;
