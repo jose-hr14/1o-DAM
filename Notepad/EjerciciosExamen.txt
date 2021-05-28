@@ -260,7 +260,7 @@ class tListaEmpleado
 			if (listaEmpleados[i].GetListaVentas().Count > numVentas)
 			{
 				empleado = listaEmpleados[i];
-				numVentas = 0;
+				numVentas = empleado.GetListaVentas().Count;
 			}
 				
 		}
