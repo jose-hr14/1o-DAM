@@ -165,7 +165,7 @@ BEGIN
 END;
 
 --EJERCICIO07
-ALTER TRIGGER TX_prestamo02 ON PRESTAMOS AFTER UPDATE
+CREATE TRIGGER TX_prestamo02 ON PRESTAMOS AFTER UPDATE
 AS
 BEGIN
 	
@@ -185,3 +185,19 @@ BEGIN
 		WHERE codSocio = @codSocio;
 		END;
 END;
+
+--EJERCICIO08
+CREATE FUNCTION fn_esPosiblePrestarLibros (@codSocio INT)
+RETURNS CHAR(2)
+AS
+BEGIN
+	DECLARE @numLibPrestamos INT = (SELECT numLibPrestados FROM SOCIOS WHERE codSocio = @codSocio);
+
+	IF (@numLibPrestamos >= 2)
+		RETURN 'NO';
+	RETURN 'SI';
+END;
+
+SELECT *, dbo.fn_esPosiblePrestarLibros(codSocio) AS esPosiblePrestarLibrps FROM SOCIOS;
+
+--EJERCICIO09
