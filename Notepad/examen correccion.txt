@@ -1,0 +1,50 @@
+//ej 1
+class tConcesionario
+{
+	private string nombre;
+	private string telefono;
+	List<tModelo> listaModelos;
+	public tConcesionario()
+	{
+		listaModelo = new List<tModelo>();
+	}
+}
+class tModelo
+{
+	string marca;
+	string modelo;
+	int precio;
+	string color;
+	
+	public string marca
+	{
+		get {return marca;}
+		set {marca = valor;}
+	}
+}
+//ej5
+class tCliente
+{
+	Lista<tModelo> listaModelos;
+}
+//ej2 insertar nuevo modelo si no está repetido
+class tConcesionario
+{
+	public void Insertar (tmodelo modelo)
+	{
+		int aux = 0;
+		for (int i i =; i < listaModelo; i++)
+		{
+			if (listaModelo[i].GetModelo() == modelo)
+				aux = 1:
+		}
+		if (aux == 0)
+			listaModelos.Add(modelo);
+	}
+}
+
+//ej3
+class tConcesionario
+{
+	
+}
