@@ -1,0 +1,4 @@
+PSP: mirar java(Eclipse o Netbeans son IDEs para java, carlos trabajo con eclipse), reservar memoria(new)
+Acceso a datos: java -> acceso a datos con MongdoDB(JSON), hibernate(ORM) data-binding (cuando creas un nuvo objeto, se guarda en la base de datos).
+Diseño de interfaces: JavaFX, interfaces web, JSF
+SGE: ERP (sistemas informáticos que tienen las empresas).

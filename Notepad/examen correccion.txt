@@ -1,0 +1,86 @@
+//ej 1
+class tConcesionario
+{
+	private string nombre;
+	private string telefono;
+	List<tModelo> listaModelos;
+	public tConcesionario()
+	{
+		listaModelo = new List<tModelo>();
+	}
+}
+class tModelo
+{
+	string marca;
+	string modelo;
+	int precio;
+	string color;
+	
+	public string marca
+	{
+		get {return marca;}
+		set {marca = valor;}
+	}
+}
+//ej5
+class tCliente
+{
+	Lista<tModelo> listaModelos;
+}
+//ej2 insertar nuevo modelo si no está repetido
+class tConcesionario
+{
+	public void Insertar (tmodelo modelo)
+	{
+		int aux = 0;
+		for (int i i =; i < listaModelo; i++)
+		{
+			if (listaModelo[i].GetModelo() == modelo)
+				aux = 1:
+		}
+		if (aux == 0)
+			listaModelos.Add(modelo);
+	}
+}
+
+//ej3
+class tConcesionario
+{
+	public void ImprimeBarato()
+	{
+		int pos = 0;
+		int aux = listaModelos[0].GetPrecio();
+		for (int i = 0; i< listaModelos.Count; i++)
+		{
+			if(listaModelos[i].GetPrecio() < aux)
+			{
+				aux = listaModelos[i].GetPrecio();
+				pos = i;
+			}
+		}
+		CWL(listaModelos[pos],GetNombre());
+	}
+}
+//ej4
+class tConcesionario
+{
+	public void OrdenarVehiculosPorModelo()
+	{
+		
+		for (int i = 0; i< listaModelos.Count - 1; i++)
+		{
+			for((int j = i+1; i< listaModelos.Count; j++)
+			{
+				if (listaModelos[i].GetModelo().CompareTo(listaModelos[j].GetModelo()) == 1)
+				{
+					tmodelo aux = listaModelos[i];
+					listaModelo[i] = listaModelos[j];
+					listaModelos[j] = aux;
+				}
+					
+				
+			}
+		}
+		
+	}
+}
