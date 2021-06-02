@@ -172,16 +172,16 @@ BEGIN
 	DECLARE @ISBN char(13) = (SELECT TOP(1) ISBN FROM inserted);
 	DECLARE @codSocio INT = (SELECT TOP(1) codSocio FROM inserted);
 	DECLARE @fechaDevol SMALLDATETIME = (SELECT TOP(1) fechaDevol FROM deleted);
+	DECLARE @count INT = (select count(*) from deleted);
 
-	PRINT @fechaDevol;
 	IF (@fechaDevol IS NULL)
 		BEGIN
 		UPDATE LIBROS
-		SET unidades += 1
+		SET unidades += @count
 		WHERE ISBN = @ISBN;
 
 		UPDATE SOCIOS
-		SET numLibPrestados -= 1
+		SET numLibPrestados -= @count
 		WHERE codSocio = @codSocio;
 		END;
 END;
@@ -198,6 +198,92 @@ BEGIN
 	RETURN 'SI';
 END;
 
-SELECT *, dbo.fn_esPosiblePrestarLibros(codSocio) AS esPosiblePrestarLibrps FROM SOCIOS;
+SELECT *, dbo.fn_esPosiblePrestarLibros(codSocio) AS esPosiblePrestarLibros FROM SOCIOS;
 
 --EJERCICIO09
+CREATE FUNCTION fn_maxFechaDevol (@codPrestamo INT)
+RETURNS SMALLDATETIME
+AS
+BEGIN
+	DECLARE @fecha SMALLDATETIME = (SELECT fechaDevol FROM PRESTAMOS WHERE codPrestamo = @codPrestamo);
+	SET @fecha = DATEADD(DAY, 15, @fecha);
+	RETURN @fecha;
+END;
+
+SELECT *, DBO.fn_maxFechaDevol(codPrestamo) AS fechaMax FROM PRESTAMOS;
+
+--EJERCICIO10
+DECLARE TX_LIBROS CURSOR FOR
+SELECT ISBN
+FROM LIBROS;
+DECLARE @ISBN CHAR(13);
+
+OPEN TX_LIBROS;
+
+FETCH NEXT FROM TX_LIBROS INTO @ISBN;
+WHILE (@@FETCH_STATUS = 0)
+BEGIN
+	DECLARE @titulo VARCHAR(100) = (SELECT titulo FROM LIBROS WHERE ISBN = @ISBN);
+	DECLARE @autor VARCHAR(100) = (SELECT autor FROM LIBROS WHERE ISBN = @ISBN);
+	DECLARE @unidades INT = (SELECT unidades FROM LIBROS WHERE ISBN = @ISBN);
+	PRINT CONCAT ('ISBN: ', @ISBN);
+	PRINT CONCAT ('Titulo: ', @titulo);
+	PRINT CONCAT ('Autor: ', @autor);
+	PRINT CONCAT ('Unidades: ', @unidades);
+	PRINT ('');
+	FETCH NEXT FROM TX_LIBROS INTO @ISBN;
+END;
+
+CLOSE TX_LIBROS;
+DEALLOCATE TX_LIBROS;
+
+--EJERCICIO11
+DECLARE TX_SOCIOS CURSOR FOR
+SELECT codSocio
+FROM SOCIOS;
+
+DECLARE @codSocio INT, @contador INT;
+SET @contador = 0;
+
+OPEN TX_SOCIOS;
+
+FETCH NEXT FROM TX_SOCIOS INTO @codSocio;
+
+WHILE (@@FETCH_STATUS = 0)
+BEGIN
+	SET @contador += 1
+	--CURSOR 2
+	DECLARE TX_PRESTAMOS CURSOR FOR
+	SELECT codPrestamo
+	FROM PRESTAMOS
+	WHERE codSocio = @codSocio;
+
+	DECLARE @codPrestamo INT, @nombreSocio VARCHAR(50), @ISBN CHAR(13), @fechaPres SMALLDATETIME, @fechaDevol SMALLDATETIME;
+	SET @nombreSocio = (SELECT nombreApe FROM SOCIOS WHERE codSocio = @codSocio);	
+
+	IF (@codSocio IN (SELECT codSocio FROM PRESTAMOS) )
+		PRINT CONCAT('Tratamiento del socio ', @contador, ' - ', @nombreSocio);
+
+	OPEN TX_PRESTAMOS;
+	FETCH NEXT FROM TX_PRESTAMOS INTO @codPrestamo;
+	WHILE (@@FETCH_STATUS = 0)
+	BEGIN
+
+			
+		SET @ISBN = (SELECT ISBN FROM PRESTAMOS WHERE codPrestamo = @codPrestamo);
+		SET @fechaPres = (SELECT fechaPrestamo FROM PRESTAMOS WHERE codPrestamo = @codPrestamo);
+		SET @fechaDevol = (SELECT fechaDevol FROM PRESTAMOS WHERE codPrestamo = @codPrestamo);
+		
+		PRINT CONCAT('Préstamo ', @codPrestamo, ' ISBN ', @ISBN, ' FechaPres: ', DAY(@fechaPres), '/', MONTH(@fechaPres), '/', YEAR(@fechaPres), ' FechaDevol ', DAY(@fechaDevol), '/', MONTH(@fechaDevol), '/', YEAR(@fechaDevol) );
+		FETCH NEXT FROM TX_PRESTAMOS INTO @codPrestamo;
+	END;
+	CLOSE TX_PRESTAMOS;
+	DEALLOCATE TX_PRESTAMOS;
+	--CURSOR 2
+	FETCH NEXT FROM TX_SOCIOS INTO @codSocio;
+END;
+
+CLOSE TX_SOCIOS;
+DEALLOCATE TX_SOCIOS;
+
+--FIN

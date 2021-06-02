@@ -26,14 +26,7 @@ namespace Objetos
         {
             return apellidos;
         }
-        public void SetEdad(int edad)
-        {
-            this.edad = edad;
-        }
-        public int GetEdad()
-        {
-            return edad;
-        }
+
         public void SetDNI(string dni)
         {
             this.dni = dni;
@@ -45,7 +38,7 @@ namespace Objetos
 
 
 
-        /*
+        
         public int edad
         {
             get
@@ -54,7 +47,7 @@ namespace Objetos
             }
             set { edad = value; }
         }
-        */
+        
     }
 
 }
