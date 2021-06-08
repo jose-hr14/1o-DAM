@@ -26,18 +26,23 @@ namespace Practica07
                 Console.Write("Codigo del curso: ");
                 Console.WriteLine(ListaCursos.DevolverCurso(i).GetCodigo());
                 Console.WriteLine();
-            }
-            EnterParaContinuar();
+            }            
         }
-        public static void MostrarAlumnosDeUnCurso(tListadeAlumnos ListaAlumnos, int codigoCurso)
+        public static bool MostrarAlumnosDeUnCurso(tListadeAlumnos ListaAlumnos, int codigoCurso)
         {
-            tAlumno alumno;
-            for (int i = 0; i < ListaAlumnos.NumeroAlumnos(); i++)
+            int count = 0;
+            for (int i = 0; i < ListaAlumnos.DevolverNumeroAlumnos(); i++)
             {
-                alumno = ListaAlumnos.DevolverAlumno(i);
-                if (alumno.GetCodigoCurso() == codigoCurso)                
-                    ImprimirAlumno(alumno);                   
+                if (ListaAlumnos.DevolverAlumno(i).GetCodigoCurso() == codigoCurso)
+                {
+                    ImprimirAlumno(ListaAlumnos.DevolverAlumno(i));
+                    count++;
+                }                    
             }
+            if (count == 0)
+                return false;
+            else
+                return true;
         }
 
         public static void ImprimirAlumno(tAlumno alumno)
@@ -49,7 +54,6 @@ namespace Practica07
             Console.WriteLine();
         }
 
-        //Menús
         public static void MenuPrincipal(tListadeCursos listadeCursos, tListadeAlumnos listadeAlumnos)
         {
             bool salir = false;
@@ -82,12 +86,14 @@ namespace Practica07
                         MenuMostrarAlumnosCurso(listadeAlumnos);
                         break;
                     case "0":
-                        return;
+                        salir = true;
+                        Console.WriteLine("Volviendo al menú principal");
+                        break;
                     default:
-                        Console.WriteLine("Opción inválida");
-                        EnterParaContinuar();
+                        Console.WriteLine("Opción inválida");                        
                         break;
                 }
+                Utilidades.PulsaTeclaParaContinuar();
                 Console.Clear();
             } while (salir == false);                
         }
@@ -100,7 +106,7 @@ namespace Practica07
             {
                 Console.Write("Introduce un nombre para el curso: ");
                 nombreCurso = Console.ReadLine();
-                if (listadeCursos.ContainsNombre(nombreCurso))
+                if (listadeCursos.ContieneNombre(nombreCurso))
                 {
                     Console.WriteLine("El curso ya existe, introduzca otro nombre:");
                     continue;
@@ -108,19 +114,17 @@ namespace Practica07
                 break;                
             }
             AñadirCurso(listadeCursos, nombreCurso);
-            EnterParaContinuar();
         }
         public static void MenuEliminarCurso(tListadeCursos listadeCursos)
         {
             int codigoCurso;
 
             while (true)
-            {
-                Console.Write("Introduce el codigo de curso que quieres eliminar, o escriba -1 para salir: ");                
-                codigoCurso = Convert.ToInt32(Console.ReadLine());
+            {                
+                codigoCurso = Utilidades.PedirInt("Introduce el codigo de curso que quieres eliminar, o escriba - 1 para salir: ");
                 if (codigoCurso == -1)
                     return;
-                if (!listadeCursos.ContainsCodigo(codigoCurso))
+                if (!listadeCursos.ContieneCodigo(codigoCurso))
                 {
                     Console.WriteLine("El curso que quiere borrar no existe, vuelva a intentarlo: ");
                     continue;
@@ -128,24 +132,14 @@ namespace Practica07
                 break;
             }
             EliminarCurso(listadeCursos, codigoCurso);
-            Console.Write("Curso eliminado con éxito. ");
-            EnterParaContinuar();
+            Console.WriteLine("Curso eliminado con éxito.");
         }
         public static void MenuMostrarAlumnosCurso(tListadeAlumnos listadeAlumnos)
-        {
-            int codigoCurso;
-
-            Console.WriteLine("Introduce el codigo de curso para imprimir a sus alumnos");
-            codigoCurso = Convert.ToInt32(Console.ReadLine());
-            MostrarAlumnosDeUnCurso(listadeAlumnos, codigoCurso);
-
-            EnterParaContinuar();
-
-        }
-        public static void EnterParaContinuar()
-        {
-            Console.Write("Pulsa enter para continuar: ");
-            Console.ReadLine();
+        {            
+            int codigoCurso = Utilidades.PedirInt("Introduce el codigo de curso para imprimir a sus alumnos: ");
+            bool existenAlumnos = MostrarAlumnosDeUnCurso(listadeAlumnos, codigoCurso);
+            if (!existenAlumnos)
+                Console.WriteLine("No hay alumnos asignados a ese codigo de curso");
         }
     }
 }

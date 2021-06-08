@@ -29,7 +29,7 @@ namespace Practica07
         {
             return this.Lista.Count;
         }
-        public bool ContainsNombre(string nombre)
+        public bool ContieneNombre(string nombre)
         {
             for (int i = 0; i < this.Lista.Count; i++)
             {
@@ -38,7 +38,7 @@ namespace Practica07
             }
             return false;
         }
-        public bool ContainsCodigo(int codigo)
+        public bool ContieneCodigo(int codigo)
         {
             for (int i = 0; i < this.Lista.Count; i++)
             {

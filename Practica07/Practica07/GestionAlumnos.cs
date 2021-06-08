@@ -21,20 +21,22 @@ namespace Practica07
             tAlumno nuevoAlumno = new tAlumno(nombre, dni, telefono, codigoCurso);
             listadeAlumnos.AñadirAlumno(nuevoAlumno);
         }
-        public static void EliminarAlumno(tListadeAlumnos listadeAlumnos, string nombre)
+        public static bool EliminarAlumno(tListadeAlumnos listadeAlumnos, string nombre)
         {
-            for (int i = 0; i < listadeAlumnos.NumeroAlumnos(); i++)
+            for (int i = 0; i < listadeAlumnos.DevolverNumeroAlumnos(); i++)
             {
                 if (listadeAlumnos.DevolverAlumno(i).GetNombre().Trim().ToLower() == nombre.Trim().ToLower())
                 {
                     listadeAlumnos.BorrarAlumno(i);
+                    return true;
                 }
-            }            
+            }
+            return false;
         }
         public static void MostrarListaAlumnos(tListadeAlumnos listadeAlumnos)
         {
             tAlumno alumno;
-            for (int i = 0; i < listadeAlumnos.NumeroAlumnos(); i++)
+            for (int i = 0; i < listadeAlumnos.DevolverNumeroAlumnos(); i++)
             {
                 alumno = listadeAlumnos.DevolverAlumno(i);
                 ImpimirAlumno(alumno);
@@ -45,72 +47,84 @@ namespace Practica07
             listadeAlumnos.OrdernarAlfabeticamente();
         }
 
-        public static void MostrarDatosPorNombre(tListadeAlumnos listadeAlumnos, string nombre)
+        public static bool MostrarDatosPorNombre(tListadeAlumnos listadeAlumnos, string nombre)
         {
             tAlumno alumno;
 
-            for (int i = 0; i < listadeAlumnos.NumeroAlumnos(); i++)
+            for (int i = 0; i < listadeAlumnos.DevolverNumeroAlumnos(); i++)
             {                  
                 if (listadeAlumnos.DevolverAlumno(i).GetNombre().Trim().ToLower() == nombre.Trim().ToLower())
                 {
                     alumno = listadeAlumnos.DevolverAlumno(i);
                     ImpimirAlumno(alumno);
+                    return true;
                 }
             }
+            return false;
         }
-        
-        public static void MostrarAlumnosDeUnCurso(tListadeAlumnos listadeAlumnos, int codigoCurso)
+        public static bool AñadirNotasAAlumno(tListadeAlumnos listadeAlumnos, string nombre, double nota)
         {
-            Gestion_Cursos.MostrarAlumnosDeUnCurso(listadeAlumnos, codigoCurso);
-        }
-
-        //Notas
-        public static void AñadirNotasAAlumno(tListadeAlumnos listadeAlumnos, string nombre, double nota)
-        {
-            for (int i = 0; i < listadeAlumnos.NumeroAlumnos(); i++)
+            for (int i = 0; i < listadeAlumnos.DevolverNumeroAlumnos(); i++)
             {
                 if (listadeAlumnos.DevolverAlumno(i).GetNombre().Trim().ToLower() == nombre.Trim().ToLower())
                 {
                     listadeAlumnos.DevolverAlumno(i).AñadirNotas(nota);
+                    return true;
                 }
-            }           
+            }
+            return false;
         }
 
-        public static void MostrarAlumnoMediaSuperioACinco(tListadeAlumnos listadeAlumnos)
+        public static bool MostrarAlumnoMediaSuperioACinco(tListadeAlumnos listadeAlumnos)
         {
             tAlumno alumno;
-            for (int i = 0; i < listadeAlumnos.NumeroAlumnos(); i++)
+            int count = 0;
+            for (int i = 0; i < listadeAlumnos.DevolverNumeroAlumnos(); i++)
             {
                 if (listadeAlumnos.DevolverAlumno(i).DevolverNotaMedia() >= 5)
                 {
                     alumno = listadeAlumnos.DevolverAlumno(i);
                     ImpimirAlumno(alumno);
+                    count++;
                 }
             }
+            if (count > 0)
+                return true;
+            else
+                return false;
         }
 
-        public static void EliminarNotasAlumno(tListadeAlumnos listadeAlumnos, string nombre)
+        public static bool EliminarNotasAlumno(tListadeAlumnos listadeAlumnos, string nombre)
         {
-            for (int i = 0; i < listadeAlumnos.NumeroAlumnos(); i++)
+            for (int i = 0; i < listadeAlumnos.DevolverNumeroAlumnos(); i++)
             {
                 if (listadeAlumnos.DevolverAlumno(i).GetNombre().Trim().ToLower() == nombre.Trim().ToLower())
                 {
                     listadeAlumnos.DevolverAlumno(i).BorrarNotas();
+                    return true;
                 }
             }
+            return false;
         }
 
-        public static void MostrarAlumnoMediaMenorACinco(tListadeAlumnos listadeAlumnos)
+        public static bool MostrarAlumnoMediaMenorACinco(tListadeAlumnos listadeAlumnos)
         {
             tAlumno alumno;
-            for (int i = 0; i < listadeAlumnos.NumeroAlumnos(); i++)
+            int count = 0;
+
+            for (int i = 0; i < listadeAlumnos.DevolverNumeroAlumnos(); i++)
             {
                 if (listadeAlumnos.DevolverAlumno(i).DevolverNotaMedia() < 5)
                 {
                     alumno = listadeAlumnos.DevolverAlumno(i);
                     ImpimirAlumno(alumno);
+                    count++;
                 }
             }
+            if (count > 0)
+                return true;
+            else
+                return false;
         }
 
         public static void MenuIntroducirAlumno(tListadeAlumnos listadeAlumnos)
@@ -119,10 +133,8 @@ namespace Practica07
             string nombre = Console.ReadLine();
             Console.Write("Introduce un dni: ");
             string dni = Console.ReadLine();
-            Console.Write("Introduce un telefono: ");
-            int tlf = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Introduce un codigo de curso: ");
-            int codigoCurso = Convert.ToInt32(Console.ReadLine());
+            int tlf = Utilidades.PedirInt("Introduce un telefono: ");
+            int codigoCurso = Utilidades.PedirInt("Introduce un codigo de curso: ");
             IntroducirAlumno(listadeAlumnos, nombre, dni, tlf, codigoCurso);
             Console.WriteLine("Alumno insertado correctamente");
         }
@@ -130,51 +142,71 @@ namespace Practica07
         {
             Console.Write("Introduce el nombre del alumno que desees eliminar: ");
             string nombre = Console.ReadLine();
-            EliminarAlumno(listadeAlumnos, nombre);
-            Console.WriteLine("Alumno eliminado correctamente");
+            bool existeAlumno = EliminarAlumno(listadeAlumnos, nombre);
+            if (existeAlumno)
+                Console.WriteLine("Alumno eliminado correctamente");
+            else
+                Console.WriteLine("Alumno no encontrado");
         }
         public static void MenuMostrarListaAlumnos(tListadeAlumnos listadeAlumnos)
         {
-            MostrarListaAlumnos(listadeAlumnos);
+            MostrarListaAlumnos(listadeAlumnos);            
+            if (listadeAlumnos.DevolverNumeroAlumnos() == 0)
+                Console.WriteLine("No hay alumnos para mostrar");
         }
         public static void MenuOrdenarAlumnosAlfabeticamente(tListadeAlumnos listadeAlumnos)
         {
             OrdenarAlumnosAlfabeticamente(listadeAlumnos);
-            Console.WriteLine("Alumnos ordenados correctamente");
+            if (listadeAlumnos.DevolverNumeroAlumnos() == 0)
+                Console.WriteLine("No hay alumnos para ordenar");
+            else
+                Console.WriteLine("Alumnos ordenados correctamente");
         }
         public static void MenuMostrarDatosAlumnosPorNombre(tListadeAlumnos listadeAlumnos)
         {
             Console.Write("Introduce el nombre del alumno cuyos datos quieres mostrar: ");
             string nombre = Console.ReadLine();
-            MostrarDatosPorNombre(listadeAlumnos, nombre);            
+            bool existeAlumno = MostrarDatosPorNombre(listadeAlumnos, nombre);
+            if (!existeAlumno)
+                Console.WriteLine("Alumno no encontrado");
         }
         public static void MenuMostrarAlumnosPorCurso(tListadeAlumnos listadeAlumnos)
         {
-            Console.Write("Introduce el código del curso cuyos alumnos quieres mostrar: ");
-            int codigoCurso = Convert.ToInt32(Console.ReadLine());
-            MostrarAlumnosDeUnCurso(listadeAlumnos, codigoCurso);
+            Gestion_Cursos.MenuMostrarAlumnosCurso(listadeAlumnos);
         }
         public static void MenuAñadirNotasAAlumno(tListadeAlumnos listadeAlumnos)
         {
             Console.Write("Introduce el nombre del alumno al que quieres añadir una nota: ");
-            string nombre = Console.ReadLine();
-            Console.Write("Introduce la nota que quieres añadirle al alumno: ");
-            double nota = Convert.ToDouble(Console.ReadLine());
-            AñadirNotasAAlumno(listadeAlumnos, nombre, nota);
+            string nombre = Console.ReadLine();            
+            double nota = Utilidades.PedirDouble("Introduce la nota que quieres añadirle al alumno: ");
+            bool existeAlumno = AñadirNotasAAlumno(listadeAlumnos, nombre, nota);
+            if (existeAlumno)
+                Console.WriteLine("Nota insertada correctamente");
+            else
+                Console.WriteLine("Alumno no encontrado");
+
         }
         public static void MenuMostrarAlumnoPorMediaSuperiorCinco(tListadeAlumnos listadeAlumnos)
         {
-            MostrarAlumnoMediaSuperioACinco(listadeAlumnos);
+            bool existenAlumnos = MostrarAlumnoMediaSuperioACinco(listadeAlumnos);
+            if (!existenAlumnos)
+                Console.WriteLine("No existen alumnos con una media superior a 5");
         }
         public static void MenuEliminarNotasAlumno(tListadeAlumnos listadeAlumnos)
         {
             Console.Write("Introduce el nombre del alumno al que quieres eliminar las notas: ");
             string nombre = Console.ReadLine();
-            EliminarNotasAlumno(listadeAlumnos, nombre);
+            bool existeAlumno = EliminarNotasAlumno(listadeAlumnos, nombre);
+            if (existeAlumno)
+                Console.WriteLine("Notas borradas correctamente");
+            else
+                Console.WriteLine("Alumno no encontrado");
         }
         public static void MenuMostrarAlumnoPorMediaInferiorCinco(tListadeAlumnos listadeAlumnos)
         {
-            MostrarAlumnoMediaMenorACinco(listadeAlumnos);
+            bool existenAlumnos = MostrarAlumnoMediaMenorACinco(listadeAlumnos);
+            if (!existenAlumnos)
+                Console.WriteLine("No existen alumnos con una media inferior a 5");
         }
         public static void MenuPrincipal(tListadeAlumnos listadeAlumnos)
         {
@@ -240,20 +272,16 @@ namespace Practica07
                         MenuMostrarAlumnoPorMediaInferiorCinco(listadeAlumnos);
                         break;
                     case "0":
-                        return;
+                        salir = true;
+                        Console.WriteLine("Volviendo al menú principal");
+                        break;
                     default:
                         Console.WriteLine("Opción inválida");                        
                         break;
                 }
-                EnterParaContinuar();
+                Utilidades.PulsaTeclaParaContinuar();
                 Console.Clear();
             } while (salir == false);
-        }
-
-        public static void EnterParaContinuar()
-        {
-            Console.Write("Pulsa enter para continuar: ");
-            Console.ReadLine();
         }
     }
 }

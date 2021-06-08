@@ -20,20 +20,22 @@ namespace Practica07
             listadeProfesores.AñadirProfesor(nuevoProfesor);
         }
 
-        public static void EliminarProfesor(tListadeProfesores listadeProfesores, string nombre)
+        public static bool EliminarProfesor(tListadeProfesores listadeProfesores, string nombre)
         {
-            for (int i = 0; i < listadeProfesores.NumeroProfesores(); i++)
+            for (int i = 0; i < listadeProfesores.DevolverNumeroProfesores(); i++)
             {
                 if (listadeProfesores.DevolverProfesor(i).GetNombre().Trim().ToLower() == nombre.Trim().ToLower())
                 {
                     listadeProfesores.BorrarProfesor(i);
+                    return true;
                 }
             }
+            return false;
         }
         public static void MostrarListaProfesores(tListadeProfesores listadeProfesores)
         {
             tProfesor profesor;
-            for (int i = 0; i < listadeProfesores.NumeroProfesores(); i++)
+            for (int i = 0; i < listadeProfesores.DevolverNumeroProfesores(); i++)
             {
                 profesor = listadeProfesores.DevolverProfesor(i);
                 ImpimirProfesor(profesor);
@@ -43,63 +45,71 @@ namespace Practica07
         {
             listadeProfesores.OrdernarAlfabeticamente();
         }
-        public static void MostrarDatosPorNombre(tListadeProfesores listadeProfesores, string nombre)
+        public static bool MostrarDatosPorNombre(tListadeProfesores listadeProfesores, string nombre)
         {
             tProfesor profesor;
 
-            for (int i = 0; i < listadeProfesores.NumeroProfesores(); i++)
+            for (int i = 0; i < listadeProfesores.DevolverNumeroProfesores(); i++)
             {
                 if (listadeProfesores.DevolverProfesor(i).GetNombre().Trim().ToLower() == nombre.Trim().ToLower())
                 {
                     profesor = listadeProfesores.DevolverProfesor(i);
                     ImpimirProfesor(profesor);
+                    return true;
                 }
             }
+            return false;
         }
-
-
-        public static void AñadirAsignaturaProfesor(tListadeProfesores listadeProfesores, string nombre, string asignatura)
+        public static bool AñadirAsignaturaProfesor(tListadeProfesores listadeProfesores, string nombre, string asignatura)
         {
-            for (int i = 0; i < listadeProfesores.NumeroProfesores(); i++)
+            for (int i = 0; i < listadeProfesores.DevolverNumeroProfesores(); i++)
             {
                 if (listadeProfesores.DevolverProfesor(i).GetNombre().Trim().ToLower() == nombre.Trim().ToLower())
                 {
                     listadeProfesores.DevolverProfesor(i).AñadirAsignaturas(asignatura);
+                    return true;
                 }
             }            
+            return false; 
         }
-        public static void EliminarAsignaturaProfesor(tListadeProfesores listadeProfesores, string nombre)
+        public static bool EliminarAsignaturaProfesor(tListadeProfesores listadeProfesores, string nombre)
         {
-            for (int i = 0; i < listadeProfesores.NumeroProfesores(); i++)
+            for (int i = 0; i < listadeProfesores.DevolverNumeroProfesores(); i++)
             {
                 if (listadeProfesores.DevolverProfesor(i).GetNombre().Trim().ToLower() == nombre.Trim().ToLower())
                 {
                     listadeProfesores.DevolverProfesor(i).BorrarAsignaturas();
+                    return true;
                 }
             }
+            return false;
         }
-        public static void MostrarProfesoresPorAsignatura(tListadeProfesores listadeProfesores, string nombreAsignatura)
+        public static bool MostrarProfesoresPorAsignatura(tListadeProfesores listadeProfesores, string nombreAsignatura)
         {
             tProfesor profesor;
-            for (int i = 0; i < listadeProfesores.NumeroProfesores(); i++)
+            int count = 0;
+            for (int i = 0; i < listadeProfesores.DevolverNumeroProfesores(); i++)
             {
                 profesor = listadeProfesores.DevolverProfesor(i);
                 if (profesor.ContieneAsignatura(nombreAsignatura))
+                {
                     ImpimirProfesor(profesor);
+                    count++;
+                }                    
             }
+            if (count == 0)
+                return false;
+            else
+                return true;
         }
-
-
         public static void MenuIntroducirProfesor(tListadeProfesores listadeProfesores)
         {
             Console.Write("Introduce un nombre: ");
             string nombre = Console.ReadLine();
             Console.Write("Introduce un dni: ");
             string dni = Console.ReadLine();
-            Console.Write("Introduce un telefono: ");
-            int tlf = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Introduce un codigo de curso: ");
-            int codigoCurso = Convert.ToInt32(Console.ReadLine());
+            int tlf = Utilidades.PedirInt("Introduce un teléfono: ");
+            int codigoCurso = Utilidades.PedirInt("Introduce un código de curso: ");
             IntroducirProfesor(listadeProfesores, nombre, dni, tlf, codigoCurso);
             Console.WriteLine("Profesor insertado correctamente");
         }
@@ -107,23 +117,33 @@ namespace Practica07
         {
             Console.Write("Introduce el nombre del profesor que desees eliminar: ");
             string nombre = Console.ReadLine();
-            EliminarProfesor(listadeProfesores, nombre);
-            Console.WriteLine("Profesor eliminado correctamente");
+            bool existeProfesor = EliminarProfesor(listadeProfesores, nombre);
+            if (existeProfesor)
+                Console.WriteLine("Profesor eliminado correctamente");
+            else
+                Console.WriteLine("Profesor no encontrado");
         }
         public static void MenuMostrarListaProfesores(tListadeProfesores listadeProfesores)
         {
             MostrarListaProfesores(listadeProfesores);
+            if (listadeProfesores.DevolverNumeroProfesores() == 0)
+                Console.WriteLine("No hay profesores para mostrar");
         }
         public static void MenuOrdenarProfesoresAlfabeticamente(tListadeProfesores listadeProfesores)
         {
             OrdenarProfesoresAlfabeticamente(listadeProfesores);
-            Console.WriteLine("Profesores ordenados correctamente");
+            if (listadeProfesores.DevolverNumeroProfesores() == 0)
+                Console.WriteLine("No hay profesores para ordenar");
+            else
+                Console.WriteLine("Profesores ordenados correctamente");
         }
         public static void MenuMostrarDatosProfesoresPorNombre(tListadeProfesores listadeProfesores)
         {
             Console.Write("Introduce el nombre del profesor cuyos datos quieres mostrar: ");
             string nombre = Console.ReadLine();
-            MostrarDatosPorNombre(listadeProfesores, nombre);
+            bool existeProfesor = MostrarDatosPorNombre(listadeProfesores, nombre);
+            if (!existeProfesor)
+                Console.WriteLine("Profesor no encontrado");
         }
         public static void MenuAñadirAsignaturasProfesor(tListadeProfesores listadeProfesores)
         {
@@ -131,19 +151,29 @@ namespace Practica07
             string nombre = Console.ReadLine();
             Console.Write("Introduce la asignatura que quieres añadirle al profesor: ");
             string asignatura = Console.ReadLine();
-            AñadirAsignaturaProfesor(listadeProfesores, nombre, asignatura);
+            bool existeProfesor = AñadirAsignaturaProfesor(listadeProfesores, nombre, asignatura);
+            if (existeProfesor)
+                Console.WriteLine("Asignatura añadida correctamente");
+            else
+                Console.WriteLine("Profesor no encontrado");
         }
         public static void MenuEliminarAsignaturasProfesor(tListadeProfesores listadeProfesores)
         {
             Console.Write("Introduce el nombre del profesor al que quieres eliminar asignaturas: ");
             string nombre = Console.ReadLine();
-            EliminarAsignaturaProfesor(listadeProfesores, nombre);
+            bool existeProfesor = EliminarAsignaturaProfesor(listadeProfesores, nombre);
+            if (existeProfesor)
+                Console.WriteLine("Se han eliminado las asignaturas de este profesor");
+            else
+                Console.WriteLine("Profesor no encontrado");
         }
         public static void MenuMostrarProfesoresPorAsignatura(tListadeProfesores listadeProfesores)
         {
             Console.Write("Introduce el nombre de la asignatura para mostrar a los profesores que la imparten: ");
             string nombreAsignatura = Console.ReadLine();
-            MostrarProfesoresPorAsignatura(listadeProfesores, nombreAsignatura);
+            bool existenProfesores = MostrarProfesoresPorAsignatura(listadeProfesores, nombreAsignatura);
+            if (!existenProfesores)
+                Console.WriteLine("No existen profesores que impartan esta asignatura");
         }
         public static void MenuPrincipal(tListadeProfesores listadeProfesores)
         {
@@ -199,20 +229,16 @@ namespace Practica07
                         MenuMostrarProfesoresPorAsignatura(listadeProfesores);
                         break;                   
                     case "0":
-                        return;
+                        salir = true;
+                        Console.WriteLine("Volviendo al menú principal");
+                        break;
                     default:
                         Console.WriteLine("Opción inválida");
                         break;
                 }
-                EnterParaContinuar();
+                Utilidades.PulsaTeclaParaContinuar();
                 Console.Clear();
             } while (salir == false);
-        }
-
-        public static void EnterParaContinuar()
-        {
-            Console.Write("Pulsa enter para continuar: ");
-            Console.ReadLine();
         }
     }
 }

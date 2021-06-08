@@ -20,10 +20,6 @@ namespace Practica07
             listaNotas = new List<double>();
             this.codigoCurso = codigoCurso;
         }
-        public tAlumno()
-        {
-            this.listaNotas = new List<double>();
-        }
         public void SetNombre(string nombre)
         {
             this.nombre = nombre;
@@ -40,10 +36,6 @@ namespace Practica07
         {
             this.codigoCurso = codigoCurso;
         }
-        public void SetListaNotas(List<double> listaNotas)
-        {
-            this.listaNotas = listaNotas;
-        }
         public string GetNombre()
         {
             return this.nombre;
@@ -56,20 +48,14 @@ namespace Practica07
         {
             return this.telefono;
         }
-        public List<double> GetListaNotas()
-        {
-            return this.listaNotas;
-        }
         public int GetCodigoCurso()
         {
             return this.codigoCurso;
         }
-
         public void AñadirNotas(double nota)
         {
             this.listaNotas.Add(nota);
         }
-
         public double DevolverNotaMedia()
         {
             if (listaNotas.Count == 0)
@@ -81,7 +67,6 @@ namespace Practica07
             }
             return (total / listaNotas.Count);
         }
-
         public void BorrarNotas()
         {
             this.listaNotas.Clear();

@@ -6,11 +6,6 @@ namespace Practica07
 {
     class Program
     {
-        public static void EnterParaContinuar()
-        {
-            Console.Write("Pulsa enter para continuar: ");
-            Console.ReadLine();
-        }
         static void Main()
         {
             tListadeAlumnos listaAlumnos = new tListadeAlumnos();
@@ -41,12 +36,15 @@ namespace Practica07
                         GestionProfesores.MenuPrincipal(listaProfesores);
                         break;
                     case "0":
-                        return;
+                        salir = true;
+                        Console.WriteLine("Saliendo del programa");
+                        Utilidades.PulsaTeclaParaContinuar();
+                        break;
                     default:
                         Console.WriteLine("Opción inválida");
+                        Utilidades.PulsaTeclaParaContinuar();
                         break;
                 }
-                EnterParaContinuar();
                 Console.Clear();
             } while (salir == false);            
         }

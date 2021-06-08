@@ -12,15 +12,7 @@ namespace Practica07
         {
             Lista = new List<tAlumno>();
         }
-        public void SetLista(List<tAlumno> lista)
-        {
-            this.Lista = lista;
-        }
-        public List<tAlumno> GetLista()
-        {
-            return this.Lista;
-        }
-        public int NumeroAlumnos()
+        public int DevolverNumeroAlumnos()
         {
             return this.Lista.Count;
         }
@@ -36,18 +28,6 @@ namespace Practica07
         {
             this.Lista.RemoveAt(indice);
         }
-        public void AñadirAlumnoEnIndice(int indice, tAlumno alumno)
-        {
-            this.Lista[indice] = alumno;
-        }
-        public bool CotieneAlumno(tAlumno alumno)
-        {
-            if (this.Lista.Contains(alumno))
-                return true;
-            else
-                return false;
-        }
-
         public void OrdernarAlfabeticamente()
         {
             tAlumno aux;
