@@ -6,7 +6,6 @@ namespace Practica07
 {
     class Gestion_Cursos
     {
-        //Funciones
         public static void AñadirCurso(tListadeCursos ListaCursos, string nombre)
         {
             tCurso nuevoCurso = new tCurso(nombre, ListaCursos.NumeroCursos());
@@ -44,7 +43,6 @@ namespace Practica07
             else
                 return true;
         }
-
         public static void ImprimirAlumno(tAlumno alumno)
         {
             Console.WriteLine("Nombre: " + alumno.GetNombre());
@@ -97,7 +95,6 @@ namespace Practica07
                 Console.Clear();
             } while (salir == false);                
         }
-
         public static void MenuAñadirCurso(tListadeCursos listadeCursos)
         {            
             string nombreCurso;

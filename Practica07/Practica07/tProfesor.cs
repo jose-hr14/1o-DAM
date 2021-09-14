@@ -56,7 +56,6 @@ namespace Practica07
         {
             return this.codigoCurso;
         }
-
         public void AñadirAsignaturas(string asignatura)
         {
             this.listaAsignaturas.Add(asignatura);

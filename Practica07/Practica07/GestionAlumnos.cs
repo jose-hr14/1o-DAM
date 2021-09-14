@@ -6,7 +6,6 @@ namespace Practica07
 {
     class GestionAlumnos
     {
-        //Alumnos
         public static void ImpimirAlumno(tAlumno alumno)
         {            
             Console.WriteLine("Nombre: " + alumno.GetNombre());
@@ -74,7 +73,6 @@ namespace Practica07
             }
             return false;
         }
-
         public static bool MostrarAlumnoMediaSuperioACinco(tListadeAlumnos listadeAlumnos)
         {
             tAlumno alumno;
@@ -93,7 +91,6 @@ namespace Practica07
             else
                 return false;
         }
-
         public static bool EliminarNotasAlumno(tListadeAlumnos listadeAlumnos, string nombre)
         {
             for (int i = 0; i < listadeAlumnos.DevolverNumeroAlumnos(); i++)
@@ -106,7 +103,6 @@ namespace Practica07
             }
             return false;
         }
-
         public static bool MostrarAlumnoMediaMenorACinco(tListadeAlumnos listadeAlumnos)
         {
             tAlumno alumno;
@@ -126,7 +122,6 @@ namespace Practica07
             else
                 return false;
         }
-
         public static void MenuIntroducirAlumno(tListadeAlumnos listadeAlumnos)
         {
             Console.Write("Introduce un nombre: ");

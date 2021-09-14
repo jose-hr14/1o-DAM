@@ -7,7 +7,6 @@ namespace Practica07
     class tListadeProfesores
     {
         private List<tProfesor> Lista;
-
         public tListadeProfesores()
         {
             Lista = new List<tProfesor>();

@@ -7,7 +7,6 @@ namespace Practica07
     class tListadeAlumnos
     {
         private List<tAlumno> Lista;
-
         public tListadeAlumnos()
         {
             Lista = new List<tAlumno>();
