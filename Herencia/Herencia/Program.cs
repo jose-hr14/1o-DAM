@@ -20,6 +20,12 @@ namespace Herencia
             Console.WriteLine(mensaje);
 
             Console.WriteLine(circulo02.Area());
+
+            char a = char.MaxValue;
+            Console.WriteLine(a);
+
+            a = char.MinValue;
+            Console.WriteLine(a);
         }
     }
 }
