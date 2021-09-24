@@ -1,2 +1,2 @@
 # test1
-Marranadas varias de la clase
+Recopilación de los programas desarrollados como parte de la formación de 1º DAM
